@@ -26,7 +26,7 @@ gem 'devise'
 # gem 'image_processing', '~> 1.2'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
-gem 'mysql2', '~> 0.5.3'
+gem 'mysql2'
 
 
 # Reduces boot times through caching; required in config/boot.rb
