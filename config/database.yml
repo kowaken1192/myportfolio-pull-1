@@ -6,6 +6,7 @@
 #
 # 共通設定
 default: &default
+  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
