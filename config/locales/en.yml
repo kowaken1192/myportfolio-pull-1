@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+
+ja:
+   activerecord:
+     models:
+       post: ユーザー
+     attributes:
+       post:
+         name: 名前
+         address: 住所
+         country: 国名
+
