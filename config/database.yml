@@ -25,5 +25,4 @@ test:
 production:
   <<: *default
   adapter: mysql2
-  url: <%= ENV['JAWSDB_URL'] %>
-
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
