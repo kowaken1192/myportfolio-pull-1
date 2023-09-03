@@ -13,13 +13,13 @@ default: &default
 # 開発環境
 development:
   <<: *default
-  adapter: sqlite3
+  adapter: mysql2
   database: db/development.sqlite3
 
 # テスト環境
 test:
   <<: *default
-  adapter: sqlite3
+  adapter: mysql2
   database: db/test.sqlite3
 
 # 本番環境
