@@ -47,8 +47,6 @@ GEM
     activerecord (6.1.7.6)
       activemodel (= 6.1.7.6)
       activesupport (= 6.1.7.6)
-    activerecord-mysql2-adapter (0.0.3)
-      mysql2
     activestorage (6.1.7.6)
       actionpack (= 6.1.7.6)
       activejob (= 6.1.7.6)
@@ -129,8 +127,6 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.4-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     public_suffix (5.0.3)
@@ -216,7 +212,6 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.4-arm64-darwin)
-    sqlite3 (1.6.4-x86_64-linux)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
@@ -251,10 +246,8 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
-  activerecord-mysql2-adapter
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
