@@ -6,7 +6,6 @@
 #
 # 共通設定
 default: &default
-  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   socket: /var/lib/mysql/mysql.sock
@@ -14,13 +13,13 @@ default: &default
 # 開発環境
 development:
   <<: *default
-  adapter: mysql2
+  adapter: sqlite3
   database: db/development.sqlite3
 
 # テスト環境
 test:
   <<: *default
-  adapter: mysql2
+  adapter: sqlite3
   database: db/test.sqlite3
 
 # 本番環境
