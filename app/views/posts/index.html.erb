@@ -11,20 +11,22 @@
             </header>
             <div class="card-content">
               <div class="content">
+                <p><strong>国名:</strong> <%= post.country %></p>
+                <p><strong>住所:</strong> <%= post.address %></p>
+                <p><strong>詳細:</strong> <%= post.detail %></p>
                 <div class="content average-score">
                   <div class="star-rating mb-2">
                     <div class="star-rating-front" style="width:">★★★★★</div>
                     <div class="star-rating-back">★★★★★</div>
                   </div>
                   <div class="average-score-display ml-3 pt-2">
-        
                   </div>
                 </div>
               </div>
             </div>
             <footer class="card-footer">
               <%= link_to post_path(post), class: "button card-footer-item" do %>
-                レビューを書く
+                レビューを書く画面に戻る
               <% end %>
             </footer>
           </div>

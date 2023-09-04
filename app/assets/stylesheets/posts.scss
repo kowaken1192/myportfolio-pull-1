@@ -59,5 +59,79 @@
   background-color: #0056b3;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
+.centered-form {
+  text-align: center;
+}
 
+.styled-form {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.styled-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+.card-header-title {
+  font-size: 1.2rem;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.average-score {
+  display: flex;
+  align-items: center;
+}
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating-front,
+.star-rating-back {
+  position: relative;
+}
+
+.average-score-display {
+  margin-left: 15px;
+}

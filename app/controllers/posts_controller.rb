@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.all
   end
@@ -9,8 +8,6 @@ class PostsController < ApplicationController
   end
   
   def create
-    post_params = params.require(:post).permit(:name, :address, :details, :country, :post_image)
-  
     @post = Post.new(post_params)
 
     if @post.save
@@ -18,6 +15,15 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:name, :address, :detail, :country, :post_image)
   end
 end
 

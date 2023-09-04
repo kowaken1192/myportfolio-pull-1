@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_09_02_055251) do
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "country"
     t.text "address"
@@ -20,7 +21,6 @@ ActiveRecord::Schema.define(version: 2023_09_02_055251) do
     t.string "postimage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "post_id"
   end
 
   create_table "profiles", force: :cascade do |t|

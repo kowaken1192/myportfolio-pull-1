@@ -15,11 +15,10 @@
       <% if user_signed_in? %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <%= link_to "投稿する", new_post_path %>
-         <h4><%= current_user.first_name %> <%= current_user.last_name %> がログインしました　ようこそ</h4>
+        <h4><%= current_user.first_name %> <%= current_user.last_name %> がログインしました　ようこそ</h4>
       <% else %>
         <%= link_to "ホーム", profile_index_path %> |
         <%= link_to "新規登録", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
       <% end %>
     </header>
     <%= yield %>
