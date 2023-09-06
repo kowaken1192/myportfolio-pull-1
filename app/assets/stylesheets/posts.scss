@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 /* styles.css */
+.rating-box .ratings .fa{
+  font-size: 30px;
+  color:#ffcc00;
+  cursor: pointer;
+}
+
+.main-rating {
+  display: flex;
+}
+
+.rating-value-display {
+  font-size: 20px;
+}
 
 .container {
   max-width: 600px;
@@ -134,4 +147,41 @@
 
 .average-score-display {
   margin-left: 15px;
+}
+
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+.star-rating-back {
+  color: #ccc;
+}
+form {
+  text-align: center;
+}
+
+.main-rating {
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+}
+
+.textarea,
+.button {
+  display: block;
+  margin: auto;
+}
+
+.button.light {
+  display: inline-block;
 }

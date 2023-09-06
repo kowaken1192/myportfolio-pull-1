@@ -8,13 +8,19 @@ class PostsController < ApplicationController
   end
   
   def create
+    @review = Review.new
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to posts_path
+      redirect_to @post
     else
       render :new
     end
+  end
+  
+  def show
+    @post = Post.find(params[:id])
+    @review = Review.new
   end
 
   def edit
