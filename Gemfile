@@ -26,6 +26,8 @@ gem 'devise'
 # gem 'image_processing', '~> 1.2'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
+gem 'fog-aws'
+gem "aws-sdk-s3", require: false 
 
 
 

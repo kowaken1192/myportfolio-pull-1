@@ -1,6 +1,6 @@
 <div class="container">
   <div class="centered-form">
-  <%= render "posts/error", obj: @post %>
+  <%= render "shared/error", obj: @post %>
   <h2>投稿作成画面</h2>
     <%= form_with(model: @post, local: true) do |f| %>
       <div class="form-field">
