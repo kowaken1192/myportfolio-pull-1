@@ -27,6 +27,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'fog-aws'
+gem "aws-sdk-s3", require: false 
 gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails'
 
