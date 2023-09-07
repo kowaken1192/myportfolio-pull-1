@@ -20,10 +20,9 @@
          <%= f.text_area :detail, rows: 5, cols: 50 %>
       </div>
       <div class="form-field">
-        <label>新しい画像</label>
-        <%= f.file_field :post_image %>
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
       </div>
-
       <div class="form-actions">
         <%= link_to "戻る", posts_path, class: "styled-button" %>
         <%= f.submit "登録してレビュー画面に移る", class: "styled-button" %>

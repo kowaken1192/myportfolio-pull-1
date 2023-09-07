@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   validates :address , presence: true
   validates :country, presence: true
   has_many :reviews, dependent: :destroy
-  
+  mount_uploader :avatar, AvatarUploader
+
   def avg_score
     unless self.reviews.empty?
       reviews.average(:score).round(1).to_f
