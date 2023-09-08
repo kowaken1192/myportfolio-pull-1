@@ -1,155 +1,7 @@
-// Place all the styles related to the Posts controller here.
+// Place all the styles related to the ramen_shops controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-/* styles.css */
-.rating-box .ratings .fa{
-  font-size: 30px;
-  color:#ffcc00;
-  cursor: pointer;
-}
-
-.main-rating {
-  display: flex;
-}
-
-.rating-value-display {
-  font-size: 20px;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.centered-form {
-  text-align: center;
-}
-
-.styled-form {
-  background-color: #f7f7f7;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-field {
-  margin-bottom: 15px;
-}
-
-.form-field label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form-field input[type="text"],
-.form-field textarea,
-.form-field input[type="file"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.form-actions {
-  margin-top: 15px;
-}
-
-.styled-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.styled-button:hover {
-  background-color: #0056b3;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.centered-form {
-  text-align: center;
-}
-
-.styled-form {
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.form-field label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-field {
-  margin-bottom: 20px;
-}
-
-.styled-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.card-header {
-  background-color: #f4f4f4;
-  padding: 10px;
-}
-
-.card-header-title {
-  font-size: 1.2rem;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.average-score {
-  display: flex;
-  align-items: center;
-}
-
-.star-rating {
-  display: flex;
-}
-
-.star-rating-front,
-.star-rating-back {
-  position: relative;
-}
-
-.average-score-display {
-  margin-left: 15px;
-}
-
-
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bulma";
 .star-rating {
   position: relative;
   width: 5em;
@@ -166,22 +18,10 @@
 .star-rating-back {
   color: #ccc;
 }
-form {
-  text-align: center;
-}
 
-.main-rating {
-  display: inline-block;
-  text-align: center;
-  margin: auto;
+.average-score {
+  display: flex;
 }
-
-.textarea,
-.button {
-  display: block;
-  margin: auto;
-}
-
-.button.light {
-  display: inline-block;
+.average-score-display {
+  font-size: 16px;
 }

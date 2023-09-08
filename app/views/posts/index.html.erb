@@ -1,46 +1,37 @@
 <section class="section mt-6">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <% @posts.each do |post| %>
-          <div class="card mb-6">
+    <div class="columns is-multiline">
+      <% @posts.each do |post| %>
+        <div class="column is-half"> <!-- Each post takes up half the width -->
+          <div class="card">
             <header class="card-header">
               <p class="card-header-title">
                 <%= post.name %>
               </p>
             </header>
             <div class="card-content">
-              <div class="content">
-                <div class="content average-score">
-                  <div class="star-rating mb-2">
-                    <div class="star-rating-front" style="width: <%= post.review_score_percentage %>%">★★★★★</div>
-                    <div class="star-rating-back">★★★★★</div>
-                  </div>
-                  <div class="average-score-display ml-3 pt-2">
-                    <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
-                  </div>
+              <div class="content average-score mb-3">
+                <div class="star-rating mb-2">
+                  <div class="star-rating-front" style="width: <%= post.review_score_percentage %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
                 </div>
               </div>
+              <% if post.avatar? %>
+                <%= image_tag post.avatar.url, class: 'image' %>
+              <% else %>
+                <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
+              <% end %>
             </div>
-
-            <!-- Avatar Image -->
-            <% if post.avatar? %>
-              <%= image_tag post.avatar.url, width: 200 %>
-            <% else %>
-              <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg' %>
-            <% end %>
-            
             <footer class="card-footer">
-              <%= link_to post_reviews_path(post), class: "button card-footer-item" do %>
-                レビューを見る
-              <% end %>
-              <%= link_to post_path(post), class: "button card-footer-item" do %>
-                レビューを書く
-              <% end %>
+              <%= link_to 'レビューを見る', post_reviews_path(post), class: "card-footer-item" %>
+              <%= link_to 'レビューを書く', post_path(post), class: "card-footer-item" %>
             </footer>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

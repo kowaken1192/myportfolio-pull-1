@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Myapp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Myapp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://kit.fontawesome.com/484e6509e8.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <script src="https://kit.fontawesome.com/484e6509e8.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+  <header>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "投稿する", new_post_path %>
-        <h4><%= current_user.first_name %> <%= current_user.last_name %> がログインしました　ようこそ</h4>
-      <% else %>
-        <%= link_to "ホーム", profile_index_path %> |
-        <%= link_to "新規登録", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </header>
-    <%= yield %>
-  </body>
+  </header>
+
+  <main>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "投稿する", new_post_path %>
+      <h4><%= current_user.first_name %> <%= current_user.last_name %> がログインしました　ようこそ</h4>
+      <%= yield %>
+    <% end %>
+  </main>
+  <% if user_signed_in? %>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <%= link_to "ホーム", "#" %>
+          </div>
+          <div class="level-item has-text-centered">
+            <%= link_to "投稿画面", "#" %>
+          </div>
+          <div class="level-item has-text-centered">
+            <%= link_to "検索画面", "#" %>
+          </div>
+          <div class="level-item has-text-centered">
+            <%= link_to "お気に入り", "#" %>
+          </div>
+          <div class="level-item has-text-centered">
+            <%= link_to "マイページ", "#" %>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  <% end %>
+</body>
 </html>
