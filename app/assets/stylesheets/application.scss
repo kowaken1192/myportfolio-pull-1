@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .footer {
+.footer {
   background-color: #fafafa;
   padding: 1rem 1.5rem; /* paddingを調整 */
   position: fixed;
@@ -27,6 +27,20 @@ body {
   flex-direction: column;
   min-height: 100vh; /* 100% of the viewport height */
 }
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header is always on top */
+}
+
+.body-padding {
+  padding-top: 3.25rem; /* Adjust this value based on your header's height */
+}
+
 main {
   flex-grow: 1;
 }
