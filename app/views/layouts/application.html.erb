@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <script src="https://kit.fontawesome.com/484e6509e8.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/66fd231c10.js" crossorigin="anonymous"></script>    
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -25,16 +25,14 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
-
         <div id="menu" class="navbar-menu">
           <div class="navbar-start">
             <%= link_to "投稿一覧", destroy_user_session_path, class: "navbar-item" %>
             <%= link_to "レビュー一覧", "#", class: "navbar-item" %>
           </div>
-
           <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
-              <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "navbar-link" %>
+              <%= link_to "#{current_user.first_name} #{current_user.last_name}様", "#", class: "navbar-link" %>
               <div class="navbar-dropdown is-right">
                 <%= link_to "お問い合わせ", "#", class: "navbar-item" %>
                 <%= link_to "ユーザー情報", "#", class: "navbar-item" %>
@@ -47,39 +45,52 @@
         </div>
       </nav>
     <% else %>
-      <%= link_to "ホーム", profile_index_path %> |
-      <%= link_to "新規登録", new_user_registration_path %> |
-      <%= link_to "ログイン", new_user_session_path %>
+      <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
+        <%= link_to profile_index_path, class: "navbar-item is-size-4" do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+        <div class="navbar-end">
+          <%= link_to "新規登録", new_user_registration_path, class: "navbar-item is-size-4" %>
+          <%= link_to "ログイン", new_user_session_path, class: "navbar-item is-size-4" %>
+        </div>
+      </nav>
     <% end %>
   </header>
-
   <main>
     <%= yield %>
   </main>
-
   <% if user_signed_in? %>
     <footer class="footer">
       <div class="content has-text-centered">
         <nav class="level">
           <div class="level-item has-text-centered">
-            <%= link_to "ホーム", posts_index_path %>
+            <%= link_to posts_index_path do %>
+              <i class="fas fa-home"></i><br> ホーム
+            <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to "投稿する", new_post_path %>
+            <%= link_to new_post_path do %>
+              <i class="fa-solid fa-comment"></i><br> 投稿する
+            <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to "検索画面", "#" %>
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-magnifying-glass"></i><br> 検索画面
+            <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to "お気に入り", "#" %>
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-heart"></i><br> お気に入り
+            <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to "マイページ", "#" %>
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-user"></i><br> マイページ
+            <% end %>
           </div>
         </nav>
       </div>
     </footer>
   <% end %>
 </body>
-
 </html>

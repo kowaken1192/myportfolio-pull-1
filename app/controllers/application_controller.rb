@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
   end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    posts_index_path
+  end
 end
