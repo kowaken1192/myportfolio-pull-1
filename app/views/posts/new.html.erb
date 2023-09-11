@@ -1,32 +1,56 @@
 <div class="container">
-  <div class="centered-form">
-  <%= render "shared/error", obj: @post %>
-  <h2>投稿作成画面</h2>
-    <%= form_with(model: @post, local: true) do |f| %>
-      <div class="form-field">
-        <label>投稿名（タイトル）</label>
-        <%= f.text_field :name %>
-      </div>
-      <div class="form-field">
-        <label>国名</label>
-        <%= f.text_field :country %>
-      </div>
-      <div class="form-field">
-        <label>住所</label>
-        <%= f.text_field :address %>
-      </div>
-      <div class="form-field">
-        <label>詳細</label>
-         <%= f.text_area :detail, rows: 5, cols: 50 %>
-      </div>
-      <div class="form-field">
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar %>
-      </div>
-      <div class="form-actions">
-        <%= link_to "戻る", posts_path, class: "styled-button" %>
-        <%= f.submit "登録してレビュー画面に移る", class: "styled-button" %>
-      </div>
-    <% end %>
-  </div>
+    <div class="centered-form">
+        <%= render "shared/error", obj: @post %>
+        <h2>投稿作成画面</h2>
+        <%= form_with(model: @post, local: true) do |f| %>
+            <div class="form-field">
+                <label>投稿名（タイトル）</label>
+                <%= f.text_field :name %>
+            </div>
+
+            <div class="form-field">
+                <label>国名</label>
+                <%= f.text_field :country %>
+            </div>
+
+            <div class="form-field">
+                <label>住所</label>
+                <%= f.text_field :address %>
+            </div>
+
+            <div class="form-field">
+                <label>詳細</label>
+                <%= f.text_area :detail, rows: 5, cols: 50 %>
+            </div>
+
+            <div class="form-field">
+                <%= f.label :avatar %>
+                <%= f.file_field :avatar %>
+            </div>
+
+            <div class="form-actions">
+                <%= link_to "戻る", posts_path, class: "styled-button" %>
+                <%= f.submit "登録してレビュー画面に移る", class: "styled-button" %>
+            </div>
+        <% end %>
+    </div>
 </div>
+
+<script>
+    function redirectToMapPage() {
+        window.location.href = "/map/index";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let savedAddress = getCookie("selectedAddress");
+        if (savedAddress) {
+            document.getElementById("post_address").value = decodeURIComponent(savedAddress);
+        }
+    });
+
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+</script>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'posts/index', to: 'posts#index'
   post '/posts', to: 'posts#create'
   get '/posts/new', to: 'posts#new', as: 'new_post'
+  
+  get 'map/index', to: 'map#index'
+  resources :maps, only: [:index]
 
   resources :posts do
     resources :reviews, only: [:index, :create]
