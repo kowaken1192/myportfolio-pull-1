@@ -2,7 +2,7 @@
   <div class="container">
     <div class="columns is-multiline">
       <% @posts.each do |post| %>
-        <div class="column is-half"> <!-- Each post takes up half the width -->
+        <div class="column is-half"> 
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
@@ -19,6 +19,11 @@
                   <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
                 </div>
               </div>
+
+              <div class="post-address mb-3 has-text-weight-bold"> 
+                <%= post.address %>
+              </div>
+
               <% if post.avatar? %>
                 <%= image_tag post.avatar.url, class: 'image' %>
               <% else %>
