@@ -25,3 +25,10 @@
 .average-score-display {
   font-size: 16px;
 }
+
+.form-field input[type="text"], 
+.form-field textarea, 
+.form-field input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+}

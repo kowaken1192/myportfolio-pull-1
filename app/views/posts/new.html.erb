@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="centered-form">
+  <div class="centered-form box">
     <%= render "shared/error", obj: @post %>
     <h2>投稿作成画面</h2>
     <%= form_with(model: @post, local: true) do |f| %>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="form-field">
-        <%= f.label :avatar %>
+        <%= f.label :画像 %>
         <%= f.file_field :avatar %>
       </div>
 
@@ -36,6 +36,8 @@
   </div>
 </div>
 
+
+   
 <script>
   function redirectToMapPage() {
     window.location.href = "/map/index";
