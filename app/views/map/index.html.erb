@@ -1,76 +1,72 @@
 <div class="section">
-    <div class="container">
-        <div class="content">
-            <p class="is-size-2 has-text-info">投稿画面</p>
-            <p class="is-size-5">(お手数ですが以下のステップに従ってください)</p>
-            <p class="is-size-5">STEP1 下の入力欄(例(東京ドームと書いてあるところ))に旅先の観光地名などを入力してください</p>
-            <p class="is-size-5">STEP2 入力した後、Encodeをおしてください。住所が表示されますと書いてある画面に実際の住所がでます</p>
-            <p class="is-size-5">STEP3 表示された住所で正しければNEXT STEPボタンを押してください</p>
-            <div class="field has-addons">
-                <div class="control is-expanded">
-                    <input class="input" id="address" type="textbox" placeholder="例(東京ドーム)">
-                </div>
-                <div class="control">
-                    <input type="button" class="button is-info" value="Encode" onclick="codeAddress()">
-                </div>
-            </div>
-
-            <div id="display" class="notification is-info">こちらに住所が表示されます</div>
-
-            <div class="buttons">
-                <button class="button is-primary" onclick="goBackToForm()">NEXT STEP</button>
-            </div>
-            <p class="is-size-5">検索された住所が下のマップの赤いピン部分にでています。view on Google mapをクリックすると詳しい情報をgoogle mapから得ることができます。ぜひチェックしてしてより良い投稿を作る手助けにしてください!!</p>
+  <div class="container">
+    <div class="content">
+      <p class="is-size-2 has-text-info">投稿画面</p>
+      <p class="is-size-5">(お手数ですが以下のステップに従ってください)</p>
+      <p class="is-size-5">STEP1 下の入力欄(例(東京ドームと書いてあるところ))に旅先の観光地名などを入力してください</p>
+      <p class="is-size-5">STEP2 入力した後、Encodeをおしてください。住所が表示されますと書いてある画面に実際の住所がでます</p>
+      <p class="is-size-5">STEP3 表示された住所で正しければNEXT STEPボタンを押してください</p>
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input class="input" id="address" type="textbox" placeholder="例(東京ドーム)">
         </div>
-
-        <div class="box">
-            <div id='map'></div>
+        <div class="control">
+          <input type="button" class="button is-info" value="Encode" onclick="codeAddress()">
         </div>
+      </div>
+      <div id="display" class="notification is-info">こちらに住所が表示されます</div>
+      <div class="buttons">
+        <button class="button is-primary" onclick="goBackToForm()">NEXT STEP</button>
+      </div>
+      <p class="is-size-5">検索された住所が下のマップの赤いピン部分にでています。view on Google mapをクリックすると詳しい情報をgoogle mapから得ることができます。ぜひチェックしてしてより良い投稿を作る手助けにしてください!!</p>
     </div>
+    <div class="box">
+      <div id='map'></div>
+    </div>
+  </div>
 </div>
 
 <script>
-    let map;
-    let geocoder;
-    const display = document.getElementById('display');
+  let map;
+  let geocoder;
+  let marker; 
+  const display = document.getElementById('display');
 
-    function initMap() {
-        geocoder = new google.maps.Geocoder();
+  function initMap() {
+    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 40.7828, lng: -73.9653 },
+      zoom: 12,
+    });
+    marker = new google.maps.Marker({
+      position: { lat: 40.7828, lng: -73.9653 },
+      map: map
+    });
+  }
+  
+  function codeAddress() {
+    let inputAddress = document.getElementById('address').value;
+    geocoder.geocode({ 'address': inputAddress, 'language': 'ja' }, function (results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
 
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 40.7828, lng: -73.9653 },
-            zoom: 12,
-        });
+        marker.setPosition(results[0].geometry.location);
 
-        marker = new google.maps.Marker({
-            position: { lat: 40.7828, lng: -73.9653 },
-            map: map
-        });
-    }
+        let addressWithoutPostalCode = results[0].formatted_address.replace(/〒\d{3}-\d{4} /, "");
+        let country = results[0].address_components.find(component => component.types.includes("country")).long_name;
+        let addressOnly = addressWithoutPostalCode.replace(country, '').trim();
+        display.textContent = "国名：" + country + " 住所：" + addressOnly.replace(/^、/, "");
+        document.cookie = "selectedCountry=" + encodeURIComponent(country) + "; path=/";
+        document.cookie = "selectedAddress=" + encodeURIComponent(addressOnly) + "; path=/";
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });
+  }
 
-    function codeAddress() {
-        let inputAddress = document.getElementById('address').value;
-
-        geocoder.geocode({ 'address': inputAddress, 'language': 'ja' }, function (results, status) {
-            if (status == 'OK') {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-
-                display.textContent = "検索結果：" + results[0].formatted_address;
-
-                // 住所をクッキーに保存
-                document.cookie = "selectedAddress=" + encodeURIComponent(results[0].formatted_address) + "; path=/";
-            } else {
-                alert('該当する結果がありませんでした：' + status);
-            }
-        });
-    }
-
-    function goBackToForm() {
-        window.location.href = "/posts/new";
-    }
+  function goBackToForm() {
+    window.location.href = "/posts/new";
+  }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+
