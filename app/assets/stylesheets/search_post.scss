@@ -8,11 +8,13 @@
 }
 
 .item {
-    flex-basis: calc(33.333% - 20px); 
+    flex-basis: calc(25% - 20px);  // 4つのアイテムなので、100%を4で割った値が25%。
     margin-bottom: 20px; 
     box-sizing: border-box;
     text-align: center; 
 }
+
 .item-style {
     font-size: 24px;
 }
+
