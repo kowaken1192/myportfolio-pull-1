@@ -1,0 +1,42 @@
+<%= search_form_for @q, url: search_post_show_path do |f| %>
+  <p class="has-text-centered is-size-2">興味のあるキーワードから検索する</p>
+  <div class="columns is-mobile">
+    <div class="column is-10">
+      <%= f.search_field :name_or_detail_cont, class: 'input is-medium', placeholder: 'カフェ巡り、京都見物、渋谷 etc' %>
+    </div>
+    <div class="column is-2">
+      <%= f.submit "検索", class: "button is-primary is-medium is-fullwidth" %>
+    </div>
+  </div>
+<% end %>
+
+<p>人気エリア（日本）から検索する</p>
+<div class="container">
+  <div class="item">
+    <span class="item-style">東京</span>
+    <p>日本の首都で、伝統と最新のトレンドが共存する都市。浅草の寺院、皇居の緑、渋谷の煌びやかなネオン、おしゃれな原宿。どこを歩いても新しい発見と感動が待っている</p>
+    <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/thegate/2020/08/12/14/32/34/tokyotower.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "東京" }) %>
+  </div>
+  
+  <div class="item">
+    <span class="item-style">大阪</span>
+    <p>日本経済の中心であり多くの人が集まる場所。通天閣や大阪城、USJなどの観光スポットが有名。画像の道頓堀では昔多くの野球ファンが近くの川に飛び込みニュースになった</p>
+    <%= link_to image_tag("https://media.gettyimages.com/id/623544546/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/neon-ads-in-dotonbori-district-osaka-kansai-region-japan.jpg?s=612x612&w=gi&k=20&c=OFH0QnhaZgp7e_k0jUsWzphfy9UJ9pPbQADvJ7E3yq8=", size: "500x500"), search_post_show_path(q: { address_cont: "大阪" }) %>
+  </div>
+  
+  <div class="item">
+    <span class="item-style">京都</span>
+    <p>日本の古都で、千年以上の歴史を持つ。金閣寺や清水寺などの名刹、美しい紅葉や桜、伝統的な祭りや茶道。町家が並ぶ祇園や錦市場の風情は、訪れる者を魅了する。</p>
+    <%= link_to image_tag("https://bluegreen.jp/wp-content/uploads/2020/01/IMG_9943-1920x1280.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "京都" }) %>
+  </div>
+ 
+  <div class="item">
+    <span>名古屋</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg", size: "100x100"), search_post_show_path(q: { address_cont: "名古屋" }) %>
+  </div>
+
+  <div class="item">
+    <span>広島</span>
+    <%= link_to image_tag("https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg", size: "100x100"), search_post_show_path(q: { address_cont: "広島" }) %>
+  </div>
+</div>

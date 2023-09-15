@@ -1,0 +1,33 @@
+<section class="section mt-6">
+  <div class="container">
+    <p class="RoomsContainer-result title is-4"><%= @results.count %> 件が見つかりました</p>
+    <div class="columns is-multiline">
+      <% @results.each do |result| %> <!-- 'r'を'result'に変更してコードの読みやすさを向上 -->
+        <div class="column is-half"> 
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                <%= result.name %>
+              </p>
+            </header>
+            <div class="card-content">
+              <!-- Image Handling -->
+              <% if result.avatar? %>
+                <%= image_tag result.avatar.url, class: 'image' %>
+              <% else %>
+                <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
+              <% end %>
+
+              <div class="post-address mb-3 has-text-weight-bold"> 
+                <%= result.address %>
+              </div>
+              <p><%= result.country %></p>
+              <p><%= result.detail %></p>
+            </div>
+            <!-- ここにフッターや他の情報を追加することも可能です -->
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
