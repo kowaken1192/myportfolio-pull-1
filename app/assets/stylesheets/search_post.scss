@@ -30,17 +30,22 @@
     display: block;
 }
 
+.title{
+    text-align: center;
+    padding-top: 30px;
+}
 .custom-title {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
     color: #333;
+    display: inline;  /* 追加 */
 }
 
 .custom-subtitle {
     text-align: center;
     font-size: 20px !important; 
     color: #777;
+    display: inline;  /* 追加 */
+    margin-left: 10px;  /* 追加: 両方のテキストの間にスペースを追加する場合 */
 }
 
 @media (max-width: 768px) {

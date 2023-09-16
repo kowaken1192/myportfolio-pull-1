@@ -10,8 +10,10 @@
   </div>
 <% end %>
 
-<p class="title custom-title">人気エリア（日本）から検索する</p><br>
-<p class="subtitle custom-subtitle">画像か都道府県名をクリックすると検索結果が表示されます</p>
+<div class="title">
+  <p class="title custom-title">人気エリア（日本）から検索する</p>
+  <p class="subtitle custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</p>
+</div>
 <div class="container">
   <div class="item">
     <%= link_to '東京都', search_post_show_path(q: { address_cont: "東京都" }), class: "item-style" %>
@@ -75,8 +77,10 @@
   </div>
 <% end %>
 
-<p class="title custom-title">人気エリア（海外）から検索する</p><br>
-<p class="subtitle custom-subtitle">画像か国名をクリックすると検索結果が表示されます</p>
+<div class="title">
+  <p class="title custom-title">人気エリア（海外）から検索する</p>
+  <p class="subtitle custom-subtitle">(画像か国名をクリックすると検索結果が表示されます)</p>
+</div>
 <div class="container">
   <div class="item">
     <%= link_to 'アメリカ合衆国', search_post_show_path(q: { country_cont: "アメリカ合衆国" }), class: "item-style" %>
@@ -104,10 +108,10 @@
 </div>
 
 <%= search_form_for @q, url: search_post_show_path do |f| %>
-  <p class="has-text-centered is-size-5">その他興味のある海外の国から検索したい方はこちらのフォームから検索してください</p>
+  <p class="has-text-centered is-size-5">その他興味のある国から検索したい方はこちらのフォームから検索してください</p>
   <div class="columns is-mobile">
     <div class="column is-10">
-      <%= f.search_field :country_cont, class: 'input is-medium', placeholder: '韓国、中国、イタリア　etc..' %>
+      <%= f.search_field :country_cont, class: 'input is-medium', placeholder: '日本、韓国、中国、イタリア　etc..' %>
     </div>
     <div class="column is-2">
       <%= f.submit "検索", class: "button is-primary is-medium is-fullwidth" %>
