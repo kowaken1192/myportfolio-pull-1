@@ -1,8 +1,16 @@
+<section class="section mt-5">
+  <div class="result">
+    <p class="is-size-2">投稿検索結果画面</p>
+    <p class="is-size-4">
+      検索結果：<%= @results.count %> 件
+    </p>
+  </div>
+</section>
+
 <section class="section mt-6">
   <div class="container">
-    <p class="RoomsContainer-result title is-4"><%= @results.count %> 件が見つかりました</p>
     <div class="columns is-multiline">
-      <% @results.each do |result| %> <!-- 'r'を'result'に変更してコードの読みやすさを向上 -->
+      <% @results.each do |result| %> 
         <div class="column is-half"> 
           <div class="card">
             <header class="card-header">
@@ -11,7 +19,6 @@
               </p>
             </header>
             <div class="card-content">
-              <!-- Image Handling -->
               <% if result.avatar? %>
                 <%= image_tag result.avatar.url, class: 'image' %>
               <% else %>
@@ -24,7 +31,6 @@
               <p><%= result.country %></p>
               <p><%= result.detail %></p>
             </div>
-            <!-- ここにフッターや他の情報を追加することも可能です -->
           </div>
         </div>
       <% end %>

@@ -34,20 +34,24 @@
     text-align: center;
     padding-top: 30px;
 }
+
 .custom-title {
     text-align: center;
     color: #333;
-    display: inline;  /* 追加 */
+    display: inline;
 }
 
 .custom-subtitle {
     text-align: center;
     font-size: 20px !important; 
     color: #777;
-    display: inline;  /* 追加 */
-    margin-left: 10px;  /* 追加: 両方のテキストの間にスペースを追加する場合 */
+    display: inline;
+    margin-left: 10px;
 }
 
+.result{
+    text-align: left;
+}
 @media (max-width: 768px) {
     .item {
         flex-basis: calc(33.333% - 20px); 
