@@ -9,10 +9,10 @@
     </ul>
   </div>
 <% end %>
-<% if @post.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+<% if @post.avatar? %>  
   <p>
     <strong>Avatar:</strong>
-    <%= image_tag @post.avatar.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+    <%= image_tag @post.avatar.url %>
   </p>
 <% end %>
 <%= form_with model: @review, url: post_reviews_path(@post), local: true do |f| %>

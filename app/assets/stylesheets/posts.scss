@@ -33,3 +33,35 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+.review-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background */
+}
+
+.reviews-list .review {
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #e0e0e0; /* Light border around each review */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lift effect */
+  background-color: #ffffff; /* White background for each review card */
+}
+
+.review span {
+  display: block; /* Display as block for separate lines */
+  margin-bottom: 5px;
+}
+
+.review span.review-content {
+  margin-top: 10px; /* Spacing between user details and review content */
+}
+
+.review > span:nth-child(1) {
+  font-weight: bold; /* Bold font for the user's name */
+  font-size: 1.1em; /* Slightly larger font size */
+}
+
+.review > span:nth-child(2) {
+  color: #0077cc; /* Color for the score. Can be adjusted as per theme */
+}
