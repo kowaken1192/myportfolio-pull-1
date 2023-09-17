@@ -17,9 +17,16 @@ Rails.application.routes.draw do
   get 'map/index', to: 'map#index'
   resources :maps, only: [:index]
 
+  resources :reviews, only: [:show]
+
   get 'search_post/index', to: 'search_post#index'
   get 'search_post/show', to: 'search_post#show'
+  
   resources :posts do
+    member do
+      get :detail
+    end
+  
     resources :reviews, only: [:index, :create]
   end
 end

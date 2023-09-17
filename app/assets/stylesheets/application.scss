@@ -13,37 +13,37 @@
  *= require_tree .
  *= require_self
  */
-@import "bulma";
+ @import "bulma";
 
-.footer {
-  background-color: #fafafa;
-  padding: 1rem 1.5rem; 
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 80px;
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure the header is always on top */
-}
-
-.body-padding {
-  padding-top: 3.25rem; /* Adjust this value based on your header's height */
-}
-
-main {
-  flex-grow: 1;
-}
+ .footer {
+   background-color: #fafafa;
+   padding: 1rem 1.5rem; 
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   z-index: 1000;
+ }
+ 
+ body {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   padding-bottom: 80px;
+ }
+ 
+ .fixed-header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   z-index: 1000; /* Ensure the header is always on top */
+ }
+ 
+ .body-padding {
+   padding-top: 3.25rem; /* Adjust this value based on your header's height */
+ }
+ 
+ main {
+   flex-grow: 1;
+ }

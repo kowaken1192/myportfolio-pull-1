@@ -31,3 +31,8 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.limited-height img {
+  max-height: 500px;
+  width: 100%; 
+}

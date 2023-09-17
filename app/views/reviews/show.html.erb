@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="centered-form box">
+    <h2><%= @post.name %></h2>
+    
+    <p>
+      <strong>国名:</strong>
+      <%= @post.country %>
+    </p>
+    
+    <p>
+      <strong>住所:</strong>
+      <%= @post.address %>
+    </p>
+
+    <p>
+      <strong>詳細:</strong>
+      <%= @post.detail %>
+    </p>
+
+    <% if @post.avatar? %> 
+      <p>
+        <strong>画像:</strong>
+        <%= image_tag @post.avatar.url %>
+      </p>
+    <% end %>
+    
+    <h3>レビュー:</h3>
+
+    <p>
+      <strong>評価:</strong>
+      <%= @review.score %> / 5
+    </p>
+
+    <p>
+      <strong>コメント:</strong>
+      <%= @review.content %>
+    </p>
+
+    <%= link_to "全てのレビューへ", reviews_path, class: "button" %>
+    <%= link_to "投稿の詳細へ", post_path(@post), class: "button" %>
+  </div>
+</div>

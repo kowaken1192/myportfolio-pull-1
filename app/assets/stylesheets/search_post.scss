@@ -52,6 +52,7 @@
 .result{
     text-align: left;
 }
+
 @media (max-width: 768px) {
     .item {
         flex-basis: calc(33.333% - 20px); 
