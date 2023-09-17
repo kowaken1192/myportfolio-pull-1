@@ -2,67 +2,67 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
 }
-
+  
 .item {
-    flex-basis: calc(25% - 20px);
-    margin-bottom: 30px; 
-    box-sizing: border-box;
-    text-align: center;
-    border: 1px solid #e1e1e1;
-    padding: 10px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+  flex-basis: calc(25% - 20px);
+  margin-bottom: 30px; 
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
+  
 .item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
-
+  
 .item-style {
-    font-size: 24px;
-    margin-bottom: 10px;
-    display: block;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
 }
-
-.title{
-    text-align: center;
-    padding-top: 30px;
+  
+.title {
+  text-align: center;
+  padding-top: 30px;
 }
-
+  
 .custom-title {
-    text-align: center;
-    color: #333;
-    display: inline;
+  text-align: center;
+  color: #333;
+  display: inline;
 }
-
+  
 .custom-subtitle {
-    text-align: center;
-    font-size: 20px !important; 
-    color: #777;
-    display: inline;
-    margin-left: 10px;
+  text-align: center;
+  font-size: 20px !important; 
+  color: #777;
+  display: inline;
+  margin-left: 10px;
 }
-
-.result{
-    text-align: left;
+  
+.result {
+  text-align: left;
 }
-
+  
 @media (max-width: 768px) {
-    .item {
-        flex-basis: calc(33.333% - 20px); 
-    }
+  .item {
+    flex-basis: calc(33.333% - 20px); 
+  }
 }
-
+  
 @media (max-width: 375px) {
-    .item {
-        flex-basis: 100%; 
-        margin-left: 0;
-        margin-right: 0;
-    }
+  .item {
+    flex-basis: 100%; 
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
