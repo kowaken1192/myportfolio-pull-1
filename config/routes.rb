@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'profile#index'
-  
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -15,8 +14,8 @@ Rails.application.routes.draw do
   get '/posts/new', to: 'posts#new', as: 'new_post'
   
   get 'map/index', to: 'map#index'
-  resources :maps, only: [:index]
 
+  resources :users
   resources :reviews, only: [:show]
 
   get 'search_post/index', to: 'search_post#index'
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
     member do
       get :detail
     end
-  
+
     resources :reviews, only: [:index, :create]
   end
 end
