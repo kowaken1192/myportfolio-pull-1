@@ -21,7 +21,7 @@
         <%= @post.avg_score %>点（<%= @post.reviews.count %>件のレビュー）
       </div>
     </div>
-    
+
     <div class="has-text-centered mt-3 is-size-2 mb-2">投稿者のスポットの感想</div>
     <div class="box">
       <p class="is-size-3"><%= @post.detail %></p>
@@ -39,6 +39,14 @@
       <div class="reviews-list">
         <% @post.reviews.limit(3).each do |review| %>
           <div class="review">
+            <figure class="image mb-6">
+              <h3 class="mb-2">アイコン画像</h3>
+              <% if review.user.image? %>
+                <%= image_tag review.user.image.url, class: 'rounded-circle small-icon mr15' %>
+              <% else %>
+                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'is-rounded' %>
+              <% end %>
+            </figure>
             <span><%= "#{review.user.first_name} #{review.user.last_name}" %></span>
             <span>: <%= review.score %>/5点</span>
             <span class="review-content">: <%= review.content %></span>

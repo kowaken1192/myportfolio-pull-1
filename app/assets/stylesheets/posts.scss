@@ -65,3 +65,9 @@
 .review > span:nth-child(2) {
   color: #0077cc; /* Color for the score. Can be adjusted as per theme */
 }
+
+.rounded-circle.small-icon {
+  border-radius: 100%;      /* 画像を円形にする */
+  width: 100px;             /* 希望の幅 */
+  height: 100px;            /* 希望の高さ */
+}
