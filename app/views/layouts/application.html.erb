@@ -34,7 +34,7 @@
           <% if current_user.image? %>
             <%= image_tag current_user.image.url, class: 'small-icon' %>
           <% else %>
-            <%= image_tag 'デフォルトの画像のURL', class: 'small-icon' %>
+            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'small-icon' %>
           <% end %>
             <div class="navbar-item has-dropdown is-hoverable">
               <%= link_to "#{current_user.first_name} #{current_user.last_name}様", "#", class: "navbar-link" %>
@@ -89,7 +89,7 @@
             <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to user_path(current_user)  do %>
+            <%= link_to users_path(current_user)  do %>
               <i class="fa-solid fa-user"></i><br> マイページ
             <% end %>
           </div>

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @review = Review.new
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id
     if @post.save
       redirect_to @post
     else
