@@ -31,11 +31,16 @@
             <%= link_to "レビュー一覧", "#", class: "navbar-item" %>
           </div>
           <div class="navbar-end">
+          <% if current_user.image? %>
+            <%= image_tag current_user.image.url, class: 'small-icon' %>
+          <% else %>
+            <%= image_tag 'デフォルトの画像のURL', class: 'small-icon' %>
+          <% end %>
             <div class="navbar-item has-dropdown is-hoverable">
               <%= link_to "#{current_user.first_name} #{current_user.last_name}様", "#", class: "navbar-link" %>
               <div class="navbar-dropdown is-right">
                 <%= link_to "お問い合わせ", "#", class: "navbar-item" %>
-                <%= link_to "ユーザー情報", personal_path(current_user), class: "navbar-item" %>
+                <%= link_to "ユーザー情報", "#", class: "navbar-item" %>
                 <hr class="navbar-divider">
                 <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-item" %>
                 <%= link_to "退会", "#", class: "navbar-item" %>
@@ -84,7 +89,7 @@
             <% end %>
           </div>
           <div class="level-item has-text-centered">
-            <%= link_to user_path(current_user) do %>
+            <%= link_to user_path(current_user)  do %>
               <i class="fa-solid fa-user"></i><br> マイページ
             <% end %>
           </div>
