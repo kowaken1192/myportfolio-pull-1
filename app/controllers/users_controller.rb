@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @posts = current_user.posts
+    @user = current_user
   end
 
   def show
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :profile, :image))
+    if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :profile, :image,:background_image))
       flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
       redirect_to user_path(@user) 
     else

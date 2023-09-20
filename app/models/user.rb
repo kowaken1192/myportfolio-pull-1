@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :posts
   mount_uploader :image, AvatarUploader
+  mount_uploader :background_image, AvatarUploader
 end

@@ -19,6 +19,11 @@
   </div>
   
   <div class="field">
+    <%= f.label :background_image, "背景画像変更" %>
+    <%= f.file_field :background_image %>
+  </div>
+
+  <div class="field">
     <%= f.label :profile, "自己紹介", class: 'label' %>
     <%= f.text_area :profile, class: 'input' %>
   </div>
