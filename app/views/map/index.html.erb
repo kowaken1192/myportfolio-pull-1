@@ -58,6 +58,7 @@
         display.textContent = "国名：" + country + " 住所：" + addressOnly.replace(/^、/, "");
         document.cookie = "selectedCountry=" + encodeURIComponent(country) + "; path=/";
         document.cookie = "selectedAddress=" + encodeURIComponent(addressOnly) + "; path=/";
+        document.cookie = "inputPlace=" + encodeURIComponent(inputAddress) + "; path=/";
       } else {
         alert('該当する結果がありませんでした：' + status);
       }
