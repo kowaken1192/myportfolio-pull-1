@@ -31,6 +31,15 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+  
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.user == current_user
+      @post.destroy
+      flash[:notice] = "投稿を削除しました"
+      redirect_to :users
+    end
+  end
 
   private
   def post_params

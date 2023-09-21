@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <section class="user-section">
   <div class="user-container">
     <div class="columns is-multiline">
@@ -56,8 +63,8 @@
                 <% end %>
               </div>
               <footer class="card-footer">
-                <%= link_to 'レビューを見る', post_reviews_path(post), class: "card-footer-item" %>
                 <%= link_to 'レビューを書く', post_path(post), class: "card-footer-item" %>
+                <%= link_to "削除", post_path(post), method: :delete, class: "card-footer-item", data: { confirm: "本当に削除しますか？" } %>
               </footer>
             </div>
           </div>
@@ -73,3 +80,14 @@
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
