@@ -7,7 +7,7 @@
     <% if @post.avatar? %>
       <%= image_tag @post.avatar.url %>
     <% else %>
-      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg' %>
+      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'rounded-circle small-icon mr15' %>
     <% end %>
   </figure>
 
@@ -44,7 +44,7 @@
               <% if review.user.image? %>
                 <%= image_tag review.user.image.url, class: 'rounded-circle small-icon mr15' %>
               <% else %>
-                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'is-rounded' %>
+                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'rounded-circle small-icon mr15' %>
               <% end %>
             </figure>
             <span><%= "#{review.user.first_name} #{review.user.last_name}" %></span>

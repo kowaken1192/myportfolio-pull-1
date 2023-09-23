@@ -12,6 +12,7 @@ module LikeApp
     config.i18n.default_locale = :ja
     # タイムゾーンの変更（例)created_at カラムを取り出したときに日本時間に変換されるようになる） 
     config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
   end
 end
 

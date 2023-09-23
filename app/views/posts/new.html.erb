@@ -1,9 +1,6 @@
 <div class="container">
   <div class="centered-form box">
     <%= render "shared/error", obj: @post %>
-    <% if @post.persisted? %> 
-      <p>投稿日: <%= @post.created_at.to_s(:long) %></p> 
-    <% end %>
   <h2>投稿作成画面</h2>
     <%= form_with(model: @post, local: true) do |f| %>
       <div class="form-field">
