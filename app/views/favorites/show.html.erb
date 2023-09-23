@@ -1,0 +1,19 @@
+<h2>お気に入りの投稿</h2>
+
+<% @favorited_posts.each do |post| %>
+  <div class="post">
+    <h3><%= post.title %></h3>
+    <p><%= post.content %></p>
+    <% if current_user.already_favorited?(post) %>
+      <%= link_to post_favorites_path(post), method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+      <%= post.favorites.count %>
+    <% else %>
+      <%= link_to post_favorites_path(post), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+      <%= post.favorites.count %>
+    <% end %>
+  </div>
+<% end %>

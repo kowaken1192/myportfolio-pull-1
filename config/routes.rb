@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :personal, only: [:show, :edit, :update]
 
-  resources :users
+  resources :users, only: [:index,:show, :edit]  do
+    member do
+      get :favorites
+    end
+  end
 
   get 'search_post/index'
   get 'search_post/show'
