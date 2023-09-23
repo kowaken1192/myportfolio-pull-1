@@ -2,10 +2,11 @@ class Post < ApplicationRecord
   validates :name , presence: true 
   validates :address , presence: true
   validates :country, presence: true
+  has_many :reviews, dependent: :destroy 
+  has_many :favorites, dependent: :destroy
   belongs_to :user
-  has_many :reviews, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
-
+  
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]
   end

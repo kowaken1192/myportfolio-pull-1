@@ -9,6 +9,17 @@
                 タイトル名｜<%= post.name %>
               </p>
             </header>
+            <% if current_user.already_favorited?(post) %>
+              <%= link_to post_favorites_path(post), method: :delete do %>
+            <i class="fas fa-heart"></i>
+              <% end %>
+              <%= post.favorites.count %>
+           <% else %>
+            <%= link_to post_favorites_path(post), method: :post do %>
+          <i class="far fa-heart"></i>
+           <% end %>
+            <%= post.favorites.count %>
+            <% end %>
             <div class="card-content">
               <div class="content average-score mb-3">
                 <div class="star-rating mb-2">
@@ -33,8 +44,7 @@
               <% end %>
             </div>
             <footer class="card-footer">
-              <%= link_to 'レビューを見る', post_reviews_path(post), class: "card-footer-item" %>
-              <%= link_to 'レビューを書く', post_path(post), class: "card-footer-item" %>
+            <%= link_to 'レビューを書く', post_path(post), class: "card-footer-item" %>
             </footer>
           </div>
         </div>
