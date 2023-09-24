@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :personal, only: [:show, :edit, :update]
 
-  resources :users, only: [:index,:show, :edit]  do
+  resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :favorites
     end

@@ -11,29 +11,55 @@
   <div class="container">
     <div class="columns is-multiline">
       <% @results.each do |result| %> 
-        <div class="column is-half"> 
+        <div class="column is-half">
           <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
+            <header class="card-header is-flex is-justify-content-space-between">
+              <div class="card-header-title">
                 <%= result.name %>
-              </p>
+              </div>
+              <div class="card-header-icon">
+                <% if current_user.already_favorited?(result) %>
+                  <%= link_to post_favorites_path(result), method: :delete, class: "mr-2" do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_favorites_path(result), method: :post, class: "mr-2" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+                <span><%= result.favorites.count %></span>
+              </div>
             </header>
             <div class="card-content">
+              <div class="content average-score mb-3">
+                <div class="star-rating mb-2">
+                  <div class="star-rating-front" style="width: <%= result.review_score_percentage %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= result.avg_score %>点（<%= result.reviews.count %>件のレビュー）
+                </div>
+              </div>
+              <div class="post-address mb-3 has-text-weight-bold"> 
+                住所｜<%= result.address %>
+              </div>
               <% if result.avatar? %>
                 <%= image_tag result.avatar.url, class: 'image' %>
               <% else %>
                 <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
               <% end %>
-
-              <div class="post-address mb-3 has-text-weight-bold"> 
-                <%= result.address %>
-              </div>
-              <p><%= result.country %></p>
-              <p><%= result.detail %></p>
+            <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
+              投稿日｜<%= result.created_at.to_s(:datetime_jp)%>
             </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to 'この投稿の詳細へ', detail_post_path(result), class: "card-footer-item" %>
+              <%= link_to 'レビューを書く', post_path(result), class: "card-footer-item" %>
+            </footer>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </section>
+

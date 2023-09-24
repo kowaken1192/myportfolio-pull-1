@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <section class="section mt-6">
   <div class="container">
     <div class="columns is-multiline">
@@ -45,7 +52,7 @@
             </div>
             <footer class="card-footer">
               <%= link_to 'この投稿の詳細へ', detail_post_path(post), class: "card-footer-item" %>
-              <%= link_to 'レビューを書く', post_path(post), class: "card-footer-item" %>
+              <%= link_to '口コミを書く', post_path(post), class: "card-footer-item" %>
             </footer>
           </div>
         </div>
@@ -53,3 +60,4 @@
     </div>
   </div>
 </section>
+<%= javascript_include_tag 'posts.js' %>

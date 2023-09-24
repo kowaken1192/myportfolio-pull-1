@@ -5,25 +5,30 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @review = Review.new
   end
   
   def create
-    @review = Review.new
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+  
+    @review = Review.new(review_params)
+    @review.user_id = current_user.id  
+  
     if @post.save
-      redirect_to @post
+      @review.post_id = @post.id
+      if @review.save
+        redirect_to posts_path, notice: '投稿が成功しました。'
+      else
+        @post.destroy  
+        render :new
+      end
     else
       render :new
     end
   end
   
   def detail
-    @post = Post.find(params[:id])
-    @review = Review.new
-  end
-
-  def show
     @post = Post.find(params[:id])
     @review = Review.new
   end
@@ -42,7 +47,12 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:name, :address, :detail, :country, :avatar)
   end
+  
+  def review_params
+    params.require(:post).require(:review).permit(:score, :content)
+  end   
 end

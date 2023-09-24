@@ -6,6 +6,10 @@ class ReviewsController < ApplicationController
     @reviews = @post.reviews
   end
 
+  def new 
+    @review = Review.new
+  end
+  
   def create
     @post = Post.find(params[:post_id])
     @review = Review.new(review_params)
@@ -13,7 +17,6 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to post_reviews_path
     else
-      @post = Post.find(params[:post_id])
       render "posts/show"
     end
   end

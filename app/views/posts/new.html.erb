@@ -1,66 +1,75 @@
-<div class="container">
-  <div class="centered-form box">
-    <%= render "shared/error", obj: @post %>
-  <h2>投稿作成画面</h2>
-    <%= form_with(model: @post, local: true) do |f| %>
-      <div class="form-field">
-        <label>訪れた場所</label>
-        <%= f.text_field :name %>
-      </div>
+<section class="section">
+  <div class="post-container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="box">
+          <%= render "shared/error", obj: @post %>
+          <%= render "shared/error", obj: @review %>
 
-      <div class="form-field">
-        <label>国名</label>
-        <%= f.text_field :country %>
-      </div>
+          <h2 class="title is-4 has-text-centered mb-5">総合評価作成</h2>
 
-      <div class="form-field">
-        <label>住所</label>
-        <%= f.text_field :address %>
-      </div>
+          <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+            <div class="field">
+              <label class="label">訪れた場所</label>
+              <div class="control">
+                <%= f.text_field :name, class: 'input' %>
+              </div>
+            </div>
 
-      <div class="form-field">
-        <label>詳細</label>
-        <%= f.text_area :detail, rows: 5, cols: 50 %>
-      </div>
+            <div class="field">
+              <label class="label">国名</label>
+              <div class="control">
+                <%= f.text_field :country, class: 'input' %>
+              </div>
+            </div>
 
-      <div class="form-field">
-        <%= f.label :avatar, "画像" %>
-        <%= f.file_field :avatar %>
-      </div>
+            <div class="field">
+              <label class="label">住所</label>
+              <div class="column is-12">
+                <%= f.text_field :address, class: 'input' %>
+              </div>
+            </div>
 
-      <div class="form-actions">
-        <%= link_to "戻る", posts_path, class: "styled-button" %>
-        <%= f.submit "登録してレビュー画面に移る", class: "styled-button" %>
+            <div class="field">
+              <label class="label">旅の感想</label>
+              <div class="control">
+                <%= f.text_area :detail, rows: 5, class: 'textarea' %>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">画像</label>
+              <div class="control">
+                <%= f.file_field :avatar %>
+              </div>
+            </div>
+
+            <%= f.fields_for :review, @review do |review_fields| %>
+              <div class="field">
+                <label class="label">口コミ評価</label>
+                <div class="control">
+                  <div class="ratings mb-3">
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                  </div>
+                  <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+                  <%= review_fields.hidden_field :score, id: "rating-value" %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="field is-grouped is-grouped-centered">
+              <%= link_to "戻る", posts_path, class: "button is-light mr-2" %>
+              <%= f.submit "登録してレビュー画面に移る", class: "button is-info" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
-  
-<script>
-  function redirectToMapPage() {
-    window.location.href = "/map/index";
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-  let savedAddress = getCookie("selectedAddress");
-  let savedCountry = getCookie("selectedCountry");
-  let inputPlace = getCookie("inputPlace");
-
-  if (savedAddress) {
-    document.getElementById("post_address").value = decodeURIComponent(savedAddress);
-  }
-
-  if (savedCountry) {
-    document.getElementById("post_country").value = decodeURIComponent(savedCountry);
-  }
-
-  if (inputPlace) {
-    document.getElementById("post_name").value = decodeURIComponent(inputPlace);
-  }
-});
-  function getCookie(name) {
-    let value = "; " + document.cookie;
-    let parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-  }
-</script>
+</section>
+<%= javascript_include_tag 'reviews.js' %>
+<%= javascript_include_tag 'posts.js' %>
