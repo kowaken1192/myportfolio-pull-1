@@ -10,10 +10,10 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
   
     @review = Review.new(review_params)
-    @review.user_id = current_user.id  
+    @review.user = current_user
   
     if @post.save
       @review.post_id = @post.id
