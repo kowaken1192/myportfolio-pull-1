@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2023_09_25_070333) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.string "country"
     t.text "address"
@@ -31,6 +30,8 @@ ActiveRecord::Schema.define(version: 2023_09_25_070333) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
