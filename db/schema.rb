@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_21_095649) do
+ActiveRecord::Schema.define(version: 2023_09_25_070333) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2023_09_21_095649) do
 
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "reviews", "posts"
   add_foreign_key "reviews", "users"
 end

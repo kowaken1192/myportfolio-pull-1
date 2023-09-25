@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :reviews, dependent: :destroy
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
-  has_many :posts
+  has_many :posts, dependent: :destroy
   mount_uploader :image, AvatarUploader
   mount_uploader :background_image, AvatarUploader
 
