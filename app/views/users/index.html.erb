@@ -60,8 +60,8 @@
                 <div class="post-address mb-3 has-text-weight-bold">
                   住所｜<%= post.address %>
                 </div>
-                <% if post.avatar? %>
-                  <%= image_tag post.avatar.url, class: 'image' %>
+                <% if post.postimage? %>
+                  <%= image_tag post.postimage.url, class: 'image' %>
                 <% else %>
                   <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
                 <% end %>

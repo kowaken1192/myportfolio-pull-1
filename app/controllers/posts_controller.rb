@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+  
   def new
     @post = Post.new
     @review = Review.new
@@ -48,7 +52,7 @@ class PostsController < ApplicationController
   
   def all_reviews
     @post = Post.find(params[:id])
-    @reviews = @post.reviews.offset(3)
+    @reviews = @post.reviews
   end
 
   private

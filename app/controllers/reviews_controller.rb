@@ -5,7 +5,12 @@ class ReviewsController < ApplicationController
     @post = Post.find(params[:post_id])
     @reviews = @post.reviews
   end
-
+  
+  def show
+    @review = Review.find(params[:id])
+    @post = @review.post
+  end
+  
   def new 
     @post = Post.find(params[:post_id])
     @review = Review.new
@@ -16,9 +21,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to post_reviews_path
+      redirect_to post_path(@post)
     else
-      render :new
+      render 'reviews/new'
     end
   end
 

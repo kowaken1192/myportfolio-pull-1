@@ -22,16 +22,14 @@ Rails.application.routes.draw do
 
   get 'search_post/index'
   get 'search_post/show'
-  
+
   resources :posts do
     member do
-      get :detail
       get :all_reviews
     end
     
-    resources :reviews, only: [:index,:new,:create,:show]
-  end
-  resources :posts do
+    resources :reviews, only: [:index,:new,:create]
     resource :favorites, only: [:create, :destroy]
   end
+  resources :reviews, only: [:show]
 end

@@ -4,8 +4,8 @@
   </header>
 
   <div class="avatar-image">
-    <% if @post.avatar? %>
-      <%= image_tag @post.avatar.url ,class: 'avatar-class' %>
+    <% if @post.postimage? %>
+      <%= image_tag @post.postimage.url ,class: 'avatar-class' %>
     <% else %>
       <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'avatar-class' %>
     <% end %>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="box mt-4">
-      <%= link_to 'このスポットの口コミを書く', post_path(@post), class: "card-footer-item is-size-4" %>
+      <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post), class: "card-footer-item is-size-4" %>
     </div>
 
     <div class="mt-4">
