@@ -45,11 +45,16 @@ class PostsController < ApplicationController
       redirect_to :users
     end
   end
+  
+  def all_reviews
+    @post = Post.find(params[:id])
+    @reviews = @post.reviews.offset(3)
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:name, :address, :detail, :country, :avatar ,:user_id)
+    params.require(:post).permit(:name, :address, :detail, :country, :postimage ,:user_id)
   end
   
   def review_params

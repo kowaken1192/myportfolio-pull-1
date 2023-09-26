@@ -25,8 +25,8 @@
 
             <div class="field">
               <label class="label">住所</label>
-              <div class="column is-12">
-                <%= f.text_field :address, class: 'input' %>
+              <div class="control">
+                <%= f.text_area :address, class: 'textarea', rows: 2 %>
               </div>
             </div>
 
@@ -40,7 +40,7 @@
             <div class="field">
               <label class="label">画像</label>
               <div class="control">
-                <%= f.file_field :avatar %>
+                <%= f.file_field :postimage %>
               </div>
             </div>
 
@@ -63,7 +63,7 @@
 
             <div class="field is-grouped is-grouped-centered">
               <%= link_to "戻る", posts_path, class: "button is-light mr-2" %>
-              <%= f.submit "登録してレビュー画面に移る", class: "button is-info" %>
+              <%= f.submit "登録して一覧画面に移る", class: "button is-info" %>
             </div>
           <% end %>
         </div>

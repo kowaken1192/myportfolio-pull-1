@@ -1,4 +1,3 @@
-let map;
 let geocoder;
 let marker; 
 const display = document.getElementById('display');

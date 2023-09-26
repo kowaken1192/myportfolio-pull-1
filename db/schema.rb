@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2023_09_25_070333) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "country"
     t.text "address"
@@ -29,9 +30,6 @@ ActiveRecord::Schema.define(version: 2023_09_25_070333) do
     t.string "postimage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "avatar"
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -71,7 +69,6 @@ ActiveRecord::Schema.define(version: 2023_09_25_070333) do
 
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
-  add_foreign_key "posts", "users"
   add_foreign_key "reviews", "posts"
   add_foreign_key "reviews", "users"
 end

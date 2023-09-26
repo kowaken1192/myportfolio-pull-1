@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :reviews, dependent: :destroy 
   has_many :favorites, dependent: :destroy
   belongs_to :user
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :postimage, AvatarUploader
   
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]

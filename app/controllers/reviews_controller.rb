@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def new 
+    @post = Post.find(params[:post_id])
     @review = Review.new
   end
   
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to post_reviews_path
     else
-      render "posts/show"
+      render :new
     end
   end
 

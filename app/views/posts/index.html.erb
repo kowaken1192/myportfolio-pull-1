@@ -41,8 +41,8 @@
               <div class="post-address mb-3 has-text-weight-bold"> 
                 住所｜<%= post.address %>
               </div>
-              <% if post.avatar? %>
-                <%= image_tag post.avatar.url, class: 'image' %>
+              <% if post.postimage? %>
+                <%= image_tag post.postimage.url, class: 'image' %>
               <% else %>
                 <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
               <% end %>
@@ -52,7 +52,7 @@
             </div>
             <footer class="card-footer">
               <%= link_to 'この投稿の詳細へ', detail_post_path(post), class: "card-footer-item" %>
-              <%= link_to '口コミを書く', post_path(post), class: "card-footer-item" %>
+              <%= link_to '口コミを書く', new_post_review_path(post), class: "card-footer-item" %>
             </footer>
           </div>
         </div>

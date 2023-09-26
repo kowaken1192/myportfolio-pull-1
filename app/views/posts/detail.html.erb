@@ -3,13 +3,13 @@
     <%= @post.name %>
   </header>
 
-  <figure class="image limited-height mt-4">
+  <div class="avatar-image">
     <% if @post.avatar? %>
-      <%= image_tag @post.avatar.url %>
+      <%= image_tag @post.avatar.url ,class: 'avatar-class' %>
     <% else %>
-      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'rounded-circle small-icon mr15' %>
+      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'avatar-class' %>
     <% end %>
-  </figure>
+  </div>
 
   <div class="card-content mt-4">
     <div class="content average-score mb-3">
@@ -27,20 +27,12 @@
       <p class="is-size-3"><%= @post.detail %></p>
     </div>
 
-    <div class="mt-3">
-      <%= form_for @post, url: post_path(@post), html: { multipart: true } do |f| %>
-        <%= f.file_field :avatar %>
-        <%= f.submit "写真をアップロード", class: "button is-primary mt-2" %>
-      <% end %>
-    </div>
-
     <div class="review-section mt-5">
       <p class="title is-4 has-text-centered is-size-3">このスポットの口コミ</p>
       <div class="reviews-list">
         <% @post.reviews.limit(3).each do |review| %>
           <div class="review">
             <figure class="image mb-6">
-              <h3 class="mb-2">アイコン画像</h3>
               <% if review.user.image? %>
                 <%= image_tag review.user.image.url, class: 'rounded-circle small-icon mr15' %>
               <% else %>
@@ -52,6 +44,7 @@
             <span class="review-content">: <%= review.content %></span>
           </div>
         <% end %>
+        <%= link_to 'その他の口コミを見る', all_reviews_post_path(@post) %>
       </div>
     </div>
 

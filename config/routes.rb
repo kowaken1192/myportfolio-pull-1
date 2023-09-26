@@ -26,9 +26,10 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       get :detail
+      get :all_reviews
     end
     
-    resources :reviews, only: [:index, :create,:show]
+    resources :reviews, only: [:index,:new,:create,:show]
   end
   resources :posts do
     resource :favorites, only: [:create, :destroy]
