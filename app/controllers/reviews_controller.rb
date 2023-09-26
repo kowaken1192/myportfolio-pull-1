@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @post = Post.find(params[:post_id])
+    @posts = Post.find(params[:post_id])
     @reviews = @post.reviews
   end
   
