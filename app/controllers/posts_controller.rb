@@ -22,21 +22,24 @@ class PostsController < ApplicationController
     if @post.save
       @review.post_id = @post.id
       if @review.save
-        redirect_to posts_path, notice: '投稿が成功しました。'
+        @related_posts = Post.where(address: @post.address).where.not(id: @post.id).limit(5)
+    
+        if @related_posts.empty?
+          flash[:notice] = '投稿ありがとうございます！関連する投稿は見つかりませんでした。'
+          redirect_to related_post_path(@post)
+        else
+          flash[:notice] = '投稿ありがとうございます!あなたの投稿に関連する投稿が表示されます'
+          redirect_to related_post_path(@post)
+        end
       else
-        @post.destroy  
+        @post.destroy
         render :new
       end
     else
       render :new
     end
   end
-  
-  def detail
-    @post = Post.find(params[:id])
-    @review = Review.new
-  end
-
+    
   def edit
     @post = Post.find(params[:id])
   end
@@ -53,6 +56,11 @@ class PostsController < ApplicationController
   def all_reviews
     @post = Post.find(params[:id])
     @reviews = @post.reviews
+  end
+  
+  def related
+    @post = Post.find(params[:id])
+    @related_posts = Post.where(address: @post.address).where.not(id: @post.id).limit(5)
   end
 
   private

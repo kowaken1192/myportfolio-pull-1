@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       get :all_reviews
+      get :related
     end
-    
     resources :reviews, only: [:index,:new,:create]
     resource :favorites, only: [:create, :destroy]
   end

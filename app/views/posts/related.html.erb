@@ -1,0 +1,71 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if @related_posts.present? %>
+  <section>
+    <div class="container">
+      <h3>あなたにおすすめの投稿</h3>
+      <div class="columns is-multiline">
+        <% @related_posts.each do |related_post| %>
+          <div class="column is-half">
+            <div class="card">
+              <header class="card-header is-flex is-justify-content-space-between">
+                <div class="card-header-title">
+                  <%= related_post.name %>
+                </div>
+                <div class="card-header-icon">
+                  <% if current_user.already_favorited?(related_post) %>
+                    <%= link_to post_favorites_path(related_post), method: :delete, class: "mr-2" do %>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to post_favorites_path(related_post), method: :post, class: "mr-2" do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% end %>
+                  <span><%= related_post.favorites.count %></span>
+                </div>
+              </header>
+              <div class="card-content">
+                <div class="content average-score mb-3">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= related_post.review_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= related_post.avg_score %>点（<%= related_post.reviews.count %>件のレビュー）
+                  </div>
+                </div>
+                <div class="post-address mb-3 has-text-weight-bold"> 
+                  住所｜<%= related_post.address %>
+                </div>
+                <% if related_post.postimage? %>
+                  <%= image_tag related_post.postimage.url, class: 'image' %>
+                <% else %>
+                  <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
+                <% end %>
+                <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
+                  投稿日｜<%= related_post.created_at.to_s(:datetime_jp) %>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <%= link_to 'この投稿の詳細へ', post_path(related_post), class: "card-footer-item" %>
+              </footer>
+            </div>
+          </div>
+        <% end %>
+         <% else %>
+        <div class="column is-full">
+          <div class="notification is-info">
+            現在の投稿はありません。新しい投稿を作成してみましょう。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+<%= javascript_include_tag 'posts.js' %>
