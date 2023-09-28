@@ -1,6 +1,6 @@
-<p>あなたがいいねした投稿はこちらです<p>
+<h2 class="title is-4 has-text-centered mb-5">あなたがいいねした投稿</h2>
 <section class="section mt-6">
-  <div class="container">
+  <div class="favorite-container">
     <div class="columns is-multiline">
     <% if @favorite_posts.any? %>
       <% @favorite_posts.each do |post| %>

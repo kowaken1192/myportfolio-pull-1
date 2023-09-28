@@ -25,7 +25,7 @@ function codeAddress() {
       let addressWithoutPostalCode = results[0].formatted_address.replace(/〒\d{3}-\d{4} /, "");
       let country = results[0].address_components.find(component => component.types.includes("country")).long_name;
       let addressOnly = addressWithoutPostalCode.replace(country, '').trim();
-      display.textContent = "国名：" + country + " 住所：" + addressOnly.replace(/^、/, "");
+      display.textContent = "国名：" + country + " 住所：" + addressOnly.replace(/、/g, "");
       document.cookie = "selectedCountry=" + encodeURIComponent(country) + "; path=/";
       document.cookie = "selectedAddress=" + encodeURIComponent(addressOnly) + "; path=/";
       document.cookie = "inputPlace=" + encodeURIComponent(inputAddress) + "; path=/";

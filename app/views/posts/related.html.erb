@@ -7,8 +7,8 @@
 
 <% if @related_posts.present? %>
   <section>
-    <div class="container">
-      <h3>あなたにおすすめの投稿</h3>
+    <div class="related-container">
+      <h2 class="title is-4 has-text-centered mb-5">あなたにおすすめの投稿</h2>
       <div class="columns is-multiline">
         <% @related_posts.each do |related_post| %>
           <div class="column is-half">
@@ -58,7 +58,7 @@
             </div>
           </div>
         <% end %>
-         <% else %>
+        <% else %>
         <div class="column is-full">
           <div class="notification is-info">
             現在の投稿はありません。新しい投稿を作成してみましょう。
