@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
 
   def index
     @posts = Post.find(params[:post_id])
-    @reviews = @post.reviews
   end
   
   def show
@@ -29,6 +28,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:post_id, :score, :content)
+    params.require(:review).permit(:post_id, :score, :content, {review_image: []})
   end
 end
