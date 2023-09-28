@@ -7,7 +7,6 @@
           <%= render "shared/error", obj: @review %>
 
           <h2 class="title is-4 has-text-centered mb-5">総合評価作成</h2>
-
           <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
             <div class="field">
               <label class="label">訪れた場所</label>
@@ -63,7 +62,7 @@
 
             <div class="field is-grouped is-grouped-centered">
               <%= link_to "戻る", posts_path, class: "button is-light mr-2" %>
-              <%= f.submit "登録して一覧画面に移る", class: "button is-info" %>
+              <%= f.submit "登録する", class: "button is-info" %>
             </div>
           <% end %>
         </div>
