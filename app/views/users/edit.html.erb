@@ -2,7 +2,7 @@
 
 <%= render "shared/error", obj: @user %>
 
-<%= form_with model: @user, html: { multipart: true, class: 'box' } do |f| %>
+<%= form_with model: @user, url: user_path(@user) do |f| %>
   <div class="field">
     <%= f.label :first_name, "名字", class: 'label' %>
     <%= f.text_field :first_name, class: 'input' %>
