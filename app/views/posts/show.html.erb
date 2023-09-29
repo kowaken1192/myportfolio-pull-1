@@ -5,9 +5,9 @@
 
   <div class="avatar-image">
     <% if @post.postimage? %>
-      <%= image_tag @post.postimage.url ,class: 'avatar-class' %>
+      <%= image_tag @post.postimage.url , class: 'postimage-class' %>
     <% else %>
-      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'avatar-class' %>
+      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'postimage-class' %>
     <% end %>
   </div>
 
@@ -22,9 +22,19 @@
       </div>
     </div>
   </div>
+  
+  <div class="columns">
+    <% @reviews.each do |review| %>
+      <% review.review_images.each do |review_image| %>
+        <div class="column is-one-third">
+          <%= image_tag review_image.to_s %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="section">
-    <h2 class="title is-2 has-text-centered mb-5">投稿者のスポットの感想</h2>
+    <h2 class="post-thoughts is-size-2 mb-5">投稿者のスポットの感想</h2>
     <div class="box">
       <p class="subtitle is-4 has-text-centered"><%= @post.detail %></p>
     </div>
@@ -48,7 +58,8 @@
         </div>
       <% end %>
       <div class="button is-rounded mt-3">
-        <%= link_to 'その他の口コミを見る', all_reviews_post_path(@post) %>
+        <%= link_to '全ての口コミを見る', all_reviews_post_path(@post) %>
+        （<%= @reviews.count %>件の口コミ）
       </div>
     </div>
   </div>
@@ -57,14 +68,6 @@
     <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post), class: "button is-info is-medium" %>
   </div>
   
-  <% @reviews.each do |review| %>
-  <td>
-    <% review.review_images.each do |review_image| %>
-      <%= image_tag review_image.to_s %>
-    <% end %>
-  </td>
-  <% end %>
-
   <div class="box">
     <p class="title is-4">このスポットの基本情報</p>
     <p>
