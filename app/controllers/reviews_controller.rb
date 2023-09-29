@@ -28,6 +28,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:post_id, :score, :content, {review_image: []})
+    params.require(:review).permit(:post_id, :score, :content, {review_images: []})
   end
 end

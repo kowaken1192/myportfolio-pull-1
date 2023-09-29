@@ -57,7 +57,13 @@
     <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post), class: "button is-info is-medium" %>
   </div>
   
-  
+  <% @reviews.each do |review| %>
+  <td>
+    <% review.review_images.each do |review_image| %>
+      <%= image_tag review_image.to_s %>
+    <% end %>
+  </td>
+  <% end %>
 
   <div class="box">
     <p class="title is-4">このスポットの基本情報</p>
