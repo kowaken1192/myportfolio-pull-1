@@ -1,5 +1,4 @@
 <h3 class="title is-3">ユーザー編集</h3>
-
 <%= render "shared/error", obj: @user %>
 
 <%= form_with model: @user, url: user_path(@user) do |f| %>
@@ -7,27 +6,22 @@
     <%= f.label :first_name, "名字", class: 'label' %>
     <%= f.text_field :first_name, class: 'input' %>
   </div>
-
   <div class="field">
     <%= f.label :last_name, "名前", class: 'label' %>
     <%= f.text_field :last_name, class: 'input' %>
   </div>
-  
   <div class="field">
     <%= f.label :image, "プロフィール画像変更" %>
     <%= f.file_field :image %>
   </div>
-  
   <div class="field">
     <%= f.label :background_image, "背景画像変更" %>
     <%= f.file_field :background_image %>
   </div>
-
   <div class="field">
     <%= f.label :profile, "自己紹介", class: 'label' %>
     <%= f.text_area :profile, class: 'input' %>
   </div>
-  
   <div class="field">
     <%= f.submit "編集を完了する", class: 'button is-primary' %>
   </div>

@@ -40,7 +40,7 @@
                     <%= related_post.avg_score %>点（<%= related_post.reviews.count %>件のレビュー）
                   </div>
                 </div>
-                <div class="post-address mb-3 has-text-weight-bold"> 
+                <div class="post-address mb-3 has-text-weight-bold">
                   住所｜<%= related_post.address %>
                 </div>
                 <% if related_post.postimage? %>
@@ -58,7 +58,7 @@
             </div>
           </div>
         <% end %>
-        <% else %>
+      <% else %>
         <div class="column is-full">
           <div class="notification is-info">
             関連している投稿はありません

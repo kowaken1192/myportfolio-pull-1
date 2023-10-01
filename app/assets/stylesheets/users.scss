@@ -1,6 +1,7 @@
 .background-image {
+  position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px;
 }
     
 .background-class {
@@ -8,17 +9,38 @@
   height: 100%;
 }
 
-.user-column{
+.user{
   display:flex
 }
 
-.sample{
-  width: 100%;
-  height: 100%;
+.edit-profile, .user-profile-title {
+  flex: 1;
+  padding: 10px; 
+}
+
+.sample {
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;  
+  height: 200px;
 }
 
 .large-icon {
   border-radius: 100%;
   width: 200px;
   height: 200px;
+}
+
+.user-name{
+  font-size: large;
+  margin-top: 120px;
+
+}
+
+.edit-link {
+  position: absolute;
+  top: 0;        
+  right: -50px;  
 }

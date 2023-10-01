@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @posts = current_user.posts
     @user = current_user
+    @post = Post.last
   end
 
   def show

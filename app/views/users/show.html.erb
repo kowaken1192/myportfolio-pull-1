@@ -5,15 +5,11 @@
     <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'small-icon' %>
   <% end %>
 </div>
-
 <h3 class="title has-text-centered"><%= @user.first_name %> <%= @user.last_name %>様</h3>
-
 <div class="box">
   <p class="is-size-6"><%= @user.profile %></p>
 </div>
-
 <h2 class="title is-4 has-text-centered mb-5"><%= @user.first_name %> <%= @user.last_name %>様の投稿一覧</h2>
-
 <div class="columns is-multiline">
   <% if @posts.any? %>
     <% @posts.each do |post| %>

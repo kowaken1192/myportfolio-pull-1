@@ -4,7 +4,6 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-
 <section class="user-section">
   <div class="user-container">
     <div class="user-columns is-multiline">
@@ -12,20 +11,27 @@
         <% if @user.background_image? %>
           <%= image_tag @user.background_image.url, class: 'background-class' %>
         <% else %>
-          <%= image_tag 'https://www.shoshinsha-design.com/wp-content/uploads/2020/05/noimage-1-760x460.png', class: 'background-class' %>
+          <%= image_tag 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVVrO//Ct2NAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=', class: 'background-class' %>
         <% end %>
+        <div class="sample has-text-centered">
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, class: 'large-icon' %>
+          <% else %>
+            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'large-icon' %>
+          <% end %>
+          <button>
+            <%= link_to 'プロフィール編集', edit_user_path(current_user) ,class: 'edit-link'%>
+          </button>
+        </div>
+      </div>
+      <div class="user-name has-text-centered">
+        <%= @user.first_name %> <%= @user.last_name %>
+      </div>
+      <div class="user-profile-title is-size-5">あなたのプロフィール</div>
+      <div class="user-profile-display box">
+        <p class="is-size-6"><%= @user.profile %></p>
       </div>
     </div>
-      <div class="user-column">
-        <h3 class="title"><%= @user.first_name %> <%= @user.last_name %></h3>
-        <%= link_to 'プロフィール編集', edit_user_path(current_user)%>
-      </div>
-    </div>
-    <div class="user-profile is-size-5">あなたのプロフィール</div>
-    <div class="box">
-      <p class="is-size-6"><%= @user.profile %></p>
-    </div>
-    <h2 class="title is-4 has-text-centered mb-5"><%= @user.first_name %> <%= @user.last_name %>様の投稿一覧</h2>
     <div class="columns is-multiline">
       <% if @posts.any? %>
         <% @posts.each do |post| %>
@@ -87,4 +93,3 @@
     </div>
   </div>
 </section>
-<%= javascript_include_tag 'users.js' %>
