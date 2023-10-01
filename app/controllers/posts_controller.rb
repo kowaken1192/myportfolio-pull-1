@@ -23,13 +23,13 @@ class PostsController < ApplicationController
     if @post.save
       @review.post_id = @post.id
       if @review.save
-        @related_posts = Post.where(address: @post.address).where.not(id: @post.id).limit(5)
+        @related_posts = Post.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
     
         if @related_posts.empty?
-          flash[:notice] = '投稿ありがとうございます！関連する投稿は見つかりませんでした。'
+          flash[:notice] = '投稿ありがとうございます！あなたの投稿はありがとうございます！'
           redirect_to related_post_path(@post)
         else
-          flash[:notice] = '投稿ありがとうございます!あなたの投稿に関連する投稿が表示されます'
+          flash[:notice] = '投稿ありがとうございます!あなたにおすすめの投稿が表示されます！'
           redirect_to related_post_path(@post)
         end
       else
@@ -61,13 +61,13 @@ class PostsController < ApplicationController
   
   def related
     @post = Post.find(params[:id])
-    @related_posts = Post.where(address: @post.address).where.not(id: @post.id).limit(5)
+    @related_posts = Post.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:name, :address, :detail, :country, :postimage ,:user_id)
+    params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage ,:user_id)
   end
   
   def review_params
