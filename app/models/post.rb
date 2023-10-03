@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   belongs_to :user
   mount_uploader :postimage, AvatarUploader
   scope :latest, -> { order(created_at: :desc) }
-  
+
   scope :with_counts, -> {
     select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count')
     .left_joins(:reviews, :favorites)
@@ -18,7 +18,6 @@ class Post < ApplicationRecord
     .group(:id)
     .order('COUNT(reviews.id) DESC') 
   }
-
   scope :avg_score_and_review_count, -> {
     select('posts.*, AVG(reviews.score) as average_score, COUNT(reviews.id) as review_count')
     .joins(:reviews)

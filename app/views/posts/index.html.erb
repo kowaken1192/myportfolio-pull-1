@@ -4,12 +4,12 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-<div class="buttons has-text-centered">
-  <%= link_to "人気投稿", posts_path(sort_by: 'avg_score_and_review_count'), class: "button is-primary" %>
-  <%= link_to '最新の投稿', posts_path(latest: "true"), class: "button is-link" %>
-  <%= link_to '口コミの多い投稿', posts_path(reviews_count: "true"), class: "button is-info" %>
+<div class="text-button pt-6">
+  <%= link_to "人気投稿", posts_path(sort_by: 'avg_score_and_review_count'), class: "button is-link is-rounded" %>
+  <%= link_to '最新の投稿', posts_path(latest: "true"), class: "button is-link is-rounded" %>
+  <%= link_to '口コミの多い投稿', posts_path(reviews_count: "true"), class: "button is-link is-rounded" %>
 </div>
-<section class="section mt-6">
+<section class="section mt-4">
   <div class="container">
     <div class="columns is-multiline">
       <% @posts.each do |post| %>

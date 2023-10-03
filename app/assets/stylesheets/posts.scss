@@ -89,3 +89,14 @@
   width: 100%;
   height: 100%;
 }
+
+.text-button {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text-button .button {
+  font-size: 24px; 
+  margin: 0 40px; 
+}
