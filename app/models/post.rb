@@ -6,6 +6,24 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :user
   mount_uploader :postimage, AvatarUploader
+  scope :latest, -> { order(created_at: :desc) }
+  scope :with_counts, -> {
+    select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count')
+    .left_joins(:reviews, :favorites)
+    .group('posts.id')
+  }
+  scope :reviews_count, -> { 
+    left_joins(:reviews)
+    .group(:id)
+    .order('COUNT(reviews.id) DESC') 
+  }
+
+  scope :avg_score_and_review_count, -> {
+    select('posts.*, AVG(reviews.score) as average_score, COUNT(reviews.id) as review_count')
+    .joins(:reviews)
+    .group('posts.id')
+    .order('average_score DESC, review_count DESC')
+  }
   
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]

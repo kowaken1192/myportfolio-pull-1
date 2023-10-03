@@ -4,7 +4,11 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-
+<div class="buttons has-text-centered">
+  <%= link_to "人気投稿", posts_path(sort_by: 'avg_score_and_review_count'), class: "button is-primary" %>
+  <%= link_to '最新の投稿', posts_path(latest: "true"), class: "button is-link" %>
+  <%= link_to '口コミの多い投稿', posts_path(reviews_count: "true"), class: "button is-info" %>
+</div>
 <section class="section mt-6">
   <div class="container">
     <div class="columns is-multiline">
@@ -16,7 +20,7 @@
                 <%= post.name %>
               </div>
               <div class="card-header-icon">
-                <% if current_user.already_favorited?(post) %>
+                <% if @favorited_post_ids.include?(post.id) %>
                   <%= link_to post_favorites_path(post), method: :delete, class: "mr-2" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -25,7 +29,7 @@
                     <i class="far fa-heart"></i>
                   <% end %>
                 <% end %>
-                <span><%= post.favorites.count %></span>
+                <span><%= post.favorites_count %></span>
               </div>
             </header>
             <div class="card-content">
@@ -35,10 +39,10 @@
                   <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display ml-3 pt-2">
-                  <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
+                  <%= post.avg_score %>点（<%= post.reviews_count %>件のレビュー）
                 </div>
               </div>
-              <div class="post-address mb-3 has-text-weight-bold"> 
+              <div class="post-address mb-3 has-text-weight-bold">
                 住所｜<%= post.address %>
               </div>
               <% if post.postimage? %>
@@ -46,9 +50,9 @@
               <% else %>
                 <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
               <% end %>
-            <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
-              投稿日｜<%= post.created_at.to_s(:datetime_jp)%>
-            </div>
+              <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
+                投稿日｜<%= post.created_at.to_s(:datetime_jp)%>
+              </div>
             </div>
             <footer class="card-footer">
               <%= link_to 'この投稿の詳細へ', post_path(post), class: "card-footer-item" %>

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.eager_load(:reviews)
     @user = current_user
-    @post = Post.last
+    @post = Post.eager_load(:reviews).last
   end
 
   def show

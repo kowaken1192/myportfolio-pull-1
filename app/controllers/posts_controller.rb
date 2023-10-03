@@ -1,11 +1,22 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.with_counts
+  
+    if params[:sort_by] == 'avg_score_and_review_count'
+      @posts = @posts.avg_score_and_review_count.preload(:reviews)
+    elsif params[:latest]
+      @posts = @posts.latest.preload(:reviews)
+    elsif params[:reviews_count]
+      @posts = @posts.reviews_count.preload(:reviews)
+    else
+      @posts = @posts.preload(:reviews)
+    end
+    @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
-
+  
   def show
     @post = Post.find(params[:id])
-    @reviews = @post.reviews
+    @reviews = @post.reviews.eager_load(:user)
   end
   
   def new
