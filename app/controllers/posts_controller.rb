@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.with_counts
-  
+    @posts = Post.with_counts.with_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
-      @posts = @posts.avg_score_and_review_count.preload(:reviews)
+      @posts = @posts.avg_score_and_review_count
     elsif params[:latest]
-      @posts = @posts.latest.preload(:reviews)
+      @posts = @posts.latest
     elsif params[:reviews_count]
-      @posts = @posts.reviews_count.preload(:reviews)
+      @posts = @posts.reviews_count
     else
-      @posts = @posts.preload(:reviews)
+      @posts = @posts.all
     end
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
@@ -72,9 +71,8 @@ class PostsController < ApplicationController
   
   def related
     @post = Post.find(params[:id])
-    @related_posts = Post.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
+    @related_posts = Post.with_counts.with_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
   end
-
   private
 
   def post_params

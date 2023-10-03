@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   belongs_to :user
   mount_uploader :postimage, AvatarUploader
   scope :latest, -> { order(created_at: :desc) }
+  
   scope :with_counts, -> {
     select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count')
     .left_joins(:reviews, :favorites)
@@ -24,7 +25,12 @@ class Post < ApplicationRecord
     .group('posts.id')
     .order('average_score DESC, review_count DESC')
   }
-  
+  scope :with_avg_score, -> {
+    select('posts.*, AVG(reviews.score) as average_score')
+    .left_joins(:reviews)
+    .group('posts.id')
+  }
+    
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]
   end
@@ -34,18 +40,10 @@ class Post < ApplicationRecord
   end
 
   def avg_score
-    unless self.reviews.empty?
-      reviews.average(:score).round(1).to_f
-    else
-      0.0
-    end
+    self[:average_score] || reviews.empty? ? 0.0 : reviews.average(:score).round(1).to_f
   end
 
   def review_score_percentage
-    unless self.reviews.empty?
-      reviews.average(:score).round(1).to_f*100/5
-    else
-      0.0
-    end
+    self.avg_score * 100 / 5
   end
 end
