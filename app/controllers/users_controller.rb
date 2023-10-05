@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @posts = current_user.posts.eager_load(:reviews)
+    @posts = current_user.posts.with_counts.with_avg_score
     @user = current_user
     @post = Post.eager_load(:reviews).last
+    @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
   def show
-    @user = User.find(params[:id])
-    @posts = @user.posts
+    @user = current_user
+    @posts = current_user.posts.with_counts.with_avg_score
+    @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
   def edit
@@ -25,8 +27,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
-    @favorite_posts = Post.find(favorites)
-  end
-end
+    @favorited_post_ids = current_user.favorites.pluck(:post_id)
+    @favorite_posts = Post.with_counts.with_avg_score.where(id: @favorited_post_ids)
+  end  
+end  

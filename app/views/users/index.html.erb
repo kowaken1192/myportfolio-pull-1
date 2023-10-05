@@ -19,15 +19,15 @@
           <% else %>
             <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'large-icon' %>
           <% end %>
-          <button>
-            <%= link_to 'プロフィール編集', edit_user_path(current_user) ,class: 'edit-link'%>
-          </button>
         </div>
       </div>
       <div class="user-name has-text-centered">
         <%= @user.first_name %> <%= @user.last_name %>
       </div>
-      <div class="user-profile-title is-size-5">あなたのプロフィール</div>
+      <div class="user-button pt-3">
+        <%= link_to 'プロフィール編集', edit_user_path(current_user), class: "button is-link is-rounded"%>
+      </div>
+      <div class="user-profile-title is-size-5 pt-5">あなたのプロフィール</div>
       <div class="user-profile-display box">
         <p class="is-size-6"><%= @user.profile %></p>
       </div>
@@ -42,7 +42,7 @@
                   <%= post.name %>
                 </div>
                 <div class="card-header-icon">
-                  <% if current_user.already_favorited?(post) %>
+                  <% if @favorited_post_ids.include?(post.id) %>
                     <%= link_to post_favorites_path(post), method: :delete, class: "mr-2" do %>
                       <i class="fas fa-heart"></i>
                     <% end %>
@@ -51,7 +51,7 @@
                       <i class="far fa-heart"></i>
                     <% end %>
                   <% end %>
-                  <span><%= post.favorites.count %></span>
+                  <span><%= post.favorites_count %></span>
                 </div>
               </header>
               <div class="card-content">
@@ -61,7 +61,7 @@
                     <div class="star-rating-back">★★★★★</div>
                   </div>
                   <div class="average-score-display ml-3 pt-2">
-                    <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
+                    <%= post.avg_score %>点（<%= post.reviews_count %>件のレビュー）
                   </div>
                 </div>
                 <div class="post-address mb-3 has-text-weight-bold">

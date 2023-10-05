@@ -13,6 +13,13 @@ class Post < ApplicationRecord
     .left_joins(:reviews, :favorites)
     .group('posts.id')
   }
+  
+  scope :with_avg_score, -> {
+    select('posts.*, AVG(reviews.score) as average_score')
+    .left_joins(:reviews)
+    .group('posts.id')
+  }
+  
   scope :reviews_count, -> { 
     left_joins(:reviews)
     .group(:id)
@@ -24,12 +31,6 @@ class Post < ApplicationRecord
     .group('posts.id')
     .order('average_score DESC, review_count DESC')
   }
-  scope :with_avg_score, -> {
-    select('posts.*, AVG(reviews.score) as average_score')
-    .left_joins(:reviews)
-    .group('posts.id')
-  }
-    
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]
   end

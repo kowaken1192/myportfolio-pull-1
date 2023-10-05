@@ -11,7 +11,7 @@
                 <%= post.name %>
               </div>
               <div class="card-header-icon">
-                <% if current_user.already_favorited?(post) %>
+                <% if @favorited_post_ids.include?(post.id) %>
                   <%= link_to post_favorites_path(post), method: :delete, class: "mr-2" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -20,7 +20,7 @@
                     <i class="far fa-heart"></i>
                   <% end %>
                 <% end %>
-                <span><%= post.favorites.count %></span>
+                <span><%= post.favorites_count %></span>
               </div>
             </header>
             <div class="card-content">
@@ -30,7 +30,7 @@
                   <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display ml-3 pt-2">
-                  <%= post.avg_score %>点（<%= post.reviews.count %>件のレビュー）
+                  <%= post.avg_score %>点（<%= post.reviews_count %>件のレビュー）
                 </div>
               </div>
               <div class="post-address mb-3 has-text-weight-bold"> 
