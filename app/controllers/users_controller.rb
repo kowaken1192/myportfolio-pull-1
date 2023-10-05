@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def index
     @posts = current_user.posts.with_counts.with_avg_score
     @user = current_user
-    @post = Post.eager_load(:reviews).last
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
