@@ -4,3 +4,4 @@
 //= link posts.js
 //= link map.js
 //= link users.js
+//= link search_post.js

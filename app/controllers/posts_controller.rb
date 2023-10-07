@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
+    @post = Post.with_counts.with_avg_score.find(params[:id])
     @reviews = @post.reviews.eager_load(:user)
   end
   

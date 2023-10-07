@@ -66,3 +66,27 @@
     margin-right: 0;
   }
 }
+
+.geolonia-svg-map
+{
+  width: 100%;
+}
+
+.geolonia-svg-map .prefecture
+{
+  fill: #f7f7f7;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.geolonia-svg-map .boundary-line
+{
+  stroke: #999999;
+}
+
+#map {
+  width: 500px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}

@@ -28,7 +28,7 @@ class Post < ApplicationRecord
     .group('posts.id')
     .order('average_score DESC, review_count DESC')
   }
-  
+
   def self.ransackable_attributes(auth_object = nil)
     ["detail", "name", "address","country"]
   end
@@ -37,7 +37,8 @@ class Post < ApplicationRecord
     %w(reviews)
   end
 
-  def avg_score    if self[:average_score].present?
+  def avg_score    
+    if self[:average_score].present?
       self[:average_score].to_f
     else
       reviews.empty? ? 0.0 : reviews.average(:score).round(1).to_f
