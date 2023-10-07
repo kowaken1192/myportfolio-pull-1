@@ -1,6 +1,6 @@
 async function loadMap() {
   const map = "/assets/map-mobile.svg";
-  const container = document.querySelector('#map');
+  const container = document.querySelector('#search_map');
 
   try {
     const res = await fetch(map);
@@ -28,7 +28,7 @@ async function loadMap() {
       });
     }
   } catch (error) {
-    console.error("Error loading map:", error);
+    console.error("Error loading search_map:", error);
   }
 }
 
