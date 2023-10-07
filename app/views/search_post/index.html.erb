@@ -3,17 +3,6 @@
     <div id="map"></div>
   </div>
 </div>
-<%= search_form_for @q, url: search_post_show_path do |f| %>
-  <p class="has-text-centered is-size-2">興味のあるキーワードから検索する</p>
-  <div class="columns is-mobile">
-    <div class="column is-10">
-      <%= f.search_field :name_or_detail_cont, class: 'input is-medium', placeholder: 'カフェ巡り、京都見物、渋谷 etc..' %>
-    </div>
-    <div class="column is-2">
-      <%= f.submit "検索", class: "button is-primary is-medium is-fullwidth" %>
-    </div>
-  </div>
-<% end %>
 <div class="title">
   <p class="title custom-title">人気エリア（日本）から検索する</p>
   <p class="subtitle custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</p>
