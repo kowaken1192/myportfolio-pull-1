@@ -1,8 +1,4 @@
-<div class="columns is-centered">
-  <div class="column is-narrow">
-    <div id="search_map"></div>
-  </div>
-</div>
+<div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
 <div class="title">
   <p class="title custom-title">人気エリア（日本）から検索する</p>
   <p class="subtitle custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</p>
@@ -88,7 +84,7 @@
   </div>
 </div>
 <%= search_form_for @q, url: search_post_show_path do |f| %>
-  <p class="has-text-centered is-size-5">その他興味のある国から検索したい方はこちらのフォームから検索してください</p>
+  <p class="has-text-centered is-size-5">その他興味の���る国から検索したい方はこちらのフォームから検索してください</p>
   <div class="columns is-mobile">
     <div class="column is-10">
       <%= f.search_field :country_cont, class: 'input is-medium', placeholder: '日本、韓国、中国、イタリア　etc..' %>

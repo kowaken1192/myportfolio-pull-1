@@ -1,5 +1,5 @@
 async function loadMap() {
-  const map = "/assets/map-mobile.svg";
+  const map = document.querySelector('#search_map').getAttribute('data-map-path');
   const container = document.querySelector('#search_map');
 
   try {
