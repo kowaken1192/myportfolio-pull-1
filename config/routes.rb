@@ -20,9 +20,9 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-
   get 'search_post/index'
   get 'search_post/show'
+  get 'search_post/count_by_prefecture', to: 'search_post#count_by_prefecture'
 
   resources :posts do
     member do

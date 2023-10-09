@@ -8,4 +8,9 @@ class SearchPostController < ApplicationController
     @q = Post.ransack(params[:q])
     @results = @q.result(distinct: true).includes(:reviews).order(created_at: :desc)
   end
+
+  def count_by_prefecture
+    counts = Post.group(:prefecture).count
+    render json: counts
+  end
 end
