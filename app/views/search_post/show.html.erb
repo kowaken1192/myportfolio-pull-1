@@ -42,8 +42,8 @@
               <div class="post-address mb-3 has-text-weight-bold">
                 住所｜<%= result.address %>
               </div>
-              <% if result.avatar? %>
-                <%= image_tag result.avatar.url, class: 'image' %>
+              <% if result.postimage? %>
+                <%= image_tag result.postimage.url, class: 'image' %>
               <% else %>
                 <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
               <% end %>

@@ -21,10 +21,17 @@ async function loadMap() {
           event.currentTarget.style.fill = "";
         });
 
-        // マウスクリック時のイベント
-        pref.addEventListener('click', (event) => {
-          location.href = `https://example.com/${event.currentTarget.dataset.code}`; // 例（大阪）: https://example.com/27
-        });
+        // クリックイベントの追加
+        const titleElement = pref.querySelector('title');
+        if (titleElement) {
+          const prefectureName = titleElement.textContent.split(' / ')[0]; // "群馬 / Gunma"のような形式から都道府県名を取得
+          pref.dataset.pref = prefectureName;
+
+          // ここでクリックイベントにリダイレクトの処理を追加することもできます
+          pref.addEventListener('click', () => {
+            location.href = `/search_post/show?q[address_cont]=${encodeURIComponent(prefectureName)}`;
+          });
+        }
       });
     }
   } catch (error) {
