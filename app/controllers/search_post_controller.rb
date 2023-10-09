@@ -9,4 +9,3 @@ class SearchPostController < ApplicationController
     @results = @q.result(distinct: true).includes(:reviews).order(created_at: :desc)
   end
 end
-

@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="box">
   <h1 class="title">アカウント</h1>
   <div class="field">

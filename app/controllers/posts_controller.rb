@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  
   def index
     @posts = Post.with_counts.with_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
