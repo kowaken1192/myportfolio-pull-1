@@ -5,6 +5,7 @@
   </div>
 <% end %>
 <div class="text-button pt-6">
+  <%= link_to "投稿一覧", posts_path, class: "button is-link is-rounded" %>
   <%= link_to "人気投稿", posts_path(sort_by: 'avg_score_and_review_count'), class: "button is-link is-rounded" %>
   <%= link_to '最新の投稿', posts_path(latest: "true"), class: "button is-link is-rounded" %>
   <%= link_to '口コミの多い投稿', posts_path(reviews_count: "true"), class: "button is-link is-rounded" %>
