@@ -18,7 +18,7 @@ async function loadMap() {
       prefs.forEach((pref) => {
         // マウスオーバーで色を変える
         pref.addEventListener('mouseover', (event) => {
-          event.currentTarget.style.fill = "#ff0000";
+          event.currentTarget.style.fill = "black";
         });
 
         // マウスが離れたら色をもとに戻す
@@ -48,10 +48,10 @@ async function loadMap() {
 
 function getColor(prefName, countsData) {
   const count = countsData[prefName] || 0;
-  if (count > 10) return 'darkred';
-  if (count > 5) return 'red';
+  if (count >= 10) return 'red';  
+  if (count >= 5) return 'blue';
   if (count > 0) return 'pink';
-  return '#EEEEEE';  // デフォルトの色
+  return 'white';  // デフォルトの色
 }
 
 // 関数を呼び出して地図を読み込む
