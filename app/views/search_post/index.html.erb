@@ -1,7 +1,34 @@
-<div class="columns is-centered">
-  <div class="column is-narrow">
+<div class="title mt-2">
+  <p class="title custom-title">人気の都道府県を検索する</p>
+  <p class="subtitle custom-subtitle">(地図にある都道府県をクリックすると検索結果が表示されます)</p>
+</div>
+<div class="columns box">
+  <div class="section column is-half">
     <div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
   </div>
+  <div class="section column is-half">
+    <div class="box">
+      <%= search_form_for @q do |f| %>
+        <p class="has-text-centered is-size-5">直接フォームから検索したい方はこちら</p>
+        <br>
+        <div class="field">
+          <%= f.search_field :address_cont, class: 'input is-large', placeholder: '埼玉県、秋田県、 etc..' %>
+        </div>
+        <div class="field">
+          <%= f.submit "検索", class: "button is-primary is-large is-fullwidth" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="color box" style="bottom: 15%; right: 10%; font-size: 0.8em; max-width: 60%;">
+      <ul>
+        <li><span style="color: red;">赤色</span>: 投稿数が10個以上の場合</li>
+        <li><span style="color: blue;">青色</span>: 投稿数が5個以上場合</li>
+        <li><span style="color: pink;">ピンク色</span>: 投稿数が5未満の場合</li>
+        <li><span style="color: black;">白色</span>: 投稿数が0個の場合</li>
+      </ul>
+    </div>
+  </div>
+</div>
 </div>
 <div class="title">
   <p class="title custom-title">人気エリア（日本）から検索する</p>
@@ -49,18 +76,6 @@
     <%= link_to image_tag("https://www.rurubu.travel/wp-content/uploads/2022/06/DISNEYLAND.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "千葉県" }) %>
   </div>
 </div>
-<%= search_form_for @q, url: search_post_show_path do |f| %>
-  <p class="has-text-centered is-size-5">その他興味のある都道府県から検索したい方はこちらのフォームから検索してください</p>
-  <br>
-  <div class="columns is-mobile">
-    <div class="column is-10">
-      <%= f.search_field :address_cont, class: 'input is-medium', placeholder: '埼玉県、秋田県、 etc..' %>
-    </div>
-    <div class="column is-2">
-      <%= f.submit "検索", class: "button is-primary is-medium is-fullwidth" %>
-    </div>
-  </div>
-<% end %>
 <div class="title">
   <p class="title custom-title">人気エリア（海外）から検索する</p>
   <p class="subtitle custom-subtitle">(画像か国名をクリックすると検索結果が表示されます)</p>
@@ -73,21 +88,21 @@
   </div>
   <div class="item">
     <%= link_to 'オーストラリア', search_post_show_path(q: { country_cont: "オーストラリア" }), class: "item-style" %>
-    <p>ワーホリの楽園。シドニーオペラハウス、グレートバリアリーフ、アボリジニの文化、メルボルンのカフェ文化。多彩な観光地が魅力溢れる経験を約束</p>
+    <p>ワーホリの楽園。シドニーオペラハウス、グ��ートバリアリーフ、アボリジニの文化、メルボルンのカフェ文化。多彩な観光地が魅力溢れる経験を約束</p>
     <%= link_to image_tag("https://www.ryugakugo.com/img/australia-study-info/i15.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "オーストラリア" }) %>
   </div>
   <div class="item">
-    <%= link_to 'スペイン', search_post_show_path(q: { country_cont: "スペイン" }), class: "item-style" %>
+    <%= link_to 'スペ���ン', search_post_show_path(q: { country_cont: "スペイン" }), class: "item-style" %>
     <p>陽気なダンス、地中海の美食、古代の城や美しいビーチ、そしてユニークな伝統やフェスティバルが絶妙に組み合わさっています。一度行けば忘れられない国</p>
     <%= link_to image_tag("https://cdn2.veltra.com/ptr/20190724070532_64517955_10532_0.jpg?imwidth=800&impolicy=custom", size: "500x500"), search_post_show_path(q: { address_cont: "スペイン" }) %>
   </div>
   <div class="item">
     <%= link_to 'フランス', search_post_show_path(q: { country_cont: "フランス" }), class: "item-style" %>
-    <p>エッフェル塔の風景、美食とワイン、ルヴル美術館の芸術、プロヴァンスのラベンダー畑、ロマンチックなセーヌ川沿いの散歩が魅力的な国</p>
+    <p>エッフェル塔の風景、美食とワイン、���ヴ���美術館の芸術、プロヴァンスのラベンダー畑、ロマンチックなセーヌ川沿いの散歩が魅力的な国</p>
     <%= link_to image_tag("https://tabi-pocket-image.tabikobo.com/wp-content/uploads/2022/07/06172655/7b1040d027074da651d0af2f21648ca1.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "フランス" }) %>
   </div>
 </div>
-<%= search_form_for @q, url: search_post_show_path do |f| %>
+<%= search_form_for @q do |f| %>
   <p class="has-text-centered is-size-5">その他興味のある国から検索したい方はこちらのフォームから検索してください</p>
   <div class="columns is-mobile">
     <div class="column is-10">

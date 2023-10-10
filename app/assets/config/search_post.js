@@ -51,8 +51,7 @@ function getColor(prefName, countsData) {
   if (count >= 10) return 'red';  
   if (count >= 5) return 'blue';
   if (count > 0) return 'pink';
-  return 'white';  // デフォルトの色
+  return 'white';  
 }
-
 // 関数を呼び出して地図を読み込む
 loadMap();
