@@ -102,16 +102,17 @@
 }
 
 .columns {
-  flex-wrap: wrap;
+  display: flex;
+}
+
+.column.is-half {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 @media (min-width: 375px) and (max-width: 834px) {
-  .post_container .card {
-      font-size: 0.8rem; /* テキストのサイズを小さくする */
-      max-width: 500px;  /* カードの最大幅を制限する */
-  }
-  .post_container .image {
-      max-width: 500px; /* 画像の最大幅を制限する */
-      height: 150px;     /* 高さを自動にする */
-  }
+  .column.is-half {
+  flex: 0 0 100%;
+  max-width: 50%;
+}
 }

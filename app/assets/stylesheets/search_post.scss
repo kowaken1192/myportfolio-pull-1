@@ -52,20 +52,6 @@
 .result {
   text-align: left;
 }
-  
-@media (max-width: 768px) {
-  .item {
-    flex-basis: calc(33.333% - 20px); 
-  }
-}
-  
-@media (max-width: 375px) {
-  .item {
-    flex-basis: 100%; 
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 
 #search_map {
   width: 500px;
@@ -85,15 +71,6 @@
     flex-direction: row; 
     justify-content: space-between; 
     align-items: flex-start;
-  }
-
-  .section.column.is-half .color.box {
-    margin-left: 10px; 
-    flex: 0 0 auto; 
-  }
-
-  .section.column.is-half form {
-    flex: 1;
   }
 
   #search_map{
