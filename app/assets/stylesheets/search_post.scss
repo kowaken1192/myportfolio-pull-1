@@ -78,3 +78,21 @@
   font-size: 0.8em;
   max-width: 60%;
 }
+
+@media (min-width: 375px) and (max-width: 834px) {
+  .section.column.is-half .box {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-start;
+  }
+
+  .section.column.is-half .color.box {
+    margin-left: 10px; 
+    flex: 0 0 auto; 
+  }
+
+  .section.column.is-half form {
+    flex: 1;
+  }
+}
