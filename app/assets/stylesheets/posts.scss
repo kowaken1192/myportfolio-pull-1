@@ -110,9 +110,28 @@
   max-width: 50%;
 }
 
-@media (min-width: 375px) and (max-width: 834px) {
+@media (min-width: 360px) and (max-width: 834px) {
   .column.is-half {
   flex: 0 0 100%;
   max-width: 50%;
 }
+
+  .card {
+    max-width: 90%;  /* カードの最大幅を制限する */
+    font-size: 0.1rem;  /* フォントサイズを小さくする */
+  }
+
+  .star-rating {
+    width: 2em;  /* 星評価の幅を小さくする */
+    font-size: 10px;  /* 星評価のフォントサイズを小さくする */
+  }
+
+  .average-score-display {
+    font-size: 10px;  /* 平均スコアのフォントサイズを小さくする */
+  }
+
+  .image {
+    max-width: 90%;  /* 画像の最大幅を制限する */
+    height: auto;  /* 高さを自動にする */
+  }
 }

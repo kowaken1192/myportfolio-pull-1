@@ -4,23 +4,22 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-<section class="user-section">
+<section class="section">
   <div class="user-container">
-    <div class="user-columns is-multiline">
-      <div class="background-image">
-        <% if @user.background_image? %>
-          <%= image_tag @user.background_image.url, class: 'background-class' %>
+    <div class="background-image">
+      <% if @user.background_image? %>
+        <%= image_tag @user.background_image.url, class: 'background-class' %>
+      <% else %>
+        <%= image_tag 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVVrO//Ct2NAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=', class: 'background-class' %>
+      <% end %>
+      <div class="sample has-text-centered">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, class: 'large-icon' %>
         <% else %>
-          <%= image_tag 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVVrO//Ct2NAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=', class: 'background-class' %>
+          <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'large-icon' %>
         <% end %>
-        <div class="sample has-text-centered">
-          <% if @user.image? %>
-            <%= image_tag @user.image.url, class: 'large-icon' %>
-          <% else %>
-            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'large-icon' %>
-          <% end %>
-        </div>
       </div>
+    </div>
       <div class="user-name has-text-centered">
         <%= @user.first_name %> <%= @user.last_name %>
       </div>
