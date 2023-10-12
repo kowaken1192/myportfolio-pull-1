@@ -101,37 +101,36 @@
   margin: 0 40px; 
 }
 
-.columns {
-  display: flex;
-}
+
 
 .column.is-half {
   flex: 0 0 50%;
-  max-width: 50%;
+
 }
 
-@media (min-width: 360px) and (max-width: 834px) {
+@media (max-width: 834px) {
   .column.is-half {
-  flex: 0 0 100%;
-  max-width: 50%;
-}
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 
   .card {
-    max-width: 90%;  /* カードの最大幅を制限する */
-    font-size: 1rem;  /* フォントサイズを小さくする */
+    max-width: 90%;  // カードの最大幅を制限する
+    margin: 0 auto;  // カードを中央寄せにする
+    font-size: 0.9rem;  // フォントサイズを小さくする
   }
 
   .star-rating {
-    width: 2em;  /* 星評価の幅を小さくする */
-    font-size: 10px;  /* 星評価のフォントサイズを小さくする */
+    width: 4em;  // 星評価の幅を小さくする
+    font-size: 20px;  // 星評価のフォントサイズを小さくする
   }
 
   .average-score-display {
-    font-size: 10px;  /* 平均スコアのフォントサイズを小さくする */
+    font-size: 14px;  // 平均スコアのフォントサイズを小さくする
   }
 
   .image {
-    max-width: 90%;  /* 画像の最大幅を制限する */
-    height: auto;  /* 高さを自動にする */
+    max-width: 90%;  // 画像の最大幅を制限する
+    height: auto;  // 高さを自動にする
   }
 }

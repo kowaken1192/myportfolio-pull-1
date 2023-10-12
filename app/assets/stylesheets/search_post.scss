@@ -66,15 +66,24 @@
 }
 
 @media (min-width: 375px) and (max-width: 834px) {
-  .section.column.is-half .box {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: flex-start;
+  #search_map {
+      width: 80%;    /* 地図の幅を小さく調整 */
+      margin: 0 auto;  /* 中央に配置 */
   }
 
-  #search_map{
-    width: 300px;
-    height: auto;
+  .box {
+      padding: 10px;   /* ボックスの内側の余白を調整 */
+  }
+
+  .columns {
+      flex-direction: column;  /* 縦に並べる */
+  }
+
+  .column.is-half {
+      width: 100%;    /* カラムの幅を100%に変更して、一つのカラムが全幅をとるように */
+  }
+
+  .title.custom-title, .subtitle.custom-subtitle {
+      text-align: center;   /* タイトルとサブタイトルを中央寄せに */
   }
 }
