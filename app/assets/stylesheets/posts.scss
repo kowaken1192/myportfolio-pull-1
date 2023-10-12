@@ -109,10 +109,9 @@
   .post_container .card {
       font-size: 0.8rem; /* テキストのサイズを小さくする */
       max-width: 500px;  /* カードの最大幅を制限する */
-      margin: 0 auto;    /* 中央寄せにする */
   }
   .post_container .image {
-      max-width: 400px; /* 画像の最大幅を制限する */
+      max-width: 500px; /* 画像の最大幅を制限する */
       height: 150px;     /* 高さを自動にする */
   }
 }
