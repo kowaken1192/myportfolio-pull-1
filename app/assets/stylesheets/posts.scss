@@ -15,6 +15,7 @@
   overflow: hidden;
   color: #ffcc33;
 }
+
 .star-rating-back {
   color: #ccc;
 }
@@ -27,8 +28,8 @@
   font-size: 16px;
 }
 
-.form-field input[type="text"], 
-.form-field textarea, 
+.form-field input[type="text"],
+.form-field textarea,
 .form-field input[type="file"] {
   width: 100%;
   box-sizing: border-box;
@@ -37,38 +38,38 @@
 .review-section {
   margin-top: 40px;
   padding: 20px;
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
 }
 
 .reviews-list .review {
   padding: 15px;
   margin-top: 10px;
-  border: 1px solid #e0e0e0; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  background-color: #ffffff; 
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
 .review span {
-  display: block; 
+  display: block;
   margin-bottom: 5px;
 }
 
 .review span.review-content {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
-.review > span:nth-child(1) {
-  font-weight: bold; 
-  font-size: 1.1em; 
+.review>span:nth-child(1) {
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
-.review > span:nth-child(2) {
-  color: #0077cc; 
+.review>span:nth-child(2) {
+  color: #0077cc;
 }
 
 .rounded-circle.small-icon {
-  border-radius: 100%;      
-  width: 100px;            
+  border-radius: 100%;
+  width: 100px;
   height: 100px;
 }
 
@@ -77,10 +78,10 @@
 }
 
 .input {
-  width: 100%; 
+  width: 100%;
 }
 
-.postimage-class{
+.postimage-class {
   width: 100%;
   height: 400px;
 }
@@ -97,40 +98,46 @@
 }
 
 .text-button .button {
-  font-size: 24px; 
-  margin: 0 40px; 
+  font-size: 24px;
+  margin: 0 40px;
 }
 
-
+.columns {
+  display: flex;
+}
 
 .column.is-half {
   flex: 0 0 50%;
-
 }
 
-@media (max-width: 834px) {
+@media (min-width: 360px) and (max-width: 414px) {
   .column.is-half {
     flex: 0 0 100%;
     max-width: 100%;
   }
 
   .card {
-    max-width: 90%;  // カードの最大幅を制限する
-    margin: 0 auto;  // カードを中央寄せにする
-    font-size: 0.9rem;  // フォントサイズを小さくする
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    height: auto;
+  }
+
+  .card-content {
+    padding: 0.5rem!important;
   }
 
   .star-rating {
-    width: 4em;  // 星評価の幅を小さくする
-    font-size: 20px;  // 星評価のフォントサイズを小さくする
+    width: 5em;
+    font-size: 21px;
   }
 
   .average-score-display {
-    font-size: 14px;  // 平均スコアのフォントサイズを小さくする
+    font-size: 14px;
   }
 
   .image {
-    max-width: 90%;  // 画像の最大幅を制限する
-    height: auto;  // 高さを自動にする
+    max-width: 100%;
+
   }
 }
