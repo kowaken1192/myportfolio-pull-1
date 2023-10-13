@@ -106,12 +106,19 @@
   flex: 0 0 50%;
 }
 
+.columns {
+  display: flex;
+}
 @media (min-width: 360px) and (max-width: 414px) {
   .column.is-half {
     flex: 0 0 100%;
     max-width: 100%;
   }
-
+  
+  .columns {
+    display: block;
+  }
+  
   .card {
     max-width: 90%;
     margin: 0 auto;
@@ -135,5 +142,13 @@
   .image {
     max-width: 100%;
 
+  }
+}
+
+@media (min-width: 415px) {
+  .column.is-half {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
   }
 }
