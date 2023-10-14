@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_01_074240) do
+ActiveRecord::Schema.define(version: 2023_10_14_110229) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_10_01_074240) do
     t.text "profile"
     t.string "image"
     t.string "background_image"
+    t.boolean "is_valid", default: true, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

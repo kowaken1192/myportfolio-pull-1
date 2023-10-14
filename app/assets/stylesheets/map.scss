@@ -14,8 +14,21 @@
   font-style: italic;
 }
 
-@media (min-width: 375px) and (max-width: 834px) {
+@media (min-width: 360px) and (max-width: 599px) {
  #map {
-   width: 500px;
+   width: 400px;
+   height: 400px;
  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  #map {
+    width: 600px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1025px){ 
+  #map {
+    width: 800px;
+  }
 }

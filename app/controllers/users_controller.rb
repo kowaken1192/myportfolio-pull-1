@@ -28,5 +28,21 @@ class UsersController < ApplicationController
   def favorites
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
     @favorite_posts = Post.with_counts.with_avg_score.where(id: @favorited_post_ids)
+  end
+  
+  def unsubscribe
+    @user = User.find_by(email: params[:email])
+  end
+  
+  def withdraw
+    @user = User.find(params[:id])
+    # ユーザーの退会処理
+    @user.update(is_valid: false)
+    
+    # ユーザーをログアウト
+    sign_out @user
+    
+    # トップページやログインページへリダイレクト
+    redirect_to root_path, notice: '退会処理が完了しました。'
   end  
 end  

@@ -20,5 +20,5 @@ class User < ApplicationRecord
       user.first_name = 'Guest'
       user.last_name = 'User'  
     end
-  end  
+  end
 end

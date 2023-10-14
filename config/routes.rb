@@ -3,11 +3,14 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
     get '/signin', to: 'session#new', as: 'signin'
     post '/signin', to: 'session#create'
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
+  
+  get 'unsubscribe/:email' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:email' => 'users#withdraw', as: 'withdraw_user'
+  put 'withdraw/:email' => 'users#withdraw'
 
   get 'profile/index'
 
@@ -15,11 +18,12 @@ Rails.application.routes.draw do
 
   resources :personal, only: [:show, :edit, :update]
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:index, :show, :edit, :update,:unsubscribe,:withdraw] do    
     member do
       get :favorites
     end
   end
+
   get 'search_post/index'
   get 'search_post/show'
   get 'search_post/count_by_prefecture', to: 'search_post#count_by_prefecture'

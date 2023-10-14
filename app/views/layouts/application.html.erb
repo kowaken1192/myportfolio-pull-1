@@ -37,8 +37,8 @@
                   <%= link_to "お問い合わせ", "#", class: "navbar-item" %>
                   <%= link_to "ユーザー情報", personal_path(current_user), class: "navbar-item" %>
                   <hr class="navbar-divider">
-                  <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-item" %>
-                  <%= link_to "退会", "#", class: "navbar-item" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+                  <%= link_to "退会", confirm_unsubscribe_path(email: current_user.email), class: "navbar-item" %>
                 </div>
               </div>
             </div>
