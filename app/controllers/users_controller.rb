@@ -38,16 +38,11 @@ class UsersController < ApplicationController
   def withdraw
     @user = User.find(params[:id])
     if @user
-      # ユーザーの退会処理
-      @user.update(is_valid: false)
-      
-      # ユーザーをログアウト
-      sign_out @user
-      
-      # トップページやログインページへリダイレクト
+      @user.update(is_valid: false)      
+      reset_session     
       redirect_to root_path, notice: '退会処理が完了しました。'
     else
-      redirect_to root_path, alert: 'ユーザーが見つかりませんでした。'
+      redirect_to root_path, notice: 'ユーザーが見つかりませんでした。'
     end
   end
 
