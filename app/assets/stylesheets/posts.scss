@@ -143,13 +143,8 @@
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
-  .column.is-half {
+  .columns.is-multiline .column.is-half {
     flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .columns {
-    display: flex;
   }
 
   .column {
