@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    super && is_valid
+    super && read_attribute(:is_valid)
   end
 
   def inactive_message
