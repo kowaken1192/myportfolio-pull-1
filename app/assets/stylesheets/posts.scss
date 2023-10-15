@@ -109,25 +109,22 @@
 .columns {
   display: flex;
 }
+
 @media (min-width: 360px) and (max-width: 599px) {
   .column.is-half {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  
+
   .columns {
     display: block;
   }
-  
+
   .card {
     max-width: 90%;
     margin: 0 auto;
     font-size: 0.8rem;
     height: auto;
-  }
-
-  .card-content {
-    padding: 0.5rem!important;
   }
 
   .star-rating {
@@ -153,5 +150,19 @@
 
   .columns {
     display: flex;
+  }
+
+  .column {
+    padding: 0rem !important;
+  }
+
+  .card .card-content {
+    padding: 1rem;
+  }
+
+  .content.average-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -77,17 +77,17 @@
     margin-right: 0;
   }
 }
-@media (min-width: 375px) and (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 768px) {
   #search_map {
-      width: 80%;    /* 地図の幅を小さく調整 */
-      margin: 0 auto;  /* 中央に配置 */
+      width: 80%;    
+      margin: 0 auto;  
   }
 
   .box {
-      padding: 10px;   /* ボックスの内側の余白を調整 */
+      padding: 10px;   
   }
-
+  
   .title.custom-title, .subtitle.custom-subtitle {
-      text-align: center;   /* タイトルとサブタイトルを中央寄せに */
+      text-align: center;   
   }
 }
