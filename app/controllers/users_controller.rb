@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_normal_user, only: :withdraw
   def index
     @posts = current_user.posts.with_counts.with_avg_score
     @user = current_user
@@ -31,18 +32,28 @@ class UsersController < ApplicationController
   end
   
   def unsubscribe
-    @user = User.find_by(email: params[:email])
+    @user = User.find(params[:id])
   end
   
   def withdraw
     @user = User.find(params[:id])
-    # ユーザーの退会処理
-    @user.update(is_valid: false)
-    
-    # ユーザーをログアウト
-    sign_out @user
-    
-    # トップページやログインページへリダイレクト
-    redirect_to root_path, notice: '退会処理が完了しました。'
-  end  
+    if @user
+      # ユーザーの退会処理
+      @user.update(is_valid: false)
+      
+      # ユーザーをログアウト
+      sign_out @user
+      
+      # トップページやログインページへリダイレクト
+      redirect_to root_path, notice: '退会処理が完了しました。'
+    else
+      redirect_to root_path, alert: 'ユーザーが見つかりませんでした。'
+    end
+  end
+
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to confirm_unsubscribe_path, notice: 'ゲストユーザーは削除できません。'
+    end
+  end
 end  

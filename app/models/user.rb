@@ -19,6 +19,15 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.first_name = 'Guest'
       user.last_name = 'User'  
+      user.is_valid = true
     end
+  end
+
+  def active_for_authentication?
+    super && is_valid
+  end
+
+  def inactive_message
+    is_valid ? super : :account_not_valid
   end
 end

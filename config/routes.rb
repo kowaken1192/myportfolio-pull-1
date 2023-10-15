@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   root 'profile#index'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   devise_scope :user do
     get '/signin', to: 'session#new', as: 'signin'
     post '/signin', to: 'session#create'
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   
-  get 'unsubscribe/:email' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw/:email' => 'users#withdraw', as: 'withdraw_user'
-  put 'withdraw/:email' => 'users#withdraw'
+  get 'unsubscribe/:id' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw' => 'users#withdraw', as: 'withdraw_user'
+  put ':id/withdraw' => 'users#withdraw'
 
   get 'profile/index'
 

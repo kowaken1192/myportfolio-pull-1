@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <section class="section">
   <div class="has-text-centered">
     <h2 class="title is-2">退会お手続き</h2>
@@ -9,8 +15,8 @@
       </p>
     </div>
     <div class="buttons is-centered">
-      <%= link_to "退会する", withdraw_user_path(id: current_user.id, email: current_user.email), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "button is-danger" %>
-      <%= link_to "退会しない", user_path(current_user), class: "button is-light" %>
+      <%= link_to "退会する", withdraw_user_path(current_user), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "button is-danger" %>
+      <%= link_to "退会しない", confirm_unsubscribe_path(current_user), class: "button is-light" %>
     </div>
   </div>
 </section>

@@ -12,11 +12,12 @@ class Users::SessionsController < Devise::SessionsController
 
   def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
-    if @user && @user.valid_password?(params[:user][:password]) && !@user.is_valid
-      redirect_to new_user_session_path
+    # ゲストユーザーでない、かつ退会済みの場合のみリダイレクト
+    if @user && !@user.guest? && @user.valid_password?(params[:user][:password]) && !@user.is_valid
+      flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+      redirect_to new_user_registration_path
     end
-  end  
-
+  end
 
   # POST /resource/sign_in
   # def create

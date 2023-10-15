@@ -63,3 +63,8 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  ja:
+  devise:
+    failure:
+      user:
+        account_not_valid: "あなたのアカウントは無効です。"

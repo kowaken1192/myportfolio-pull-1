@@ -3,3 +3,8 @@ ja:
     attributes:
       review:
         score: 口コミ
+ja:
+  devise:
+    failure:
+      user:
+        account_not_valid: "あなたのアカウントは無効です。"
