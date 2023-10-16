@@ -52,3 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function initMap() {
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14, // ズームレベルを調整できます
+    center: spot
+  });
+
+  var marker = new google.maps.Marker({
+    position: spot,
+    map: map,
+    title: '<%= @post.name %>'
+  });
+}
