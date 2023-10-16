@@ -5,7 +5,7 @@
   height: 1000px;
   width: 1300px;
 }
-  
+
 .address-box {
   padding: 10px;
   border: 2px solid #333;
@@ -15,10 +15,13 @@
 }
 
 @media (min-width: 360px) and (max-width: 599px) {
- #map {
-   width: 400px;
-   height: 400px;
- }
+  #map {
+    width: 400px;
+    height: 400px;
+  }
+  .content .subtitle {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -27,7 +30,7 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1025px){ 
+@media (min-width: 769px) and (max-width: 1025px) {
   #map {
     width: 800px;
   }
