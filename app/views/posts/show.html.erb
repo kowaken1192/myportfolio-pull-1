@@ -19,12 +19,12 @@
         <%= @post.avg_score %>点（<%= @post.reviews_count %>件のレビュー）
       </div>
     </div>
-    <a class="button is-info mt-3" href="https://www.google.com/maps/search/<%= CGI.escape(@post.address + ' ' + @post.name) %>" target="_blank">
+    <%= link_to "https://www.google.com/maps/search/#{CGI.escape(@post.address + ' ' + @post.name)}", target: "_blank", class: "button is-info" do %>
       <span class="icon">
         <i class="fa-solid fa-map"></i>
       </span>
       <span>地図を見る</span>
-    </a>
+    <% end %>
   </div>
   <div class="columns">
     <% @reviews.each do |review| %>
