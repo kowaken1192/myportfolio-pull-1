@@ -1,3 +1,3 @@
 function GoogleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'ja'}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
