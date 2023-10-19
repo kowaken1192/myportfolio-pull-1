@@ -3,9 +3,12 @@
     <div class="content">
       <p class="title has-text-info pb-4">住所検索</p>
       <p class="subtitle">(お手数ですが以下のステップに従ってください)</p>
-      <p class="subtitle">STEP1 下の入力欄(例(東京ドームと書いてあるところ))に旅先の観光地名などを入力してください</p>
-      <p class="subtitle">STEP2 入力した後、Encodeをおしてください。住所が表示されますと書いてある画面に実際の住所がでます</p>
-      <p class="subtitle">STEP3 表示された住所で正しければNEXT STEPボタンを押してください</p>
+      <p class="subtitle">STEP1<br>
+        下の入力欄(例(東京ドームと書いてあるところ))に旅先の観光地名などを入力してください</p>
+      <p class="subtitle">STEP2<br>
+        入力した後、Encodeをおしてください。住所が表示されますと書いてある画面に実際の住所がでます</p>
+      <p class="subtitle">STEP3<br>
+        表示された住所で正しければNEXT STEPボタンを押してください</p>
       <div class="field has-addons">
         <div class="control is-expanded">
           <input class="input" id="address" type="textbox" placeholder="例(東京ドーム)">
@@ -20,11 +23,11 @@
       </div>
       <p class="subtitle">検索された住所が下のマップの赤いピン部分にでています。</p>
       <p class="subtitle">view on Google mapをクリックすると詳しい情報をgoogle mapから得ることができます。ぜひチェックしてしてより良い投稿を作る手助けにしてください!!</p>
-      </div>
-      <div class="box">
-        <div id='map'></div>
-      </div>
+    </div>
+    <div class="box">
+      <div id='map'></div>
     </div>
   </div>
-  <%= javascript_include_tag 'map.js' %>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>
+</div>
+<%= javascript_include_tag 'map.js' %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>

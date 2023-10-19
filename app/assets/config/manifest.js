@@ -5,3 +5,4 @@
 //= link map.js
 //= link users.js
 //= link search_post.js
+//= link profile.js

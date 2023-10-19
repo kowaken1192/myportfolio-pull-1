@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
+post '/save_language', to: 'application#save_language'
 
   get 'search_post/index'
   get 'search_post/show'
