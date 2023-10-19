@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notification is-primary">
+    <button class="delete"></button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="section">
   <p class="is-size-4 has-text-weight-bold has-text-centered">
     こちらはインバウンドの方に向けてのサービスとなっております<br>
@@ -15,3 +21,4 @@
 </div>
 </div>
 <%= javascript_include_tag 'profile.js' %>
+<%= javascript_include_tag 'users.js' %>

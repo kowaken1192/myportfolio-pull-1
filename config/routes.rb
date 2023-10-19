@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'profile#index'
+  root 'homes#index'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   patch ':id/withdraw' => 'users#withdraw', as: 'withdraw_user'
   put ':id/withdraw' => 'users#withdraw'
 
+  get 'homes/index'
   get 'profile/index'
-
   resources :map, only:  [:index]
 
   resources :personal, only: [:show, :edit, :update]
