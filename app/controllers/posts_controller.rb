@@ -75,6 +75,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @related_posts = Post.with_counts.with_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
   end
+  
   private
 
   def post_params
