@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulma詳細テンプレート</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
-
-<body>
+  </head>
+  <body>
     <!-- Main content section -->
     <section class="section">
-        <div class="container">
-
-            <!-- Introduction -->
-            <h1 class="title has-text-centered">Bulma詳細テンプレート</h1>
-            <p class="subtitle has-text-centered mb-5">より詳細なBulmaを使用したサンプルです。</p>
-
-            <div class="columns is-centered box">
-                <div class="column is-narrow"> <!-- 地図の部分を中央配置＆コンパクトに -->
-                    <div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
-                </div>
-
-                <div class="column is-one-quarter"> <!-- 色の説明を小さく配置 -->
-                    <div class="color box p-3">
-                        <h4 class="subtitle is-6 has-text-centered">色の説明</h4>
-                        <ul style="font-size: 0.8rem;">
-                            <li><span style="color: red;">赤色</span>: 投稿数が10個以上の場合</li>
-                            <li><span style="color: blue;">青色</span>: 投稿数が5個以上場合</li>
-                            <li><span style="color: pink;">ピンク色</span>: 投稿数が5未満の場合</li>
-                            <li><span style="color: black;">白色</span>: 投稿数が0個の場合</li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="container">
+        <!-- Introduction -->
+        <h1 class="title has-text-centered">Bulma詳細テンプレート</h1>
+        <p class="subtitle has-text-centered mb-5">より詳細なBulmaを使用したサンプルです。</p>
+        <div class="columns is-centered box">
+          <div class="column is-narrow"> <!-- 地図の部分を中央配置＆コンパクトに -->
+            <div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
+          </div>
+          <div class="column is-one-quarter"> <!-- 色の説明を小さく配置 -->
+            <div class="color box p-3">
+              <h4 class="subtitle is-6 has-text-centered">色の説明</h4>
+              <ul style="font-size: 0.8rem;">
+                <li><span style="color: red;">赤色</span>: 投稿数が10個以上の場合</li>
+                <li><span style="color: blue;">青色</span>: 投稿数が5個以上場合</li>
+                <li><span style="color: pink;">ピンク色</span>: 投稿数が5未満の場合</li>
+                <li><span style="color: black;">白色</span>: 投稿数が0個の場合</li>
+              </ul>
             </div>
-
+          </div>
         </div>
+      </div>
     </section>
-
+    <%= javascript_include_tag 'homes.js' %>
     <%= javascript_include_tag 'search_post.js' %>
-</body>
+  </body>
 </html>

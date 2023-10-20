@@ -44,11 +44,11 @@
           </div>
         </nav>
       <% else %>
-        <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-fullwidth logged-out-header" role="navigation" aria-label="main navigation">
           <%= link_to homes_index_path, class: "navbar-item is-size-4" do %>
             <i class="fas fa-home"></i>
           <% end %>
-          <div class="navbar-end">
+          <div class="navbar-end logged-out-header">
             <%= link_to "新規登録", new_user_registration_path, class: "navbar-item is-size-4" %>
             <%= link_to "ログイン", new_user_session_path, class: "navbar-item is-size-4" %>
             <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "navbar-item is-size-4" %>
