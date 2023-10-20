@@ -1,7 +1,7 @@
 // Place all the styles related to the search_post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.container {
+.search_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -29,12 +29,12 @@
   margin-bottom: 10px;
   display: block;
 }
-  
+
 .title {
   text-align: center;
   padding-top: 30px;
 }
-  
+
 .custom-title {
   text-align: center;
   color: #333;

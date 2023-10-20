@@ -1,98 +1,44 @@
-<div class="title mt-2">
-  <p class="title custom-title">人気の都道府県を検索する</p>
-  <p class="subtitle custom-subtitle">(地図にある都道府県をクリックすると検索結果が表示されます)</p>
-</div>
-<div class="columns box">
-  <div class="section column is-half">
-    <div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
-  </div>
-  <div class="section column is-half">
-    <div class="color box">
-      <ul>
-        <li><span style="color: red;">赤色</span>: 投稿数が10個以上の場合</li>
-        <li><span style="color: blue;">青色</span>: 投稿数が5個以上場合</li>
-        <li><span style="color: pink;">ピンク色</span>: 投稿数が5未満の場合</li>
-        <li><span style="color: black;">白色</span>: 投稿数が0個の場合</li>
-      </ul>
-    </div>
-    <div class="box">
-     
-    </div>
-  </div>
-</div>
-</div>
-<div class="title">
-  <p class="title custom-title">人気エリア（日本）から検索する</p>
-  <p class="subtitle custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</p>
-</div>
-<div class="container">
-  <div class="item">
-    <%= link_to '東京都', search_post_show_path(q: { address_cont: "東京都" }), class: "item-style" %>
-    <p>日本の首都で、伝統と最新のトレンドが共存する都市。浅草の寺院、皇居、渋谷のネオン、おしゃれな原宿。どこを歩いても新しい発見と感動が待っている</p>
-    <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/thegate/2020/08/12/14/32/34/tokyotower.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "東京都" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '大阪府', search_post_show_path(q: { address_cont: "大阪府" }), class: "item-style" %>
-    <p>日本経済の中心で多くの人が集まる場。通天閣や大阪城、USJなどの観光スポットが有名。画像の道頓堀では昔多くの野球ファンが川に飛び込みニュースに</p>
-    <%= link_to image_tag("https://media.gettyimages.com/id/623544546/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/neon-ads-in-dotonbori-district-osaka-kansai-region-japan.jpg?s=612x612&w=gi&k=20&c=OFH0QnhaZgp7e_k0jUsWzphfy9UJ9pPbQADvJ7E3yq8=", size: "500x500"), search_post_show_path(q: { address_cont: "大阪府" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '京都府', search_post_show_path(q: { address_cont: "京都府" }), class: "item-style" %>
-    <p>日本の古都で、千年以上の歴史を持つ。金閣寺や清水寺などの伝統的建築物、美しい紅葉や桜、伝統的な祭りや茶道など多く訪れる者を魅了する</p>
-    <%= link_to image_tag("https://bluegreen.jp/wp-content/uploads/2020/01/IMG_9943-1920x1280.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "京都府" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '愛知県', search_post_show_path(q: { address_cont: "愛知県" }), class: "item-style" %>
-    <p>伝統と技術の交差点。金の鯱が輝く素晴らしき名古屋城と、世界をリードするトヨタ、そして地元の伝統の工芸で新たな経験をすることができる</p>
-    <%= link_to image_tag("https://hanahana01.com/wp-content/uploads/2021/07/DSC08764.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "愛知県" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '広島県', search_post_show_path(q: { address_cont: "広島県" }), class: "item-style" %>
-    <p>平和の象徴として知られ、原爆ドームや平和記念公園が訪れる人々の心を打つ。お好み焼きや広島城、宮島の厳島神社も絶景。歴史と自然の調和が美しい場所</p>
-    <%= link_to image_tag("https://fs.tour.ne.jp/index.php/file_manage/view/?contents_code=curation&file_name=419/21347/9aa0e0842b4f49267340d37482f129ba.jpg&w=1200", size: "500x500"), search_post_show_path(q: { address_cont: "広島県" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '北海道', search_post_show_path(q: { address_cont: "北海道" }), class: "item-style" %>
-    <p>四季折々の美しさが際立ち、冬の雪景色や夏のラベンダー畑は圧巻。新鮮な海鮮料理、大雪山、オホーツクの流氷も。自然豊かな広大な土地が魅了する</p>
-    <%= link_to image_tag("https://mikissh.com/diary/wp-content/uploads/sites/3/2020/02/Sapporo-Snow-Festival-4.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "北海道" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '沖縄県', search_post_show_path(q: { address_cont: "沖縄県" }), class: "item-style" %>
-    <p>青い海と白い砂浜、サンゴ礁のダイビングスポット、伝統的な流しソーメンや泡盛、歴史深い首里城や伝統芸能エイサー。南国の自然と文化が心を引き寄せる</p>
-    <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/tabi-channel/upload_by_admin/okinawa_kanko_90_image_800", size: "500x500"), search_post_show_path(q: { address_cont: "沖縄県" }) %>
-  </div>
-  <div class="item">
-    <%= link_to '千葉県', search_post_show_path(q: { address_cont: "千葉県" }), class: "item-style" %>
-    <p>夢と魔法の王国、ディズニーランドとディズニーシーが人々を魅了。銚子の新鮮な魚、房総の温泉、成田山の歴史。自然と冒険、伝統の絶妙なコンビネーション</p>
-    <%= link_to image_tag("https://www.rurubu.travel/wp-content/uploads/2022/06/DISNEYLAND.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "千葉県" }) %>
-  </div>
-</div>
-<div class="title">
-  <p class="title custom-title">人気エリア（海外）から検索する</p>
-  <p class="subtitle custom-subtitle">(画像か国名をクリックすると検索結果が表示されます)</p>
-</div>
-<div class="container">
-  <div class="item">
-    <%= link_to 'アメリカ合衆国', search_post_show_path(q: { country_cont: "アメリカ合衆国" }), class: "item-style" %>
-    <p>アメリカは多様性に溢れ、ニューヨークのビル群からグランドキャニオンの自然美、ハリウッドの輝き、ジャズの街ニューオーリンズまで、驚きが尽きない国</p>
-    <%= link_to image_tag("https://fs.tour.ne.jp/index.php/file_manage/view/?contents_code=curation&file_name=26/7888/ffe0d5241d3ab0def6a24fff05068ea8.jpg&w=1200", size: "500x500"), search_post_show_path(q: { address_cont: "アメリカ合衆国 " }) %>
-  </div>
-  <div class="item">
-    <%= link_to 'オーストラリア', search_post_show_path(q: { country_cont: "オーストラリア" }), class: "item-style" %>
-    <p>ワーホリの楽園。シドニーオペラハウス、アボリジニの文化、メルボルンのカフェ文化。多彩な観光地が魅力溢れる経験を約束</p>
-    <%= link_to image_tag("https://www.ryugakugo.com/img/australia-study-info/i15.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "オーストラリア" }) %>
-  </div>
-  <div class="item">
-    <%= link_to 'スペイン', search_post_show_path(q: { country_cont: "スペイン" }), class: "item-style" %>
-    <p>陽気なダンス、地中海の美食、古代の城や美しいビーチ、そしてユニークな伝統やフェスティバルが絶妙に組み合わさっています。一度行けば忘れられない国</p>
-    <%= link_to image_tag("https://cdn2.veltra.com/ptr/20190724070532_64517955_10532_0.jpg?imwidth=800&impolicy=custom", size: "500x500"), search_post_show_path(q: { address_cont: "スペイン" }) %>
-  </div>
-  <div class="item">
-    <%= link_to 'フランス', search_post_show_path(q: { country_cont: "フランス" }), class: "item-style" %>
-    <p>エッフェル塔の風景、美食とワイン、美術館の芸術、プロヴァンスのラベンダー畑、ロマンチックなセーヌ川沿いの散歩が魅力的な国</p>
-    <%= link_to image_tag("https://tabi-pocket-image.tabikobo.com/wp-content/uploads/2022/07/06172655/7b1040d027074da651d0af2f21648ca1.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "フランス" }) %>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
 
-<%= javascript_include_tag 'search_post.js' %>
-<%= javascript_include_tag 'users.js' %>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma詳細テンプレート</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <!-- Main content section -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Introduction -->
+            <h1 class="title has-text-centered">Bulma詳細テンプレート</h1>
+            <p class="subtitle has-text-centered mb-5">より詳細なBulmaを使用したサンプルです。</p>
+
+            <div class="columns is-centered box">
+                <div class="column is-narrow"> <!-- 地図の部分を中央配置＆コンパクトに -->
+                    <div id="search_map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
+                </div>
+
+                <div class="column is-one-quarter"> <!-- 色の説明を小さく配置 -->
+                    <div class="color box p-3">
+                        <h4 class="subtitle is-6 has-text-centered">色の説明</h4>
+                        <ul style="font-size: 0.8rem;">
+                            <li><span style="color: red;">赤色</span>: 投稿数が10個以上の場合</li>
+                            <li><span style="color: blue;">青色</span>: 投稿数が5個以上場合</li>
+                            <li><span style="color: pink;">ピンク色</span>: 投稿数が5未満の場合</li>
+                            <li><span style="color: black;">白色</span>: 投稿数が0個の場合</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <%= javascript_include_tag 'search_post.js' %>
+</body>
+</html>
