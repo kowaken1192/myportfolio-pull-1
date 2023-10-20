@@ -6,3 +6,4 @@
 //= link users.js
 //= link search_post.js
 //= link profile.js
+//= link homes.js

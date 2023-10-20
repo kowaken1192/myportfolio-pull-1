@@ -1,4 +1,6 @@
 class SearchPostController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:reviews).order(created_at: :desc)
