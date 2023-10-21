@@ -53,7 +53,7 @@
   text-align: left;
 }
 
-#search_map {
+.search-map-class {
   width: 500px;
   height: auto;
 }
@@ -78,7 +78,7 @@
   }
 }
 @media (min-width: 360px) and (max-width: 768px) {
-  #search_map {
+  .search-map-class {
       width: 80%;    
       margin: 0 auto;  
   }
