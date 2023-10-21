@@ -6,9 +6,12 @@
 <% end %>
 <div class="section">
   <p class="is-size-4 has-text-weight-bold has-text-centered">
-    こちらはインバウンドの方に向けてのサービスとなっております<br>
-    採用者の方は大変お手数ですが下のfooter画面か下のアプリ画面へをクリックしてください
+    こちらはインバウンド向けの観光客向けのサービスです<br>
+    翻訳機能など必要のない採用者の方は大変お手数ですが下のfooter画面か下のアプリ画面へをクリックしてください
   </p>
+  <div class="button-container pt-4">
+    <%= link_to "アプリ画面へ", search_post_index_path, class: "button is-primary mt-3" %>
+  </div>
 </div>
 <div class="section">
   <div class="box">
@@ -17,7 +20,6 @@
       <p>(If you want to change the language, please change it from the select lauguage below.)</p>
       <div id="google_translate_element"></div>
       <div>こちらはインバウンドの観光客方向けの翻訳サービスです。ポートフォリオをご覧の方はデフォルトで日本語になっております</div>
-      <%= link_to "アプリ画面へ", search_post_index_path, class: "button is-primary has-text-centered mt-3" %>
     </div>
   </div>
 </div>
