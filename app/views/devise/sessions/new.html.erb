@@ -1,11 +1,14 @@
 <h2 class="title is-2"><%= t('.sign_in') %></h2>
 
 <% flash.each do |message_type, message| %>
-  <div class="notification <%= 'is-danger' if message_type == 'alert' %><%= 'is-success' if message_type == 'notice' %>">
+  <div class="notification <%= 'is-danger' if message_type == 'alert' %> <%= 'is-success' if message_type == 'notice' %>">
     <%= message %>
   </div>
 <% end %>
 
+<div class="field has-text-centered">
+  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "button is-info" %>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "box" }) do |f| %>
   <div class="field">
     <%= f.label :email, class: "label" %>
@@ -29,7 +32,7 @@
       </label>
     </div>
   <% end %>
-
+  
   <div class="actions">
     <%= f.submit t('.sign_in'), class: "button is-primary" %>
   </div>
