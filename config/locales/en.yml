@@ -41,4 +41,8 @@ ja:
          name: 名前
          address: 住所
          country: 国名
-
+ja:
+  activerecord:
+    attributes:
+      review:
+        score: 口コミ
