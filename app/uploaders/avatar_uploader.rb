@@ -24,7 +24,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     'sample.jpg'
   end
 
-  def extension_allowlist
+  def extension_whitelist
     %w(jpg jpeg gif png)
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
