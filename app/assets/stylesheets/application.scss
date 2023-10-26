@@ -67,8 +67,14 @@ main {
 }
 
 @media (min-width: 360px) and (max-width: 1023px) {
-  .logged-out-header  {
+  .logged-out-header {
     display: flex;
     position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer .level-item:last-child {
+    margin-bottom: 0.6rem;
   }
 }
