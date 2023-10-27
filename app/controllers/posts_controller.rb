@@ -68,9 +68,9 @@ class PostsController < ApplicationController
   
   def all_reviews
     @post = Post.find(params[:id])
-    @reviews = @post.reviews
+    @reviews = @post.reviews.eager_load(:user)
   end
-  
+    
   def related
     @post = Post.find(params[:id])
     @related_posts = Post.with_counts.with_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
