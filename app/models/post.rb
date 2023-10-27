@@ -37,15 +37,15 @@ class Post < ApplicationRecord
     %w(reviews)
   end
 
-  def avg_score    
+  def avg_score
     if self[:average_score].present?
-      self[:average_score].to_f
+      self[:average_score].to_f.round(1) 
     else
       reviews.empty? ? 0.0 : reviews.average(:score).round(1).to_f
     end
   end
   
   def review_score_percentage
-    self.avg_score * 100 / 5
+    (self.avg_score * 100 / 5).round(1)
   end  
 end
