@@ -25,6 +25,12 @@
       </span>
       <span>地図を見る</span>
     <% end %>
+    <%= link_to "https://www.google.com/search?q=#{CGI.escape(@post.name)}", target: "_blank", class: "button is-info" do %>
+      <span class="icon">
+        <i class="fa-brands fa-google"></i>
+      </span>
+      <span>google検索</span>
+    <% end %>
   </div>
   <div class="columns">
     <% @reviews.each do |review| %>
