@@ -58,12 +58,12 @@
   margin-top: 10px;
 }
 
-.review>span:nth-child(1) {
+.review > span:nth-child(1) {
   font-weight: bold;
   font-size: 1.1em;
 }
 
-.review>span:nth-child(2) {
+.review > span:nth-child(2) {
   color: #0077cc;
 }
 
@@ -86,20 +86,33 @@
   height: 400px;
 }
 
-.avatar-class {
-  width: 100%;
-  height: 100%;
-}
-
 .text-button {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 20px;
 }
 
-.text-button .button {
-  font-size: 24px;
-  margin: 0 40px;
+.text-button a {
+  padding: 20px 40px;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+  background-color: #007bff;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: block; // これにより<a>タグが全幅をとる
+  text-align: center;
+}
+
+.text-button a:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
 .column.is-half {
@@ -138,7 +151,6 @@
 
   .image {
     max-width: 100%;
-
   }
 }
 
@@ -159,5 +171,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .button-item {
+    flex-basis: calc(50% - 25px);
+  }
+
+  .text-button {
+    gap: 25px;
+  }
+
+  .text-button a {
+    padding: 10px;
+    font-size: 16px;
   }
 }
