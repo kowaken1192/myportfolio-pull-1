@@ -25,9 +25,10 @@ class ReviewsController < ApplicationController
       render 'reviews/new'
     end
   end
-
+  
   private
+
   def review_params
-    params.require(:review).permit(:post_id, :score,:title, :content, {review_images: []})
+    params.require(:review).permit(:title, :content, :score, :post_id, review_images: [])
   end
 end

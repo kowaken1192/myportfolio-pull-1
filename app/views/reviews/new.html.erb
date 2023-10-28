@@ -31,7 +31,7 @@
           <div class="field">
             <label class="label">画像</label>
             <div class="control">
-              <%= f.file_field :review_images, multiple: true %>
+              <%= f.file_field :review_images, multiple: true, name: "review[review_images][]" %>
             </div>
           </div>
           <div class="buttons">
