@@ -64,32 +64,32 @@
     <% if user_signed_in? %>
       <footer class="footer">
         <div class="content has-text-centered">
-          <nav class="level">
-            <div class="level-item">
+          <nav class="nav-footer">
+            <div class="footer-item">
               <%= link_to posts_path do %>
                 <i class="fas fa-home"></i><br>
                 ホーム
               <% end %>
             </div>
-            <div class="level-item">
+            <div class="footer-item">
               <%= link_to map_index_path do %>
                 <i class="fa-solid fa-comment"></i><br>
                 投稿する
               <% end %>
             </div>
-            <div class="level-item">
+            <div class="footer-item">
               <%= link_to search_post_index_path do %>
                 <i class="fa-solid fa-magnifying-glass"></i><br>
                 検索画面
               <% end %>
             </div>
-            <div class="level-item">
+            <div class="footer-item">
               <%= link_to favorites_user_path(current_user) do %>
                 <i class="fa-solid fa-heart"></i><br>
                 お気に入り
               <% end %>
             </div>
-            <div class="level-item">
+            <div class="footer-item">
               <%= link_to users_path(current_user)  do %>
                 <i class="fa-solid fa-user"></i><br>
                 マイページ
