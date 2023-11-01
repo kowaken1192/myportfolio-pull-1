@@ -7,7 +7,44 @@
   justify-content: space-between;
   padding: 20px 0;
 }
+
+.title {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.custom-title {
+  text-align: center;
+  color: #333;
+  display: inline;
+}
   
+.custom-subtitle {
+  text-align: center;
+  font-size: 20px; 
+  color: #777;
+  display: inline;
+  margin-left: 10px;
+}
+
+.search-map-wrapper {
+  padding: 2rem;
+  text-align: center;
+}
+
+.search-map {
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+}
+
+.info-box {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .item {
   flex-basis: calc(25% - 20px);
   margin-bottom: 30px; 
@@ -28,41 +65,6 @@
   font-size: 24px;
   margin-bottom: 10px;
   display: block;
-}
-
-.title {
-  text-align: center;
-  padding-top: 30px;
-}
-
-.custom-title {
-  text-align: center;
-  color: #333;
-  display: inline;
-}
-  
-.custom-subtitle {
-  text-align: center;
-  font-size: 20px !important; 
-  color: #777;
-  display: inline;
-  margin-left: 10px;
-}
-  
-.result {
-  text-align: left;
-}
-
-.search-map-class {
-  width: 500px;
-  height: auto;
-}
-
-.color {
-  bottom: 15%;
-  right: 10%;
-  font-size: 0.8em;
-  max-width: 60%;
 }
 
 @media (max-width: 768px) {

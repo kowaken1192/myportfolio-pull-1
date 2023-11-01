@@ -2,12 +2,13 @@
   width: 450px;
   height: 300px;
   position: absolute; 
-  padding-top :30rem; 
+  padding-top: 30rem;
   margin-left: 10rem;
-  z-index: 2; 
+  z-index: 10; 
   top: 0;
 }
 
 iframe {
-  z-index: 1;
+  z-index: 3;
 }
+
