@@ -14,18 +14,15 @@
 }
 
 .custom-title {
-  text-align: center;
   color: #333;
-  display: inline;
 }
-  
+
 .custom-subtitle {
-  text-align: center;
-  font-size: 20px; 
+  font-size: 20px;
   color: #777;
-  display: inline;
   margin-left: 10px;
 }
+
 
 .search-map-wrapper {
   padding: 2rem;
@@ -40,14 +37,24 @@
 }
 
 .info-box {
-  width: 100%;
-  margin: 0 auto;
+  width: 500px;
+  height: 130px;
+  margin: 200px auto;
   text-align: center;
+  flex: 3;
+}
+
+.main-section {
+  display: flex;
+}
+
+.search-map-wrapper {
+  flex: 7;
 }
 
 .item {
   flex-basis: calc(25% - 20px);
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   box-sizing: border-box;
   text-align: center;
   border: 1px solid #e1e1e1;
@@ -55,12 +62,12 @@
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-  
+
 .item:hover {
   transform: translateY(-3px);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
-  
+
 .item-style {
   font-size: 24px;
   margin-bottom: 10px;
@@ -69,29 +76,30 @@
 
 @media (max-width: 768px) {
   .item {
-    flex-basis: calc(33.333% - 20px); 
+    flex-basis: calc(33.333% - 20px);
   }
 }
-  
+
 @media (max-width: 375px) {
   .item {
-    flex-basis: 100%; 
+    flex-basis: 100%;
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-@media (min-width: 360px) and (max-width: 768px) {
-  .search-map-class {
-      width: 80%;    
-      margin: 0 auto;  
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
   }
 
-  .box {
-      padding: 10px;   
+  .search-map-wrapper,
+  .info-box {
+    flex: none;
+    width: 100%;
   }
-  
-  .title.custom-title, .subtitle.custom-subtitle {
-      text-align: center;   
+
+  .info-box {
+    margin: 0;
   }
 }

@@ -1,31 +1,33 @@
 <div class="title mt-2">
-  <p class="title custom-title">人気の都道府県を検索する</p>
-  <p class="subtitle custom-subtitle">(地図にある都道府県をクリックすると検索結果が表示されます)</p>
+  <span class="custom-title">人気の都道府県を検索する</span>
+  <span class="custom-subtitle">(地図にある都道府県をクリックすると検索結果が表示されます)</span>
 </div>
-<div class="info-box box">
-  <ul>
-    <li><span style="color: red;">■</span> 投稿数が10個以上の場合</li>
-    <li><span style="color: blue;">■</span> 投稿数が5個以上の場合</li>
-    <li><span style="color: pink;">■</span> 投稿数が5未満の場合</li>
-    <li><span style="color: white; border: 1px solid black;">■</span> 投稿数が0個の場合</li>
-  </ul>
-</div>
-<div class="container">
+<div class="main-section">
   <div class="search-map-wrapper">
     <div id="search_map" class="search-map" data-map-path="<%= asset_path 'map-mobile.svg' %>"></div>
   </div>
-  <div class="box">
-    <%= search_form_for @q, url: search_post_show_path, method: :get do |f| %>
-      <p class="has-text-centered is-size-5">直接フォームから検索したい方はこちら</p>
-      <br>
-      <div class="field">
-        <%= f.search_field :address_cont, class: 'input is-large', placeholder: '埼玉県、秋田県、 etc..' %>
-      </div>
-      <div class="field">
-        <%= f.submit "検索", class: "button is-primary is-large is-fullwidth" %>
-      </div>
-    <% end %>
+  <div class="info-box box">
+    <ul>
+      <li><span style="color: red;">■</span> 投稿数が10個以上の場合</li>
+      <li><span style="color: blue;">■</span> 投稿数が5個以上の場合</li>
+      <li><span style="color: pink;">■</span> 投稿数が5未満の場合</li>
+      <li><span style="color: white; border: 1px solid black;">■</span> 投稿数が0個の場合</li>
+    </ul>
   </div>
+</div>
+<div class="box">
+  <%= search_form_for @q, url: search_post_show_path, method: :get do |f| %>
+    <p class="has-text-centered is-size-5">直接フォームから検索したい方はこちら</p>
+    <br>
+    <div class="field">
+      <%= f.search_field :address_cont, class: 'input is-large', placeholder: '埼玉県、秋田県、 etc..' %>
+    </div>
+    <div class="field">
+      <%= f.submit "検索", class: "button is-primary is-large is-fullwidth" %>
+    </div>
+  <% end %>
+</div>
+<div class="container">
   <div class="title">
     <p class="title custom-title">人気エリア（日本）から検索する</p>
     <p class="subtitle custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</p>
@@ -72,5 +74,6 @@
       <%= link_to image_tag("https://www.rurubu.travel/wp-content/uploads/2022/06/DISNEYLAND.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "千葉県" }) %>
     </div>
   </div>
-  <%= javascript_include_tag 'search_post.js' %>
-  <%= javascript_include_tag 'users.js' %>
+</div>
+<%= javascript_include_tag 'search_post.js' %>
+<%= javascript_include_tag 'users.js' %>
