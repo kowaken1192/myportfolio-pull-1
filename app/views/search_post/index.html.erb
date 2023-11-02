@@ -27,52 +27,50 @@
     </div>
   <% end %>
 </div>
+<div class="title mt-2">
+  <span class="custom-title">人気の都道府県を検索する</span><br>
+  <span class="custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</span>
+</div>
 <div class="search_container">
-  <div class="title mt-2">
-    <span class="custom-title">人気の都道府県を検索する</span><br>
-    <span class="custom-subtitle">(地図にある都道府県をクリックすると検索結果が表示されます)</span>
+  <div class="item">
+    <%= link_to '東京都', search_post_show_path(q: { address_cont: "東京都" }), class: "item-style" %>
+    <p>日本の首都で、伝統と最新のトレンドが共存する都市。浅草の寺院、皇居、渋谷のネオン、おしゃれな原宿。どこを歩いても新しい発見と感動が待っている</p>
+    <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/thegate/2020/08/12/14/32/34/tokyotower.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "東京都" }) %>
   </div>
-  <div class="search_container">
-    <div class="item">
-      <%= link_to '東京都', search_post_show_path(q: { address_cont: "東京都" }), class: "item-style" %>
-      <p>日本の首都で、伝統と最新のトレンドが共存する都市。浅草の寺院、皇居、渋谷のネオン、おしゃれな原宿。どこを歩いても新しい発見と感動が待っている</p>
-      <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/thegate/2020/08/12/14/32/34/tokyotower.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "東京都" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '大阪府', search_post_show_path(q: { address_cont: "大阪府" }), class: "item-style" %>
-      <p>日本経済の中心で多くの人が集まる場。通天閣や大阪城、USJなどの観光スポットが有名。画像の道頓堀では昔多くの野球ファンが川に飛び込みニュースに</p>
-      <%= link_to image_tag("https://media.gettyimages.com/id/623544546/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/neon-ads-in-dotonbori-district-osaka-kansai-region-japan.jpg?s=612x612&w=gi&k=20&c=OFH0QnhaZgp7e_k0jUsWzphfy9UJ9pPbQADvJ7E3yq8=", size: "500x500"), search_post_show_path(q: { address_cont: "大阪府" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '京都府', search_post_show_path(q: { address_cont: "京都府" }), class: "item-style" %>
-      <p>日本の古都で、千年以上の歴史を持つ。金閣寺や清水寺などの伝統的建築物、美しい紅葉や桜、伝統的な祭りや茶道など多く訪れる者を魅了する</p>
-      <%= link_to image_tag("https://bluegreen.jp/wp-content/uploads/2020/01/IMG_9943-1920x1280.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "京都府" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '愛知県', search_post_show_path(q: { address_cont: "愛知県" }), class: "item-style" %>
-      <p>伝統と技術の交差点。金の鯱が輝く素晴らしき名古屋城と、世界をリードするトヨタ、そして地元の伝統の工芸で新たな経験をすることができる</p>
-      <%= link_to image_tag("https://hanahana01.com/wp-content/uploads/2021/07/DSC08764.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "愛知県" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '広島県', search_post_show_path(q: { address_cont: "広島県" }), class: "item-style" %>
-      <p>平和の象徴として知られ、原爆ドームや平和記念公園が訪れる人々の心を打つ。お好み焼きや広島城、宮島の厳島神社も絶景。歴史と自然の調和が美しい場所</p>
-      <%= link_to image_tag("https://fs.tour.ne.jp/index.php/file_manage/view/?contents_code=curation&file_name=419/21347/9aa0e0842b4f49267340d37482f129ba.jpg&w=1200", size: "500x500"), search_post_show_path(q: { address_cont: "広島県" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '北海道', search_post_show_path(q: { address_cont: "北海道" }), class: "item-style" %>
-      <p>四季折々の美しさが際立ち、冬の雪景色や夏のラベンダー畑は圧巻。新鮮な海鮮料理、大雪山、オホーツクの流氷も。自然豊かな広大な土地が魅了する</p>
-      <%= link_to image_tag("https://mikissh.com/diary/wp-content/uploads/sites/3/2020/02/Sapporo-Snow-Festival-4.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "北海道" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '沖縄県', search_post_show_path(q: { address_cont: "沖縄県" }), class: "item-style" %>
-      <p>青い海と白い砂浜、サンゴ礁のダイビングスポット、伝統的な流しソーメンや泡盛、歴史深い首里城や伝統芸能エイサー。南国の自然と文化が心を引き寄せる</p>
-      <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/tabi-channel/upload_by_admin/okinawa_kanko_90_image_800", size: "500x500"), search_post_show_path(q: { address_cont: "沖縄県" }) %>
-    </div>
-    <div class="item">
-      <%= link_to '千葉県', search_post_show_path(q: { address_cont: "千葉県" }), class: "item-style" %>
-      <p>夢と魔法の王国、ディズニーランドとディズニーシーが人々を魅了。銚子の新鮮な魚、房総の温泉、成田山の歴史。自然と冒険、伝統の絶妙なコンビネーション</p>
-      <%= link_to image_tag("https://www.rurubu.travel/wp-content/uploads/2022/06/DISNEYLAND.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "千葉県" }) %>
-    </div>
+  <div class="item">
+    <%= link_to '大阪府', search_post_show_path(q: { address_cont: "大阪府" }), class: "item-style" %>
+    <p>日本経済の中心で多くの人が集まる場。通天閣や大阪城、USJなどの観光スポットが有名。画像の道頓堀では昔多くの野球ファンが川に飛び込みニュースに</p>
+    <%= link_to image_tag("https://media.gettyimages.com/id/623544546/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/neon-ads-in-dotonbori-district-osaka-kansai-region-japan.jpg?s=612x612&w=gi&k=20&c=OFH0QnhaZgp7e_k0jUsWzphfy9UJ9pPbQADvJ7E3yq8=", size: "500x500"), search_post_show_path(q: { address_cont: "大阪府" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '京都府', search_post_show_path(q: { address_cont: "京都府" }), class: "item-style" %>
+    <p>日本の古都で、千年以上の歴史を持つ。金閣寺や清水寺などの伝統的建築物、美しい紅葉や桜、伝統的な祭りや茶道など多く訪れる者を魅了する</p>
+    <%= link_to image_tag("https://bluegreen.jp/wp-content/uploads/2020/01/IMG_9943-1920x1280.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "京都府" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '愛知県', search_post_show_path(q: { address_cont: "愛知県" }), class: "item-style" %>
+    <p>伝統と技術の交差点。金の鯱が輝く素晴らしき名古屋城と、世界をリードするトヨタ、そして地元の伝統の工芸で新たな経験をすることができる</p>
+    <%= link_to image_tag("https://hanahana01.com/wp-content/uploads/2021/07/DSC08764.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "愛知県" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '広島県', search_post_show_path(q: { address_cont: "広島県" }), class: "item-style" %>
+    <p>平和の象徴として知られ、原爆ドームや平和記念公園が訪れる人々の心を打つ。お好み焼きや広島城、宮島の厳島神社も絶景。歴史と自然の調和が美しい場所</p>
+    <%= link_to image_tag("https://fs.tour.ne.jp/index.php/file_manage/view/?contents_code=curation&file_name=419/21347/9aa0e0842b4f49267340d37482f129ba.jpg&w=1200", size: "500x500"), search_post_show_path(q: { address_cont: "広島県" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '北海道', search_post_show_path(q: { address_cont: "北海道" }), class: "item-style" %>
+    <p>四季折々の美しさが際立ち、冬の雪景色や夏のラベンダー畑は圧巻。新鮮な海鮮料理、大雪山、オホーツクの流氷も。自然豊かな広大な土地が魅了する</p>
+    <%= link_to image_tag("https://mikissh.com/diary/wp-content/uploads/sites/3/2020/02/Sapporo-Snow-Festival-4.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "北海道" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '沖縄県', search_post_show_path(q: { address_cont: "沖縄県" }), class: "item-style" %>
+    <p>青い海と白い砂浜、サンゴ礁のダイビングスポット、伝統的な流しソーメンや泡盛、歴史深い首里城や伝統芸能エイサー。南国の自然と文化が心を引き寄せる</p>
+    <%= link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/tabi-channel/upload_by_admin/okinawa_kanko_90_image_800", size: "500x500"), search_post_show_path(q: { address_cont: "沖縄県" }) %>
+  </div>
+  <div class="item">
+    <%= link_to '千葉県', search_post_show_path(q: { address_cont: "千葉県" }), class: "item-style" %>
+    <p>夢と魔法の王国、ディズニーランドとディズニーシーが人々を魅了。銚子の新鮮な魚、房総の温泉、成田山の歴史。自然と冒険、伝統の絶妙なコンビネーション</p>
+    <%= link_to image_tag("https://www.rurubu.travel/wp-content/uploads/2022/06/DISNEYLAND.jpg", size: "500x500"), search_post_show_path(q: { address_cont: "千葉県" }) %>
   </div>
 </div>
 <%= javascript_include_tag 'search_post.js' %>
