@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   patch ':id/withdraw' => 'users#withdraw', as: 'withdraw_user'
   put ':id/withdraw' => 'users#withdraw'
 
-  get 'homes/index'
+  get 'homes/index' 
   get 'profile/index'
   resources :map, only:  [:index]
 
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-post '/save_language', to: 'application#save_language'
+  post '/save_language', to: 'application#save_language'
 
   get 'search_post/index'
   get 'search_post/show'
