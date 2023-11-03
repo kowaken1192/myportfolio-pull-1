@@ -13,7 +13,7 @@ module LikeApp
     # タイムゾーンの変更（例)created_at カラムを取り出したときに日本時間に変換されるようになる） 
     config.time_zone = 'Asia/Tokyo'
   end
-end
+end 
 
 module Myapp
   class Application < Rails::Application
