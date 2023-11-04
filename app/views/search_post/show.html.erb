@@ -3,8 +3,22 @@
     <h2 class="title is-size-3 mb-5">投稿検索結果</h2>
     <p class="is-size-3">検索した都道府県: <%= @prefecture_name %></p>
     <p class="is-size-3 mt-4">
-      検索結果：<%= @results.count %> 件
+      検索結果：<%= @results.length %> 件
     </p>
+  </div>
+  <div class="text-button pt-3">
+    <div class="button-item">
+      <%= link_to "投稿一覧", search_post_show_path(q: { address_cont: @prefecture_name }) %>
+    </div>
+    <div class="button-item">
+      <%= link_to '人気投稿', search_post_show_path(q: { address_cont: @prefecture_name }, sort_by: 'avg_score_and_review_count') %>
+    </div>
+    <div class="button-item">
+      <%= link_to '最新の投稿', search_post_show_path(q: { address_cont: @prefecture_name }, latest: "true") %>
+    </div>
+    <div class="button-item">
+      <%= link_to '口コミの多い投稿', search_post_show_path(q: { address_cont: @prefecture_name }, reviews_count: "true") %>
+    </div>
   </div>
 </section>
 <section class="section mt-6">
@@ -18,7 +32,7 @@
                 <%= result.name %>
               </div>
               <div class="card-header-icon">
-                <% if current_user.already_favorited?(result) %>
+                <% if @favorited_post_ids.include?(result.id) %>
                   <%= link_to post_favorites_path(result), method: :delete, class: "mr-2" do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -27,7 +41,7 @@
                     <i class="far fa-heart"></i>
                   <% end %>
                 <% end %>
-                <span><%= result.favorites.count %></span>
+                <span><%= result.favorites_count %></span>
               </div>
             </header>
             <div class="card-content">
@@ -37,7 +51,7 @@
                   <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display ml-3 pt-2">
-                  <%= result.avg_score %>点（<%= result.reviews.count %>件のレビュー）
+                  <%= result.avg_score %>点（<%= result.reviews_count %>件のレビュー）
                 </div>
               </div>
               <div class="post-address mb-3 has-text-weight-bold">
