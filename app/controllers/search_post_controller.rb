@@ -9,6 +9,7 @@ class SearchPostController < ApplicationController
   def show
     @q = Post.ransack(params[:q])
     @results = @q.result(distinct: true).includes(:reviews).order(created_at: :desc)
+    @prefecture_name = params[:q][:address_cont] if params[:q] && params[:q][:address_cont]
   end
 
   def count_by_prefecture
