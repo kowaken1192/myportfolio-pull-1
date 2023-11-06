@@ -46,14 +46,21 @@
           </div>
         </nav>
       <% else %>
-        <nav class="navbar is-fullwidth logged-out-header" role="navigation" aria-label="main navigation">
-          <%= link_to homes_index_path, class: "navbar-item is-size-4" do %>
-            <i class="fas fa-home"></i>
-          <% end %>
-          <div class="navbar-end logged-out-header">
-            <%= link_to "新規登録", new_user_registration_path, class: "navbar-item is-size-4" %>
-            <%= link_to "ログイン", new_user_session_path, class: "navbar-item is-size-4" %>
-            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "navbar-item is-size-4" %>
+        <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <%= link_to image_tag("design_6.png", size: "100x100"), homes_index_path, class: "navbar-item" %>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+              <%= link_to "新規登録", new_user_registration_path, class: "navbar-item is-size-4" %>
+              <%= link_to "ログイン", new_user_session_path, class: "navbar-item is-size-4" %>
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "navbar-item is-size-4" %>
+            </div>
           </div>
         </nav>
       <% end %>
