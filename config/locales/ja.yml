@@ -14,7 +14,7 @@ ja:
     personal:
       password_updated: "パスワード更新しました"
     posts:
-      post_thank_you: "投稿ありがとうございます！あなたの投稿はありがとうございます！"
+      post_thank_you: "投稿ありがとうございます！"
       post_recommendation: "投稿ありがとうございます!あなたにおすすめの投稿が表示されます！"
       post_deleted: "投稿を削除しました"
     sessions:
@@ -26,7 +26,7 @@ ja:
 
   alert:
     personal:
-      password_not_changeable: "ゲストユーザーのパスワードは変更できません。"
+      guest_password_not_changeable: "ゲストユーザーのパスワードは変更できません。"
       password_update_failed: 'パスワードの更新に失敗しました'
     users:
       guest_cannot_delete: "ゲストユーザーは削除できません。"
