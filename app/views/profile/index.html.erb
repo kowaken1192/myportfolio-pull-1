@@ -1,9 +1,5 @@
-<% if flash[:notice] %>
-  <div class="notification is-primary">
-    <button class="delete"></button>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<%= render 'shared/flash_messages' %>
+
 <div class="section">
   <p class="is-size-4 has-text-weight-bold has-text-centered">
     こちらはインバウンド向けの観光客向けのサービスです<br>
