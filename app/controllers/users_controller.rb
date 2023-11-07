@@ -38,17 +38,20 @@ class UsersController < ApplicationController
   def withdraw
     @user = User.find(params[:id])
     if @user
-      @user.update(is_valid: false)      
-      reset_session     
-      redirect_to root_path, notice: '退会処理が完了しました。'
+      @user.update(is_valid: false)
+      reset_session
+      flash[:notice] = t('flash..notice.users.withdrawal_complete') 
+      redirect_to root_path
     else
-      redirect_to root_path, notice: 'ユーザーが見つかりませんでした。'
+      flash[:alert] = t('flash.alert.users.user_not_found') 
+      redirect_to root_path
     end
   end
 
   def ensure_normal_user
     if current_user.email == 'guest@example.com'
-      redirect_to confirm_unsubscribe_path, notice: 'ゲストユーザーは削除できません。'
+      flash[:alert] = t('flash.alert.users.guest_cannot_delete')
+      redirect_to confirm_unsubscribe_path
     end
   end
 end  

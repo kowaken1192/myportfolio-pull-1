@@ -7,14 +7,14 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to profile_index_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to profile_index_path, notice: t('flash.notice.sessions.guest_signed_in')
   end  
 
   def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
     # ゲストユーザーでない、かつ退会済みの場合のみリダイレクト
     if @user && !@user.guest? && @user.valid_password?(params[:user][:password]) && !@user.is_valid
-      flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+      flash[:notice] = t('flash.notice.sessions.account_inactive')
       redirect_to new_user_registration_path
     end
   end

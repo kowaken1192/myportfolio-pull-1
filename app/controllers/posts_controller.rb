@@ -38,10 +38,10 @@ class PostsController < ApplicationController
         @related_posts = Post.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
     
         if @related_posts.empty?
-          flash[:notice] = '投稿ありがとうございます！あなたの投稿はありがとうございます！'
+          flash[:notice] = t('flash.notice.posts.post_thank_you')
           redirect_to related_post_path(@post)
         else
-          flash[:notice] = '投稿ありがとうございます!あなたにおすすめの投稿が表示されます！'
+          flash[:notice] = t('flash.notice.posts.post_recommendation')
           redirect_to related_post_path(@post)
         end
       else
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user == current_user
       @post.destroy
-      flash[:notice] = "投稿を削除しました"
+      flash[:notice] = t('flash.notice.post_deleted')
       redirect_to :users
     end
   end
