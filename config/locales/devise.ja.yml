@@ -1,0 +1,5 @@
+ja:
+  devise:
+    failure:
+      user:
+        account_not_valid: "アカウントが有効ではありません。"
