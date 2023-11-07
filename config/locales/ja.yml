@@ -1,4 +1,15 @@
 ja:
+  activerecord:
+    attributes:
+      review:
+        score: 口コミ
+      post:
+        name: 訪れた場所
+        address: 住所
+        country: 国名
+        postimage: 画像
+        score: 口コミ
+
   flash:
     personal:
       password_updated: "パスワード更新しました"
