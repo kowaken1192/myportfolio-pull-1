@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>toursim app</title>
+    <title>Explore & Share - Japan app</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -48,7 +48,10 @@
       <% else %>
         <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-            <%= link_to image_tag("design_6.png", size: "100x100"), homes_index_path, class: "navbar-item" %>
+            <%= link_to homes_index_path do %>
+              <%= image_tag("Untitled design (13).png", size: "80x80") %>
+            <% end %>
+            <%= link_to "Explore & Share - Japan", homes_index_path, class: "navbar-item explore-share" %>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
