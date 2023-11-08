@@ -40,12 +40,11 @@ class UsersController < ApplicationController
     if @user
       @user.update(is_valid: false)
       reset_session
-      flash[:notice] = t('flash..notice.users.withdrawal_complete') 
-      redirect_to root_path
+      flash[:notice] = t('flash.notice.users.withdrawal_complete')
     else
-      flash[:alert] = t('flash.alert.users.user_not_found') 
-      redirect_to root_path
+      flash[:alert] = t('flash.alert.users.user_not_found')
     end
+    redirect_to new_user_session_path
   end
 
   def ensure_normal_user
