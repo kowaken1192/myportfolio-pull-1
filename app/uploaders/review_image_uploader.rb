@@ -4,14 +4,12 @@ class ReviewImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.development? # 開発環境の場合
+  if Rails.env.development? || Rails.env.test?
     storage :file
-  elsif Rails.env.test? # テスト環境の場合
-    storage :file
-  else # 本番環境の場合
+  else
     storage :fog
   end
-
+  
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
