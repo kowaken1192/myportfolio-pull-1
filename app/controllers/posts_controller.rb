@@ -25,27 +25,20 @@ class PostsController < ApplicationController
     @review = Review.new
   end
   
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-  
-    @review = Review.new(review_params)
-    @review.user = current_user
-  
     if @post.save
-      @review.post_id = @post.id
+      @review = current_user.reviews.new(review_params)
+      @review.post = @post
       if @review.save
-        @related_posts = Post.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
-    
-        if @related_posts.empty?
-          flash[:notice] = t('flash.notice.posts.post_thank_you')
-          redirect_to related_post_path(@post)
-        else
-          flash[:notice] = t('flash.notice.posts.post_recommendation')
-          redirect_to related_post_path(@post)
-        end
+        related_posts
       else
-        @post.destroy
+        @post.destroy 
         render :new
       end
     else
@@ -53,10 +46,6 @@ class PostsController < ApplicationController
     end
   end
     
-  def edit
-    @post = Post.find(params[:id])
-  end
-  
   def destroy
     @post = Post.find(params[:id])
     if @post.user == current_user
@@ -77,12 +66,23 @@ class PostsController < ApplicationController
   end
   
   private
-
+  
   def post_params
     params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage ,:user_id)
   end
   
   def review_params
     params.require(:post).require(:review).permit(:score, :content)
-  end   
+  end
+
+  def related_posts
+    related_posts = Post.where(prefecture: @post.prefecture)
+                        .where.not(id: @post.id).limit(5)
+    if related_posts.exists?
+      flash[:notice] = t('flash.notice.posts.post_recommendation')
+    else
+      flash[:notice] = t('flash.notice.posts.post_thank_you')
+    end
+    redirect_to related_post_path(@post)
+  end
 end
