@@ -18,7 +18,11 @@ class Users::SessionsController < Devise::SessionsController
       redirect_to new_user_registration_path
     end
   end
-
+  
+  def create
+    super
+    create_internal
+  end
   # POST /resource/sign_in
   # def create
   #   super
