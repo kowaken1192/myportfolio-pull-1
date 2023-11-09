@@ -9,8 +9,6 @@ class PostsController < ApplicationController
       @posts = @posts.latest
     elsif params[:reviews_count]
       @posts = @posts.reviews_count
-    else
-      @posts = @posts.all
     end
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
