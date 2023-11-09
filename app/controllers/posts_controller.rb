@@ -25,22 +25,18 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
-    if @post.save
-      @review = current_user.reviews.new(review_params)
-      @review.post = @post
-      if @review.save
-        recommend_related_posts
-      else
-        @post.destroy 
-        render :new
-      end
-    else
-      render :new
+    @post = current_user.posts.new(post_params)
+    @review = @post.reviews.new(review_params)
+    @review.user = current_user
+    ActiveRecord::Base.transaction do
+      @post.save!
+      @review.save!
+      recommend_related_posts
+    rescue ActiveRecord::RecordInvalid
+      render :new 
     end
   end
-    
+      
   def destroy
     if @post.user == current_user
       @post.destroy
@@ -64,7 +60,7 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage ,:user_id)
+    params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage)
   end
   
   def review_params
