@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       @review = current_user.reviews.new(review_params)
       @review.post = @post
       if @review.save
-        related_posts
+        recommend_related_posts
       else
         @post.destroy 
         render :new
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
     params.require(:post).require(:review).permit(:score, :content)
   end
 
-  def related_posts
+  def recommend_related_posts
     related_posts = Post.where(prefecture: @post.prefecture)
                         .where.not(id: @post.id).limit(5)
     if related_posts.exists?
