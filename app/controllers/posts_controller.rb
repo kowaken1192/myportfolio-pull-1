@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  
+  before_action :set_post, only: [:destroy, :related, :all_reviews]
+
   def index
     @posts = Post.with_counts.with_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
@@ -23,10 +24,6 @@ class PostsController < ApplicationController
     @review = Review.new
   end
   
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -45,7 +42,6 @@ class PostsController < ApplicationController
   end
     
   def destroy
-    @post = Post.find(params[:id])
     if @post.user == current_user
       @post.destroy
       flash[:notice] = t('flash.notice.post_deleted')
@@ -54,16 +50,18 @@ class PostsController < ApplicationController
   end
   
   def all_reviews
-    @post = Post.find(params[:id])
     @reviews = @post.reviews.eager_load(:user)
   end
     
   def related
-    @post = Post.find(params[:id])
     @related_posts = Post.with_counts.with_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
   end
   
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
   
   def post_params
     params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage ,:user_id)
