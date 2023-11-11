@@ -28,19 +28,21 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @review = @post.reviews.new(review_params)
     @review.user = current_user
+
     ActiveRecord::Base.transaction do
       @post.save!
       @review.save!
-      recommend_related_posts
-    rescue ActiveRecord::RecordInvalid
-      render :new 
     end
+    recommend_related_posts
+  rescue ActiveRecord::RecordInvalid
+    flash[:alert] = t('flash.alert.post.failed to save.')
+    render :new
   end
       
   def destroy
     if @post.user == current_user
       @post.destroy
-      flash[:notice] = t('flash.notice.post_deleted')
+      flash[:notice] = t('flash.notice.posts.post_deleted')
       redirect_to :users
     end
   end

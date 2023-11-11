@@ -9,6 +9,7 @@ ja:
         country: 国名
         postimage: 画像
         score: 口コミ
+        reviews: 口コミ
 
   flash:
     notice:
@@ -26,9 +27,10 @@ ja:
         user_not_found: "ユーザーが見つかりませんでした。"
 
     alert:
+      post:
+        failed to save: "保存に失敗しました"
       personal:
         guest_password_not_changeable: "ゲストユーザーのパスワードは変更できません。"
-        password_update_failed: 'パスワードの更新に失敗しました'
+        password_update_failed: "パスワードの更新に失敗しました"
       users:
         guest_cannot_delete: "ゲストユーザーは削除できません。"
-

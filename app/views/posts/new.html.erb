@@ -1,3 +1,5 @@
+<%= render 'shared/flash_messages' %>
+
 <section class="section">
   <div class="post-container">
     <div class="columns is-centered">
@@ -5,7 +7,7 @@
         <div class="box">
           <%= render "shared/error", obj: @post %>
           <%= render "shared/error", obj: @review %>
-          
+
           <h2 class="title is-4 has-text-centered mb-5">総合評価作成</h2>
           <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
             <div class="field">
