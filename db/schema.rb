@@ -34,13 +34,6 @@ ActiveRecord::Schema.define(version: 2023_10_14_110229) do
     t.string "prefecture"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
