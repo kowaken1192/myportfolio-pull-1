@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :ensure_normal_user, only: :withdraw
+  before_action :set_user, only: [:edit, :update, :unsubscribe, :withdraw]
+
   def index
-    @posts = current_user.posts.with_counts.with_avg_score
     @user = current_user
+    @posts = current_user.posts.with_counts.with_avg_score
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
@@ -12,12 +14,9 @@ class UsersController < ApplicationController
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :profile, :image, :background_image))
       flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
       redirect_to users_path
@@ -31,12 +30,9 @@ class UsersController < ApplicationController
     @favorite_posts = Post.with_counts.with_avg_score.where(id: @favorited_post_ids)
   end
   
-  def unsubscribe
-    @user = User.find(params[:id])
-  end
+  def unsubscribe; end
   
   def withdraw
-    @user = User.find(params[:id])
     if @user
       @user.update(is_valid: false)
       reset_session
@@ -52,5 +48,11 @@ class UsersController < ApplicationController
       flash[:alert] = t('flash.alert.users.guest_cannot_delete')
       redirect_to confirm_unsubscribe_path
     end
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end  
