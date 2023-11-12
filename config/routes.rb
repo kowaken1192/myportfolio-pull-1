@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   put ':id/withdraw' => 'users#withdraw'
 
   get 'homes/index' 
-  get 'profile/index'
+  get 'service/index'
   resources :map, only:  [:index]
 
   resources :personal, only: [:show, :edit, :update]

@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to profile_index_path, notice: t('flash.notice.sessions.guest_signed_in')
+    redirect_to service_index_path, notice: t('flash.notice.sessions.guest_signed_in')
   end  
 
   def reject_inactive_user
