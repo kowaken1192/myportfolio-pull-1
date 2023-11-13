@@ -60,6 +60,18 @@ main {
   height: 50px;
 }
 
+.logo-image {
+  margin-left: 20px;
+}
+
+.explore-share {
+  font-size: 2em;
+  line-height: 1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: hsla(195, 79%, 43%, 0.836);
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
 @media (min-width: 360px) and (max-width: 768px) {
   .footer .level {
     display: flex;
@@ -89,10 +101,17 @@ main {
   }
 }
 
-.explore-share {
-  font-size: 2em;
-  line-height: 1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: hsla(195, 79%, 43%, 0.836);
-  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  .navbar-brand .explore-share {
+    display: none;
+  }
+  .navbar-brand img {
+    max-height: 70px; 
+  }
+}
+
+@media (max-width: 1023px) {
+  .navbar-brand .navbar-burger {
+    margin-top: 14px;
+  }
 }
