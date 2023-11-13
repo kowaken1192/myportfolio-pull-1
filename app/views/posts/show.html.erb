@@ -62,6 +62,7 @@
           <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
           <span>: <%= review.score %>/5点</span>
           <span class="review-title">タイトル：<%= review.title %></span>
+          <p class="review-content">感想：<%= review.content %></p>
           <% review.review_images.each do |review_image| %>
             <div class="column is-one-third">
               <%= image_tag review_image.to_s %>
