@@ -8,7 +8,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "./users"
-import "./service"
 
 document.addEventListener('turbolinks:load', () => {
 
