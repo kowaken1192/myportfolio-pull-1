@@ -9,7 +9,6 @@ ActiveStorage.start()
 
 import "./users"
 import "./service"
-import "./map"
 
 document.addEventListener('turbolinks:load', () => {
 

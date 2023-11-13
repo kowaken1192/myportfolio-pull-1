@@ -40,5 +40,5 @@
     <p>view on Google mapをクリックすると詳しい情報をgoogle mapから得ることができます。ぜひチェックしてしてより良い投稿を作る手助けにしてください!!</p>
   </div>
 </div>
-<%= javascript_include_tag 'map.js' %>
+<%= javascript_pack_tag 'map' %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>

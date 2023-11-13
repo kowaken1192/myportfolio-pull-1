@@ -2,7 +2,7 @@ let geocoder;
 let marker; 
 const display = document.getElementById('display');
 
-function initMap() {
+window.initMap = function() {
   geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 40.7828, lng: -73.9653 },
@@ -14,7 +14,7 @@ function initMap() {
   });
 }
 
-function codeAddress() {
+window.codeAddress = function() {
   let inputAddress = document.getElementById('address').value;
   geocoder.geocode({ 'address': inputAddress, 'language': 'ja' }, function (results, status) {
     if (status == 'OK') {
@@ -50,6 +50,6 @@ function extractPrefectureFromAddress(address) {
   }
 }
 
-function goBackToForm() {
+window.goBackToForm = function() {
   window.location.href = "/posts/new";
 }
