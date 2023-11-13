@@ -1,5 +1,4 @@
 <%= render 'shared/flash_messages' %>
-
 <section>
   <div class="background-image">
     <% if @user.background_image? %>
@@ -85,7 +84,5 @@
     </div>
   <% end %>
 </div>
-</div>
 </section>
-<%= javascript_pack_tag 'users' %>
 <%= javascript_include_tag 'service.js' %>

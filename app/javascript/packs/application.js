@@ -7,8 +7,9 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import "./search_post"
 import "./users"
+import "./service"
+import "./map"
 
 document.addEventListener('turbolinks:load', () => {
 
