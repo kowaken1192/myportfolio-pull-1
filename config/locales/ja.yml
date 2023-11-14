@@ -10,6 +10,9 @@ ja:
         postimage: 画像
         score: 口コミ
         reviews: 口コミ
+      user:
+        first_name: 名字
+        last_name: 名前
 
   flash:
     notice:
