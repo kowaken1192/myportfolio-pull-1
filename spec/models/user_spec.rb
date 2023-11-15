@@ -28,4 +28,9 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors[:password]).to include("を入力してください")
   end
+
+  it { should have_many(:reviews).dependent(:destroy) }
+  it { should have_many(:favorites).dependent(:destroy) }
+  it { should have_many(:favorite_posts).through(:favorites).source(:post) }
+  it { should have_many(:posts).dependent(:destroy) }
 end
