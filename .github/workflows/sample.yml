@@ -1,0 +1,68 @@
+name: Run Rubocop and RSpec Actions
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  Job-Rubocop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby Env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true
+
+      - name: Show ruby version
+        run: ruby -v
+
+      - name: Run lint
+        run: bundle exec rubocop
+
+  Job-RSpec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby Env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rspec
+
+  Job-Heroku:
+    needs: [Job-Rubocop, Job-RSpec]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby Env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+          bundler-cache: true
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
