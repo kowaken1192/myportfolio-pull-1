@@ -3,42 +3,42 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let!(:user) { FactoryBot.create(:user) }
   
-  #first_nameがなければ無効な状態であること
+  # first_nameがなければ無効な状態であること
   it "is invalid without a first name" do
     user.first_name = nil
     user.valid?
     expect(user.errors[:first_name]).to include("を入力してください")
   end
 
-  #last_nameがなければ無効な状態であること
+  # last_nameがなければ無効な状態であること
   it "is invalid without a last name" do
     user.last_name = nil
     user.valid?
     expect(user.errors[:last_name]).to include("を入力してください")
   end
   
-  #emailがなければ無効な状態であること
+  # emailがなければ無効な状態であること
   it "is invalid without an email address" do
     user.email = nil
     user.valid?
     expect(user.errors[:email]).to include("を入力してください")
   end
   
-  #重複したemailなら無効な状態であること
+  # 重複したemailなら無効な状態であること
   it "is invalid with a duplicate email address" do
     another_user = build(:user, email: user.email)
     another_user.valid?
     expect(another_user.errors[:email]).to include("はすでに存在します")
   end
   
-  #passwordがなければ無効な状態であること
+  # passwordがなければ無効な状態であること
   it "is invalid without a password" do
     user = FactoryBot.build(:user, password: nil)
     user.valid?
     expect(user.errors[:password]).to include("を入力してください")
   end
   
-  #passwordが存在してもpassword_confirmationがなければ無効な状態であること
+  # passwordが存在してもpassword_confirmationがなければ無効な状態であること
   it "is invalid without a password_confirmation although with a password" do
     user = FactoryBot.build(:user, password_confirmation: "")
     user.valid?
