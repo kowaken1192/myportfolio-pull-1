@@ -29,7 +29,6 @@ gem 'devise-i18n'
 gem 'fog-aws'
 gem "aws-sdk-s3", require: false 
 gem 'carrierwave', '~> 2.0'
-gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bulma-rails'
@@ -45,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'bullet'
+  gem 'dotenv-rails'
 end
 
 group :development do
