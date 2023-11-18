@@ -8,46 +8,47 @@ RSpec.describe User, type: :model do
   let!(:under_six_password) { FactoryBot.build(:user, password: '12345', password_confirmation: '12345') }
   let!(:valid_user) { FactoryBot.create(:user, is_valid: true) }
   let!(:invalid_user) { FactoryBot.create(:user, is_valid: false) }
-  let!(:valid_user) { FactoryBot.create(:user, is_valid: true) }
 
-  it "first_nameがなければ無効な状態であること" do
-    user.first_name = nil
-    user.valid?
-    expect(user.errors[:first_name]).to include("を入力してください")
+  describe 'validation' do
+    it "first_nameがなければ無効な状態であること" do
+      user.first_name = nil
+      user.valid?
+      expect(user.errors[:first_name]).to include("を入力してください")
+    end
+
+    it "last_nameがなければ無効な状態であること" do
+      user.last_name = nil
+      user.valid?
+      expect(user.errors[:last_name]).to include("を入力してください")
+    end
+
+    it "emailがなければ無効な状態であること" do
+      user.email = nil
+      user.valid?
+      expect(user.errors[:email]).to include("を入力してください")
+    end
+
+    it "重複したemailなら無効な状態であること" do
+      user_with_duplicate_email.valid?
+      expect(user_with_duplicate_email.errors[:email]).to include("はすでに存在します")
+    end
+
+    it "passwordがなければ無効な状態であること" do
+      user_without_password.valid?
+      expect(user_without_password.errors[:password]).to include("を入力してください")
+    end
+
+    it "passwordが存在してもpassword_confirmationがなければ無効な状態であること" do
+      user_without_password_confirmation.valid?
+      expect(user_without_password_confirmation.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+    end
+  
+    it "パスワードが6文字未満だと無効な状態であること" do
+      under_six_password.valid?
+      expect(under_six_password.errors[:password]).to include("は6文字以上で入力してください")
+    end
   end
 
-  it "last_nameがなければ無効な状態であること" do
-    user.last_name = nil
-    user.valid?
-    expect(user.errors[:last_name]).to include("を入力してください")
-  end
-  
-  it "emailがなければ無効な状態であること" do
-    user.email = nil
-    user.valid?
-    expect(user.errors[:email]).to include("を入力してください")
-  end
-  
-  it "重複したemailなら無効な状態であること" do
-    user_with_duplicate_email.valid?
-    expect(user_with_duplicate_email.errors[:email]).to include("はすでに存在します")
-  end
-  
-  it "passwordがなければ無効な状態であること" do
-    user_without_password.valid?
-    expect(user_without_password.errors[:password]).to include("を入力してください")
-  end
-  
-  it "passwordが存在してもpassword_confirmationがなければ無効な状態であること" do
-    user_without_password_confirmation.valid?
-    expect(user_without_password_confirmation.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
-  end
-  
-  it "パスワードが6文字未満だと無効な状態であること" do
-    under_six_password.valid?
-    expect(under_six_password.errors[:password]).to include("は6文字以上で入力してください")
-  end
-  
   describe 'Guest' do
     context 'ゲストユーザーが存在しない場合' do
       it '新しいゲストユーザーに正しい属性を設定する' do
