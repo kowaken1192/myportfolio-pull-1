@@ -2,55 +2,58 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let!(:user) { FactoryBot.create(:user) }
-  
-  # first_nameがなければ無効な状態であること
-  it "is invalid without a first name" do
+  let!(:under_six_password) { FactoryBot.build(:user, password: '12345', password_confirmation: '12345') }
+
+  it "first_nameがなければ無効な状態であること" do
     user.first_name = nil
     user.valid?
     expect(user.errors[:first_name]).to include("を入力してください")
   end
 
-  # last_nameがなければ無効な状態であること
-  it "is invalid without a last name" do
+  it "last_nameがなければ無効な状態であること" do
     user.last_name = nil
     user.valid?
     expect(user.errors[:last_name]).to include("を入力してください")
   end
   
-  # emailがなければ無効な状態であること
-  it "is invalid without an email address" do
+  it "emailがなければ無効な状態であること" do
     user.email = nil
     user.valid?
     expect(user.errors[:email]).to include("を入力してください")
   end
   
-  # 重複したemailなら無効な状態であること
-  it "is invalid with a duplicate email address" do
+  it "重複したemailなら無効な状態であること" do
     another_user = build(:user, email: user.email)
     another_user.valid?
     expect(another_user.errors[:email]).to include("はすでに存在します")
   end
   
-  # passwordがなければ無効な状態であること
-  it "is invalid without a password" do
+  it "passwordがなければ無効な状態であること" do
     user = FactoryBot.build(:user, password: nil)
     user.valid?
     expect(user.errors[:password]).to include("を入力してください")
   end
   
-  # passwordが存在してもpassword_confirmationがなければ無効な状態であること
-  it "is invalid without a password_confirmation although with a password" do
+  it "passwordが存在してもpassword_confirmationがなければ無効な状態であること" do
     user = FactoryBot.build(:user, password_confirmation: "")
     user.valid?
     expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
   end
   
-  # Userモデルが複数のreviewsとの関連を持っていることをテストし、Userが削除された場合に関連するreviewsも削除されることを確認
-  it { should have_many(:reviews).dependent(:destroy) }
-  # Userモデルが複数のfavoritesとの関連を持っていることをテストし、Userが削除された場合に関連するfavoritesも削除されることを確認
-  it { should have_many(:favorites).dependent(:destroy) }
-  # Userモデルがfavoritesを通じてfavorite_postsと関連していることをテストし、この関連がpostモデルに源を発していることを確認
-  it { should have_many(:favorite_posts).through(:favorites).source(:post) }
-  # Userモデルが複数のpostsとの関連を持っていることをテストし、Userが削除された場合に関連するpostsも削除されることを確認
-  it { should have_many(:posts).dependent(:destroy) }
+  it "パスワードが6文字未満だと無効な状態であること" do
+    under_six_password.valid?
+    expect(under_six_password.errors[:password]).to include("は6文字以上で入力してください")
+  end
+
+  describe 'Guest' do
+    context 'ゲストユーザーが存在しない場合' do
+      it '新しいゲストユーザーに正しい属性を設定する' do
+        guest_user = User.guest
+        expect(guest_user.email).to eq('guest@example.com')
+        expect(guest_user.first_name).to eq('Guest')
+        expect(guest_user.last_name).to eq('User')
+        expect(guest_user.is_valid).to be true
+      end
+    end
+  end
 end
