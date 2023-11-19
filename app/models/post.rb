@@ -8,9 +8,9 @@ class Post < ApplicationRecord
   mount_uploader :postimage, AvatarUploader
   scope :latest, -> { order(created_at: :desc) }
   scope :with_counts_and_avg_score, -> {
-  select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count, AVG(reviews.score) as average_score')
-  .left_joins(:reviews, :favorites)
-  .group('posts.id')
+    select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count, AVG(reviews.score) as average_score')
+    .left_joins(:reviews, :favorites)
+    .group('posts.id')
   }
   scope :reviews_count, -> { 
     left_joins(:reviews)
@@ -18,8 +18,8 @@ class Post < ApplicationRecord
     .order('COUNT(reviews.id) DESC') 
   }
   scope :avg_score_and_review_count, -> {
-  with_counts_and_avg_score
-  .order('average_score DESC, reviews_count DESC')
+    with_counts_and_avg_score
+    .order('average_score DESC, reviews_count DESC')
   }
 
   def self.ransackable_attributes(auth_object = nil)
