@@ -4,13 +4,13 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    @posts = current_user.posts.with_counts.with_avg_score
+    @posts = current_user.posts.with_counts_and_avg_score
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
   def show
     @user = current_user
-    @posts = current_user.posts.with_counts.with_avg_score
+    @posts = current_user.posts.with_counts_and_avg_score
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def favorites
     @favorited_post_ids = current_user.favorites.pluck(:post_id)
-    @favorite_posts = Post.with_counts.with_avg_score.where(id: @favorited_post_ids)
+    @favorite_posts = Post.with_counts_and_avg_score.where(id: @favorited_post_ids)
   end
   
   def unsubscribe; end

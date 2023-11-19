@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :related, :all_reviews]
 
   def index
-    @posts = Post.with_counts.with_avg_score
+    @posts = Post.with_counts_and_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
       @posts = @posts.avg_score_and_review_count
     elsif params[:latest]
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.with_counts.with_avg_score.find(params[:id])
+    @post = Post.with_counts_and_avg_score.find(params[:id])
     @reviews = @post.reviews.eager_load(:user)
   end
   
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   end
     
   def related
-    @related_posts = Post.with_counts.with_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
+    @related_posts = Post.with_counts_and_avg_score.where(prefecture: @post.prefecture).where.not(id: @post.id).limit(5)
   end
   
   private

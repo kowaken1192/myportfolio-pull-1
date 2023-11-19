@@ -6,7 +6,7 @@ class SearchPostController < ApplicationController
   
   def show
     @q = Post.ransack(params[:q])
-    @results = @q.result(distinct: true).with_counts.with_avg_score
+    @results = @q.result(distinct: true).with_counts_and_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
       @results = @results.avg_score_and_review_count
     elsif params[:latest]
