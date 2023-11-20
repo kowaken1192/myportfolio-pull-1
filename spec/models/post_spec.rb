@@ -50,8 +50,14 @@ RSpec.describe Post, type: :model do
       expect(Post.reviews_count.first).to eq(post_with_more_reviews)
     end
   
-    it '平均スコアが高くとレビュー数の多い投稿を返すこと' do
+    it '平均スコアが一番高くとレビュー数の一番多い投稿を返すこと' do
       expect(Post.avg_score_and_review_count.first).to eq(post_with_high_score)
+    end
+  end
+  
+  describe '.ransackable_attributes' do
+    it 'ransack検索で使用できる属性に「name」と「address」が含まれていること' do
+      expect(Post.ransackable_attributes).to include('name', 'address')
     end
   end
 end  

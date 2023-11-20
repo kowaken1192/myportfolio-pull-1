@@ -25,10 +25,6 @@ class Post < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["name", "address"]
   end
-  
-  def self.ransackable_associations(auth_object = nil)
-    %w(reviews)
-  end
 
   def avg_score
     if self[:average_score].present?
