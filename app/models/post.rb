@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :reviews, dependent: :destroy 
   has_many :favorites, dependent: :destroy
   belongs_to :user
-  mount_uploader :postimage, AvatarUploader
+  mount_uploader :postimage, PostimageUploader
   scope :latest, -> { order(created_at: :desc) }
   scope :with_counts_and_avg_score, -> {
     select('posts.*, COUNT(DISTINCT reviews.id) as reviews_count, COUNT(DISTINCT favorites.id) as favorites_count, AVG(reviews.score) as average_score')

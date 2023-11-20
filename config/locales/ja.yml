@@ -13,6 +13,8 @@ ja:
       user:
         first_name: 名字
         last_name: 名前
+        image: プロフィール画像
+        background_image: 背景画像
 
   flash:
     notice:
