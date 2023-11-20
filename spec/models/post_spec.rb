@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let!(:user) { FactoryBot.create(:user) }
-  let!(:post) { create(:post, user: user) }
+  let!(:post) { FactoryBot.create(:post) }
 
   describe 'validation' do
     it '名前がない場合は無効であること' do
@@ -50,7 +50,7 @@ RSpec.describe Post, type: :model do
       expect(Post.reviews_count.first).to eq(post_with_more_reviews)
     end
   
-    it '平均スコアが一番高くとレビュー数の一番多い投稿を返すこと' do
+    it '平均スコアが一番高くレビュー数の一番多い投稿を返すこと' do
       expect(Post.avg_score_and_review_count.first).to eq(post_with_high_score)
     end
   end
@@ -60,4 +60,23 @@ RSpec.describe Post, type: :model do
       expect(Post.ransackable_attributes).to include('name', 'address')
     end
   end
-end  
+
+  describe '#avg_score' do
+    context 'レビューが存在する場合' do
+      before do
+        create(:review, post: post, score: 3)
+        create(:review, post: post, score: 5)
+      end
+    
+      it 'レビューの平均スコアを返す' do
+        expect(post.avg_score).to eq(4.0)
+      end
+    end
+
+    context 'レビューが存在しない場合' do
+      it '0.0を返す' do
+        expect(post.avg_score).to eq(0.0)
+      end
+    end
+  end
+end
