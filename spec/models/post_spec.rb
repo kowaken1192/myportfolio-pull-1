@@ -79,4 +79,24 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe '#review_score_percentage' do
+    context 'レビューが存在する場合' do
+      before do
+        create(:review, post: post, score: 3)
+        create(:review, post: post, score: 5)
+      end
+
+      it '平均スコアを5で割り、100をかけてパーセンテージに変換する' do
+        # 平均スコアが4.0の場合、(4.0 * 100 / 5) は 80.0 となる
+        expect(post.review_score_percentage).to eq(80.0)
+      end
+    end
+
+    context 'レビューが存在しない場合' do
+      it '0.0を返す' do
+      expect(post.review_score_percentage).to eq(0.0)
+      end
+    end
+  end
 end
