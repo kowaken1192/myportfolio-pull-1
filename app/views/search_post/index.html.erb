@@ -10,7 +10,7 @@
     <ul>
       <li><span style="color: red;">■</span> 投稿数が10個以上の場合</li>
       <li><span style="color: blue;">■</span> 投稿数が5個以上の場合</li>
-      <li><span style="color: pink;">■</span> 投稿数が5未満の場合</li>
+      <li><span style="color: pink;">■</span> 投稿数が5個未満の場合</li>
       <li><span style="color: white; border: 1px solid black;">■</span> 投稿数が0個の場合</li>
     </ul>
   </div>
@@ -21,6 +21,18 @@
     <br>
     <div class="field">
       <%= f.search_field :address_cont, class: 'input is-large', placeholder: '埼玉県、秋田県、 etc..' %>
+    </div>
+    <div class="field">
+      <%= f.submit "検索", class: "button is-primary is-large is-fullwidth" %>
+    </div>
+  <% end %>
+</div>
+<div class="box">
+  <%= search_form_for @q, url: search_post_show_path, method: :get do |f| %>
+    <p class="has-text-centered is-size-5">行き先から検索したい方はこちら</p>
+    <br>
+    <div class="field">
+      <%= f.search_field :name_cont, class: 'input is-large', placeholder: '東京ドーム、清水寺 etc..' %>
     </div>
     <div class="field">
       <%= f.submit "検索", class: "button is-primary is-large is-fullwidth" %>

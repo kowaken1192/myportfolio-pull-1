@@ -23,7 +23,7 @@ class Post < ApplicationRecord
   }
 
   def self.ransackable_attributes(auth_object = nil)
-    ["detail", "name", "address","country"]
+    ["name", "address"]
   end
   
   def self.ransackable_associations(auth_object = nil)
