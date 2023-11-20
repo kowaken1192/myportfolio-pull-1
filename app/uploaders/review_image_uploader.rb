@@ -20,7 +20,7 @@ class ReviewImageUploader < CarrierWave::Uploader::Base
     'sample.jpg'
   end
   
-  def extension_whitelist
+  def extension_allowlist
     %w[jpg jpeg gif png]
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
