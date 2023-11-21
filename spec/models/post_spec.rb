@@ -35,7 +35,7 @@ RSpec.describe Post, type: :model do
       create(:favorite, post: post)
       create_list(:review, 5, post: post_with_more_reviews, user: user)
       create_list(:review, 1, post: post_with_fewer_reviews, user: user)
-      create_list(:review, 5, post: post_with_high_score, user: user, score: 5)
+      create_list(:review, 4, post: post_with_high_score, user: user, score: 5)
       create_list(:review, 2, post: post_with_low_score, user: user, score: 3)
     end
   

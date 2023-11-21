@@ -45,6 +45,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'bullet'
   gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
