@@ -23,22 +23,36 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:country]).to include("を入力してください")
     end
   end
+  
+  describe 'postimage' do
+    let!(:pic_path) { Rails.root.join('spec/fixtures/test.jpeg') }
 
+    context '画像が指定された場合' do
+      it '画像がアップロードされる' do
+        post = create(:post, postimage: File.open(pic_path))
+        expect(post).to be_valid
+      end
+    end
+  end
+  
   describe 'Post scopes' do
-    let!(:post_with_more_reviews) { create(:post) }
-    let!(:post_with_fewer_reviews) { create(:post) }
+    let!(:post_with_most_reviews) { create(:post) }
     let!(:post_with_high_score) { create(:post) }
     let!(:post_with_low_score) { create(:post) }
-  
+    let!(:latest_post) { create(:post, created_at: Time.zone.now) }
+
     before do
       create(:review, post: post, user: user, score: 5)
       create(:favorite, post: post)
-      create_list(:review, 5, post: post_with_more_reviews, user: user)
-      create_list(:review, 1, post: post_with_fewer_reviews, user: user)
+      create_list(:review, 5, post: post_with_most_reviews, user: user)
       create_list(:review, 4, post: post_with_high_score, user: user, score: 5)
       create_list(:review, 2, post: post_with_low_score, user: user, score: 3)
     end
-  
+    
+    it '最新の投稿を最初に返すこと' do
+      expect(Post.latest.first).to eq(latest_post)
+    end
+
     it '正しいカウント数と平均スコアを持つ投稿を返すこと' do
       result = Post.with_counts_and_avg_score.find(post.id)
       expect(result.reviews_count).to eq(1)
@@ -47,7 +61,7 @@ RSpec.describe Post, type: :model do
     end
   
     it 'レビュー数の一番多い投稿を返すこと' do
-      expect(Post.reviews_count.first).to eq(post_with_more_reviews)
+      expect(Post.reviews_count.first).to eq(post_with_most_reviews)
     end
   
     it '平均スコアが一番高くレビュー数の一番多い投稿を返すこと' do
