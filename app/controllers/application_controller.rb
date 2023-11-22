@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    profile_index_path
+    service_index_path
   end
 
   def after_sign_out_path_for(resource)
-    posts_path
+    homes_path
   end
 end
