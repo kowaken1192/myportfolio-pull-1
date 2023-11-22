@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_normal_user, only: :withdraw
-  before_action :set_user, only: [:edit, :update, :unsubscribe, :withdraw]
+  before_action :set_user, only: [:show, :edit, :update, :unsubscribe, :withdraw]
 
   def index
     @user = current_user
@@ -9,11 +9,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @posts = current_user.posts.with_counts_and_avg_score
-    @favorited_post_ids = current_user.favorites.pluck(:post_id)
+    @posts = @user.posts.with_counts_and_avg_score 
+    @favorited_post_ids = @user.favorites.pluck(:post_id) 
   end
-
+  
   def edit; end
 
   def update
