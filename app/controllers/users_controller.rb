@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def ensure_normal_user
     if current_user.email == 'guest@example.com'
       flash[:alert] = t('flash.alert.users.guest_cannot_delete')
-      redirect_to confirm_unsubscribe_path
+      redirect_to confirm_unsubscribe_user_path
     end
   end
 

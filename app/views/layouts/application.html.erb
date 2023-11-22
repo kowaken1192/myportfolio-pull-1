@@ -39,7 +39,7 @@
                   <%= link_to "ユーザー情報", personal_path(current_user), class: "navbar-item" %>
                   <hr class="navbar-divider">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
-                  <%= link_to "退会", confirm_unsubscribe_path(current_user), class: "navbar-item" %>
+                  <%= link_to "退会", confirm_unsubscribe_user_path(current_user), class: "navbar-item" %>
                 </div>
               </div>
             </div>
@@ -48,10 +48,10 @@
       <% else %>
         <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-            <%= link_to homes_index_path do %>
+            <%= link_to homes_path do %>
               <%= image_tag("Untitled design (13).png", class: "logo-image", size: "80x80") %>
             <% end %>
-            <%= link_to "Explore & Share - Japan", homes_index_path, class: "navbar-item explore-share" %>
+            <%= link_to "Explore & Share - Japan", homes_path, class: "navbar-item explore-share" %>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>

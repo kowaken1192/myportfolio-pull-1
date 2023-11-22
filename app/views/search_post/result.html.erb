@@ -8,16 +8,16 @@
   </div>
   <div class="text-button pt-3">
     <div class="button-item">
-      <%= link_to "投稿一覧", search_post_show_path(q: { address_cont: @prefecture_name }) %>
+      <%= link_to "投稿一覧", search_post_result_path(q: { address_cont: @prefecture_name }) %>
     </div>
     <div class="button-item">
-      <%= link_to '人気投稿', search_post_show_path(q: { address_cont: @prefecture_name }, sort_by: 'avg_score_and_review_count') %>
+      <%= link_to '人気投稿', search_post_result_path(q: { address_cont: @prefecture_name }, sort_by: 'avg_score_and_review_count') %>
     </div>
     <div class="button-item">
-      <%= link_to '最新の投稿', search_post_show_path(q: { address_cont: @prefecture_name }, latest: "true") %>
+      <%= link_to '最新の投稿', search_post_result_path(q: { address_cont: @prefecture_name }, latest: "true") %>
     </div>
     <div class="button-item">
-      <%= link_to '口コミの多い投稿', search_post_show_path(q: { address_cont: @prefecture_name }, reviews_count: "true") %>
+      <%= link_to '口コミの多い投稿', search_post_result_path(q: { address_cont: @prefecture_name }, reviews_count: "true") %>
     </div>
   </div>
 </section>

@@ -5,11 +5,6 @@ class ReviewsController < ApplicationController
     @posts = Post.find(params[:post_id])
   end
   
-  def show
-    @review = Review.find(params[:id])
-    @post = @review.post
-  end
-  
   def new 
     @post = Post.find(params[:post_id])
     @review = Review.new

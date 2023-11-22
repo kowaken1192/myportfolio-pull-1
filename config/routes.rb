@@ -1,43 +1,37 @@
 Rails.application.routes.draw do
   root 'homes#index'
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
     get '/signin', to: 'session#new', as: 'signin'
     post '/signin', to: 'session#create'
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-  
-  get 'unsubscribe/:id' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch ':id/withdraw' => 'users#withdraw', as: 'withdraw_user'
-  put ':id/withdraw' => 'users#withdraw'
 
-  get 'homes/index' 
-  get 'service/index'
-  resources :map, only:  [:index]
-
-  resources :personal, only: [:show, :edit, :update]
-
-  resources :users, only: [:index, :show, :edit, :update,:unsubscribe,:withdraw] do    
+  resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :favorites
+      get 'unsubscribe', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
+      match 'withdraw', via: [:patch, :put], as: 'withdraw'
     end
   end
-  post '/save_language', to: 'application#save_language'
-
-  get 'search_post/index'
-  get 'search_post/show'
-  get 'search_post/count_by_prefecture', to: 'search_post#count_by_prefecture'
 
   resources :posts do
     member do
       get :all_reviews
       get :related
     end
-    resources :reviews, only: [:index,:new,:create]
     resource :favorites, only: [:create, :destroy]
+    resources :reviews, only: [:index,:new,:create]
   end
-  resources :reviews, only: [:show]
+
+  resources :search_post, only: [:index] 
+  get 'search_post/result', to: 'search_post#result'
+  get 'search_post/count_by_prefecture', to: 'search_post#count_by_prefecture'
+
+  post '/save_language', to: 'application#save_language'
+  resources :homes, only: [:index]
+  resources :service, only: [:index]
+  resources :personal, only: [:show, :edit, :update]
+  resources :map, only: [:index]
 end

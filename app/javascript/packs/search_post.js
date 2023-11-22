@@ -36,7 +36,7 @@ async function loadMap() {
           pref.style.fill = getColor(prefectureName, countsData);
 
           pref.addEventListener('click', () => {
-            location.href = `/search_post/show?q[address_cont]=${encodeURIComponent(prefectureName)}`;
+            location.href = `/search_post/result?q[address_cont]=${encodeURIComponent(prefectureName)}`;
           });
         }
       });

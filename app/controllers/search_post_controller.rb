@@ -4,7 +4,7 @@ class SearchPostController < ApplicationController
     @posts = @q.result(distinct: true).includes(:reviews).order(created_at: :desc)
   end
   
-  def show
+  def result
     @q = Post.ransack(params[:q])
     @results = @q.result(distinct: true).with_counts_and_avg_score
     if params[:sort_by] == 'avg_score_and_review_count'
