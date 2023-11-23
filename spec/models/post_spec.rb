@@ -64,7 +64,7 @@ RSpec.describe Post, type: :model do
       expect(Post.reviews_count.first).to eq(post_with_most_reviews)
     end
   
-    it '平均スコアが一番高くレビュー数の一番多い投稿を返すこと' do
+    it '平均スコアが一番高い投稿を返すこと' do
       expect(Post.avg_score_and_review_count.first).to eq(post_with_high_score)
     end
   end
