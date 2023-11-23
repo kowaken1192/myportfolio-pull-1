@@ -48,8 +48,8 @@ RSpec.describe "Users", type: :system do
 end
 
 RSpec.describe "UserProfile", type: :system do
-  let!(:user) { create(:user) }
-
+  let!(:user) { create(:user, profile: "よろしくお願いします") }
+  
   before do
     sign_in user 
     visit users_path 
