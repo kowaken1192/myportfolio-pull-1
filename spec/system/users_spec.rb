@@ -48,7 +48,7 @@ RSpec.describe "Users", type: :system do
 end
 
 RSpec.describe "UserProfile", type: :system do
-  let!(:user) { create(:user, profile: "よろしくお願いします") }
+  let!(:user) { create(:user) }
 
   before do
     sign_in user 
