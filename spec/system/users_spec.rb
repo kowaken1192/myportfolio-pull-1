@@ -23,7 +23,7 @@ RSpec.describe "Users", type: :system do
 
   describe 'ユーザーログイン' do
     let!(:user) { FactoryBot.create(:user) }
-    
+
     before do
       visit new_user_session_path
     end
@@ -48,7 +48,7 @@ RSpec.describe "Users", type: :system do
 end
 
 RSpec.describe "UserProfile", type: :system do
-  let!(:user) { create(:user) } 
+  let!(:user) { create(:user, profile: "よろしくお願いします") }
 
   before do
     sign_in user 
