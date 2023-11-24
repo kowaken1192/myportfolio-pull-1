@@ -12,7 +12,7 @@
     </div>
     <div class="buttons is-centered">
       <%= link_to "退会する", withdraw_user_path(current_user), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "button is-danger" %>
-      <%= link_to "退会しない", confirm_unsubscribe_user_path(current_user), class: "button is-light" %>
+      <%= link_to "退会しない", users_path(current_user), class: "button is-link" %>
     </div>
   </div>
 </section>
