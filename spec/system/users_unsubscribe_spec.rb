@@ -43,4 +43,3 @@ RSpec.describe 'User Unsubscribe', type: :system do
     end
   end
 end
-
