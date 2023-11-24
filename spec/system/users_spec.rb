@@ -51,6 +51,7 @@ end
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user, profile: "よろしくお願いします") }
+  let(:post) { create(:post, created_at: Time.current) }
 
   before do
     sign_in user
@@ -58,9 +59,9 @@ RSpec.describe "Users", type: :system do
 
   describe "#index" do
     before do
-      visit users_path 
-    end
-
+      visit users_path
+    end 
+    
     it "ユーザー情報が正しく表示されていること" do
       expect(page).to have_content(user.first_name)
       expect(page).to have_content(user.last_name)
@@ -137,6 +138,41 @@ RSpec.describe "Users", type: :system do
       fill_in 'user[last_name]', with: ''
       click_button '編集を完了する'
       expect(page).to have_content "名前を入力してください"
+    end
+  end
+
+  describe "Favorites", type: :system do
+    let!(:favorite_posts) { create_list(:post, 1, user: user, postimage: Rack::Test::UploadedFile.new('spec/fixtures/test.jpeg', 'image/jpeg')) }
+
+    before do
+      favorite_posts.each { |post| user.favorites.create(post: post) }
+      @favorite_posts = favorite_posts
+      @favorited_post_ids = favorite_posts.map(&:id)
+      visit favorites_user_path(user)
+    end
+  
+    it '必要な投稿内容の名前が表示されていること' do
+      @favorite_posts.each do |post|
+        expect(page).to have_content(post.name)
+        expect(page).to have_content(post.address)
+        expect(page).to have_content(post.created_at.strftime('%Y年 %m月%d日'))
+      end
+    end
+  
+    it 'お気に入りアイコンが正しく表示されていること' do
+      @favorite_posts.each do |post|
+        if @favorited_post_ids.include?(post.id)
+          expect(page).to have_css("i.fas.fa-heart")
+        else
+          expect(page).to have_css("i.far.fa-heart")
+        end
+      end
+    end
+
+    it 'レビュースコアが正しく表示されていること' do
+      @favorite_posts.each do |post|
+        expect(page).to have_css('.star-rating-front', style: "width: #{post.review_score_percentage}%")
+      end
     end
   end
 end

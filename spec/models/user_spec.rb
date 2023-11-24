@@ -48,6 +48,26 @@ RSpec.describe User, type: :model do
       expect(under_six_password.errors[:password]).to include("は6文字以上で入力してください")
     end
   end
+  
+  describe '#already_favorited?' do
+    let(:post) { create(:post) }
+
+    context '投稿をいいねしている場合' do
+      before do
+        user.favorites.create(post: post)
+      end
+
+      it 'trueを返す' do
+        expect(user.already_favorited?(post)).to be true
+      end
+    end
+
+    context '投稿をいいねしていない場合' do
+      it 'falseを返す' do
+        expect(user.already_favorited?(post)).to be false
+      end
+    end
+  end
 
   describe 'Guest' do
     context 'ゲストユーザーが存在しない場合' do
