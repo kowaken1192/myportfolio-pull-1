@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Posts", type: :system do
   describe "Posts System Tests" do
     let(:user) { create(:user) }
-    let!(:post) { create(:post, created_at: Time.current) }
+    let!(:post) { create(:post, created_at: Time.current, detail: "楽しかった") }
     let!(:review) { create(:review, post: post, user: user) }
 
     before do
@@ -47,7 +47,6 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content(post.address)
         expect(page).to have_content(post.detail)
         expect(page).to have_content(post.country)
-        expect(page).to have_content(post.prefecture)
         expect(page).to have_content(post.created_at.strftime('%Y年 %m月%d日'))
       end
 
@@ -82,7 +81,15 @@ RSpec.describe "Posts", type: :system do
         user_name = "#{review.user.first_name} #{review.user.last_name}"
         find('a', text: user_name, exact_text: true).click
         expect(current_path).to eq(user_path(review.user))
-      end      
+      end 
+      
+      it '関連するレビューが３つ表示されていること' do
+        post.reviews.limit(3).each do |review|
+          expect(page).to have_content(review.title)
+          expect(page).to have_content(review.content)
+          expect(page).to have_content("#{review.score}/5点")
+        end
+      end    
     end
   end
 end

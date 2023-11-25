@@ -142,7 +142,7 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "Favorites", type: :system do
-    let!(:favorite_posts) { create_list(:post, 1, user: user, postimage: Rack::Test::UploadedFile.new('spec/fixtures/test.jpeg', 'image/jpeg')) }
+    let!(:favorite_posts) { create_list(:post, 2, user: user, postimage: Rack::Test::UploadedFile.new('spec/fixtures/test.jpeg', 'image/jpeg')) }
 
     before do
       favorite_posts.each { |post| user.favorites.create(post: post) }
