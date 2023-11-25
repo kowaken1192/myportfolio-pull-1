@@ -69,11 +69,20 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  Capybara.configure do |capybara_config|
+    capybara_config.default_driver = :selenium_chrome
+    capybara_config.default_max_wait_time = 10 
+  end
+
   Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    options.add_argument('--disable-dev-shm-usage') 
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
   end
   Capybara.javascript_driver = :selenium
-  
+    
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
