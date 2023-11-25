@@ -72,13 +72,13 @@
       <% end %>
     </div>
     <div class="button is-rounded mt-3">
-      <%= link_to '全ての口コミを見る', all_reviews_post_path(@post) %>
+      <%= link_to '全ての口コミを見る', all_reviews_post_path(@post.id) %>
       （<%= @reviews.count %>件の口コミ）
     </div>
   </div>
 </div>
 <div class="box mt-4 has-text-centered">
-  <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post), class: "button is-info is-medium" %>
+  <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post.id), class: "button is-info is-medium" %>
 </div>
 <div class="box">
   <p class="title is-4">このスポットの基本情報</p>
@@ -94,7 +94,7 @@
   </p>
 </div>
 <div class="button has-text-centered is-size-3">
-  <%= link_to '投稿情報一覧に戻る', posts_path %>
+  <%= link_to '投稿一覧に戻る', posts_path %>
 </div>
 </section>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>
