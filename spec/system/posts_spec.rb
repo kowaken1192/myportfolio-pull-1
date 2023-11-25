@@ -26,7 +26,8 @@ RSpec.describe "Posts", type: :system do
       end
       
       it '投稿の詳細ページに遷移できること' do
-        expect(page).to have_link 'この投稿の詳細へ', href: "/posts/#{post.id}"
+        click_on 'この投稿の詳細へ'
+        expect(current_path).to eq(post_path(post))
       end
 
       it '各ボタンのリンクが表示される' do
@@ -83,13 +84,55 @@ RSpec.describe "Posts", type: :system do
         expect(current_path).to eq(user_path(review.user))
       end 
       
-      it '関連するレビューが３つ表示されていること' do
+      it 'レビューが３つ表示されていること' do
         post.reviews.limit(3).each do |review|
           expect(page).to have_content(review.title)
           expect(page).to have_content(review.content)
           expect(page).to have_content("#{review.score}/5点")
         end
-      end    
+      end
+      
+      it 'レビューしたユーザーの画像が表示されること' do
+        review.review_images.each do |review_image|
+          expect(page).to have_selector("img[src$='#{review_image.image.url}']")
+        end
+      end
+    end
+
+    describe "create", type: :system do
+  
+      before do
+        visit new_post_path
+      end
+  
+      context 'when valid data is submitted', js: true do
+        it 'creates a new post and review' do
+          fill_in 'post[name]', with: 'Test Place'
+          fill_in 'post[country]', with: 'Test Country'
+          fill_in 'post[prefecture]', with: 'Test Prefecture'
+          fill_in 'post[address]', with: 'Test Address'
+          fill_in 'post[detail]', with: 'It was great!'
+          find_all('.fa-star-o')[4].click
+      
+          click_on '登録する'
+          expect(page).to have_content '投稿ありがとうございます！'
+          expect(current_path).to eq(related_post_path(Post.last))
+        end
+      end
+
+      context 'when invalid data is submitted', js: true do
+        it 'shows errors' do
+          fill_in 'post[name]', with: 'test name'
+          fill_in 'post[country]', with: 'test country'
+          fill_in 'post[prefecture]', with: 'test prefecture'
+          fill_in 'post[address]', with: 'test address'
+          fill_in 'post[detail]', with: 'test detail'
+      
+          click_on '登録する'
+          expect(page).to have_content '保存に失敗しました'
+          expect(current_path).to eq(posts_path)
+        end
+      end
     end
   end
 end
