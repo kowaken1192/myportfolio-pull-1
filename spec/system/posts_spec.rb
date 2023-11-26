@@ -144,5 +144,40 @@ RSpec.describe "Posts", type: :system do
         expect(current_path).to eq(users_path)
       end
     end
+
+    describe "Related Posts" do
+      let!(:post) { create(:post, prefecture: '東京都') }
+      let!(:related_posts) { create_list(:post, 5, prefecture: '東京都') }
+  
+      before do
+        visit related_post_path(post)
+      end
+      
+      context '関連する投稿がある場合' do
+        it '必要な投稿の情報が表示されること' do
+          related_posts.each do |related_post|
+            expect(page).to have_content(related_post.name)
+            expect(page).to have_content(related_post.address)
+            expect(page).to have_content("#{related_post.avg_score}点（#{related_post.reviews.count}件のレビュー）")
+            expect(page).to have_content(related_post.created_at.strftime('%Y年 %m月%d日'))
+            expect(page).to have_link('この投稿の詳細へ', href: post_path(related_post))
+
+            if related_post.postimage?
+              expect(page).to have_selector("img[src$='#{related_post.postimage.url}']")
+            else
+              expect(page).to have_selector("img[src$='https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg']")
+            end
+          end
+        end
+      end
+  
+      context '関連する投稿がない場合' do
+        let!(:related_posts) { [] }
+  
+        it '関連する投稿がないことのメッセージが表示される' do
+          expect(page).to have_content('関連している投稿はありません')
+        end
+      end
+    end
   end
 end
