@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-
-  def index
-    @posts = Post.find(params[:post_id])
-  end
-  
+    
   def new 
     @post = Post.find(params[:post_id])
     @review = Review.new

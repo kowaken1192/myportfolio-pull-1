@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get :related
     end
     resource :favorites, only: [:create, :destroy]
-    resources :reviews, only: [:index,:new,:create]
+    resources :reviews, only: [:new, :create]
   end
 
   resources :search_post, only: [:index] 
