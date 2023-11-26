@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Posts", type: :system do
   describe "Posts System Tests" do
     let(:user) { create(:user) }
-    let!(:post) { create(:post, created_at: Time.current, detail: "楽しかった") }
+    let!(:post) { create(:post, user: user, created_at: Time.current, detail: "楽しかった") }
     let!(:review) { create(:review, post: post, user: user) }
 
     before do
@@ -100,13 +100,12 @@ RSpec.describe "Posts", type: :system do
     end
 
     describe "create", type: :system do
-  
       before do
         visit new_post_path
       end
   
-      context 'when valid data is submitted', js: true do
-        it 'creates a new post and review' do
+      context 'レビューした場合', js: true do     
+        it '投稿が成功し、おすすめの投稿が表示されるページにリダイレクトされる' do
           fill_in 'post[name]', with: 'Test Place'
           fill_in 'post[country]', with: 'Test Country'
           fill_in 'post[prefecture]', with: 'Test Prefecture'
@@ -120,8 +119,8 @@ RSpec.describe "Posts", type: :system do
         end
       end
 
-      context 'when invalid data is submitted', js: true do
-        it 'shows errors' do
+      context 'レビューしない場合', js: true do
+        it '投稿に失敗する' do
           fill_in 'post[name]', with: 'test name'
           fill_in 'post[country]', with: 'test country'
           fill_in 'post[prefecture]', with: 'test prefecture'
@@ -132,6 +131,17 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content '保存に失敗しました'
           expect(current_path).to eq(posts_path)
         end
+      end
+    end
+
+    describe '#destroy' do
+      it 'マイページに表示されるユーザーの投稿のみ削除する' do
+        visit users_path
+        expect {
+        click_on '削除する'
+        }.to change { user.posts.count }.by(-1)
+        expect(page).to have_content '投稿を削除しました'
+        expect(current_path).to eq(users_path)
       end
     end
   end
