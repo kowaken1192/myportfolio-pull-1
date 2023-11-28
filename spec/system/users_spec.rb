@@ -46,6 +46,26 @@ RSpec.describe "Users", type: :system do
         expect(current_path).to eq new_user_session_path
       end
     end
+  
+    describe 'ユーザーログアウト' do
+      before do
+        sign_in user
+        visit posts_path
+      end
+
+      context 'ログアウトした場合' do
+        it 'ホーム画面に遷移し、正しい情報が表示される' do
+          user_name = "#{user.first_name} #{user.last_name}様"
+          find('a', text: user_name).click
+          click_on 'ログアウト'
+          expect(current_path).to eq homes_path
+          expect(page).to have_content('新規登録')
+          expect(page).to have_content('ログイン')
+          expect(page).to have_content('ゲストログイン')
+          expect(page).to have_content('Explore & Share - Japan')
+        end
+      end
+    end
   end
 end
 
