@@ -27,7 +27,7 @@ RSpec.describe 'User Unsubscribe', type: :system do
     end
   end
 
-  context 'ゲストユーザー' do
+  context 'ゲストユーザーの場合' do
     let!(:guest_user) { create(:user, email: 'guest@example.com') }
 
     before do
@@ -35,7 +35,7 @@ RSpec.describe 'User Unsubscribe', type: :system do
       visit confirm_unsubscribe_user_path(guest_user)
     end
 
-    it 'ゲストユーザーは退会できず、フラッシュメッセージが表示される' do
+    it '退会できず、フラッシュメッセージが表示される' do
       click_link '退会する'
       expect(current_path).to eq confirm_unsubscribe_user_path(guest_user)
       expect(page).to have_content 'ゲストユーザーは削除できません。'

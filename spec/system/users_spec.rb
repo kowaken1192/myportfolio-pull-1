@@ -68,7 +68,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content(user.profile)
     end
 
-    it "編集ボタンをクリックすると、編集ページにリダイレクトされる" do
+    it "編集ボタンをクリックすると、編集ページに遷移される" do
       click_on 'プロフィール編集'
       expect(current_path).to eq(edit_user_path(user))
     end
@@ -110,7 +110,7 @@ RSpec.describe "Users", type: :system do
       visit edit_user_path(user)
     end
   
-    it "更新後,一覧ページにリダイレクトし、更新された情報を表示する" do
+    it "更新後,一覧ページに遷移し、更新された情報を表示する" do
       fill_in 'user[first_name]', with: 'NewFirstName'
       fill_in 'user[last_name]', with: 'NewLastName'
       fill_in 'user[profile]', with: 'New Profile'
@@ -151,7 +151,7 @@ RSpec.describe "Users", type: :system do
       visit favorites_user_path(user)
     end
   
-    it '必要な投稿内容の名前が表示されていること' do
+    it '必要な投稿内容の情報が表示されていること' do
       @favorite_posts.each do |post|
         expect(page).to have_content(post.name)
         expect(page).to have_content(post.address)

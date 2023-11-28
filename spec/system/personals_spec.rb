@@ -47,7 +47,7 @@ RSpec.describe 'パスワード変更', type: :system do
       end
     end
 
-    context 'ゲストユーザーとして' do
+    context 'ゲストユーザーとしてログインした場合' do
       let!(:guest_user) { create(:user, email: 'guest@example.com') }
 
       before do
