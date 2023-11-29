@@ -177,4 +177,66 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "名前を入力してください"
     end
   end
+
+  describe "header and footer" do    
+    before do
+      visit service_index_path
+      sign_in user
+    end
+    
+    context 'ログインした場合' do
+      it 'ユーザー名とナビゲーションバーが表示される' do
+        within 'header' do
+          expect(page).to have_content "#{user.first_name} #{user.last_name}様"
+          expect(page).to have_css('div.navbar-dropdown.is-right')
+        end
+      end
+        
+      it 'フッターのアイコンとリンクが正しく機能する' do
+        within 'footer' do
+          expect(page).to have_css 'i.fa-home'
+          expect(page).to have_css 'i.fa-solid.fa-comment'
+          expect(page).to have_css 'i.fa-solid.fa-magnifying-glass'
+          expect(page).to have_css 'i.fa-solid.fa-heart'
+          expect(page).to have_css 'i.fa-solid.fa-user'
+  
+          expect(page).to have_content 'ホーム'
+          expect(page).to have_content '投稿する'
+          expect(page).to have_content '検索画面'
+          expect(page).to have_content 'お気に入り'
+          expect(page).to have_content 'マイページ'
+        end
+      end
+
+      it 'ホーム画面を押すと投稿一覧ページに遷移する' do 
+        click_on 'ホーム'
+        expect(current_path).to eq posts_path
+        expect(page).to have_content '投稿一覧'
+      end
+
+      it '投稿するを押すと住所検索ページに遷移する' do 
+        click_on '投稿する'
+        expect(current_path).to eq map_index_path
+        expect(page).to have_content '住所検索画面'
+      end
+
+      it '検索画面を押すと投稿検索ページに遷移する' do
+        click_on '検索画面'
+        expect(current_path).to eq search_post_index_path
+        expect(page).to have_content '地図から都道府県を検索する'
+      end
+
+      it 'お気に入りを押すとお気に入りページに遷移する' do
+        click_on 'お気に入り'
+        expect(current_path).to eq favorites_user_path(user)
+        expect(page).to have_content 'あなたがいいねした投稿'
+      end
+
+      it 'マイページを押すとユーザーの投稿一覧画面に遷移する' do
+        click_on 'マイページ'
+        expect(current_path).to eq users_path(user)
+        expect(page).to have_content 'あなたのプロフィール'
+      end
+    end
+  end
 end
