@@ -25,6 +25,7 @@ RSpec.describe "Users", type: :system do
 
   describe 'ユーザーログイン' do
     let!(:user) { FactoryBot.create(:user) }
+    let!(:post) { FactoryBot.create(:post) }
 
     before do
       visit new_user_session_path
@@ -37,6 +38,7 @@ RSpec.describe "Users", type: :system do
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました。'
         expect(current_path).to eq(service_index_path)
+        expect(page).to have_content "#{user.first_name} #{user.last_name}様"
       end
 
       it 'ログインに失敗する' do
@@ -63,6 +65,21 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_content('ログイン')
           expect(page).to have_content('ゲストログイン')
           expect(page).to have_content('Explore & Share - Japan')
+        end
+      end
+    end
+
+    describe 'ゲストログイン' do
+      before do
+        visit homes_path
+      end
+    
+      context 'ゲストログインした場合' do
+        it 'ホーム画面に遷移し、正しい情報が表示される' do
+          click_on 'ゲストログイン'
+          expect(page).to have_content('ゲストユーザーとしてログインしました。')
+          expect(current_path).to eq(service_index_path)
+          expect(page).to have_content("Guest User様") 
         end
       end
     end
