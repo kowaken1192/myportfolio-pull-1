@@ -12,7 +12,7 @@ class PersonalController < ApplicationController
   end
 
   def update
-    user_params = params.require(:user).permit(:email,:password, :password_confirmation)
+    user_params = params.require(:user).permit(:email, :password, :password_confirmation)
     if @user.update(user_params)
       flash[:notice] = t('flash.notice.personal.password_updated')
       redirect_to posts_path  
