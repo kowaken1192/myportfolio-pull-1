@@ -62,11 +62,11 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:name, :address, :detail, :country,:prefecture,:postimage)
+    params.require(:post).permit(:name, :address, :detail, :country, :prefecture, :postimage)
   end
   
   def review_params
-    params.require(:post).require(:review).permit(:score, :content)
+    params.require(:post).require(:review).permit(:score)
   end
 
   def recommend_related_posts
