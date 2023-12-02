@@ -32,7 +32,7 @@ RSpec.describe 'パスワード変更', type: :system do
         fill_in 'user[password]', with: 'newpassword'
         fill_in 'user[password_confirmation]', with: 'newpassword'
         click_on '更新'
-        expect(page).to have_content 'ログインもしくはアカウント登録してください'
+        expect(page).to have_content 'パスワード更新しました'
         expect(current_path).to eq(new_user_session_path)
       end
     end

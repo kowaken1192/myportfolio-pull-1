@@ -15,7 +15,7 @@ class PersonalController < ApplicationController
     user_params = params.require(:user).permit(:email, :password, :password_confirmation)
     if @user.update(user_params)
       flash[:notice] = t('flash.notice.personal.password_updated')
-      redirect_to posts_path  
+      redirect_to new_user_session_path
     else
       flash.now[:alert] = t('flash.alert.personal.password_update_failed')
       render 'edit'
