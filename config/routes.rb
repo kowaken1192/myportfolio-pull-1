@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
-    get '/signin', to: 'session#new', as: 'signin'
-    post '/signin', to: 'session#create'
+    get '/signin', to: 'devise/sessions#new', as: 'new_user_signin'
+    post '/signin', to: 'devise/sessions#create', as: 'user_signin'
     post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     member do
       get :favorites
       get 'unsubscribe', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
-      match 'withdraw', via: [:patch, :put], as: 'withdraw'
+      patch 'withdraw', to: 'users#withdraw', as: 'withdraw'
     end
   end
 
