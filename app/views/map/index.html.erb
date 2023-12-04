@@ -9,14 +9,15 @@
         <div class="step">
           <div class="step-marker"><span class="icon"><i class="fas fa-pencil-alt"></i></span> STEP 1</div>
           <div class="step-details">
-            <p>下の入力欄（東京ドームと書いてあるところ）に旅先の観光地名を入力し,「Encode」ボタンを押すと下に青い部分に住所が表示されます。</span><br>
-            住所が正しければ「NEXT STEP」ボタンを押してください。総合評価画面にいきます。
+            <p>下の入力欄（東京ドームと書いてあるところ）に旅先の観光地名を入力し、「Encode」ボタンを押すと下に青い部分に住所が表示されます。<br>
+              住所が正しければ「NEXT STEP」ボタンを押してください。総合評価画面にいきます。</p>
           </div>
         </div>
         <div class="step">
           <div class="step-marker"><span class="icon"><i class="fas fa-check"></i></span> STEP 2</div>
           <div class="step-details">
-            <p>次のページ（総合評価画面）で口コミ評価すると投稿完了になります。必要に応じて画像投稿、旅の感想などをご記入ください。</p>
+            <p>次のページ（総合評価画面）で口コミ評価すると投稿完了になります。必要に応じて画像投稿、旅の感想などをご記入ください。<br>
+              （地図が表示されなかったり、住所が表示されない場合は、画面下の「更新」ボタンを押してください）</p>
           </div>
         </div>
       </div>
@@ -29,8 +30,9 @@
         </div>
       </div>
       <div id="display" class="notification is-info">こちらに住所が表示されます</div>
-      <div class="buttons">
+      <div class="map-buttons">
         <button class="button is-primary" onclick="goBackToForm()">NEXT STEP</button>
+        <%= link_to '更新', '#', class: 'button is-info', id: 'refresh-link', onclick: 'window.location.reload(); return false;' %>
       </div>
     </div>
     <div class="map-container">
