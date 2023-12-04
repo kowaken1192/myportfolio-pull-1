@@ -15,9 +15,13 @@
     </ul>
   </div>
 </div>
+<div class="box mt-3" id="chatbots-form">
+  <p class="has-text-centered is-size-5">チャットボットを使って気になることを検索したい場合</p>
+  <%= link_to "チャットボットを使用する", new_chatbot_path, class: "button is-primary is-fullwidth mt-3" %>
+</div>
 <div class="box" id="address-search-form">
   <%= search_form_for @q, url: search_post_result_path, method: :get do |f| %>
-    <p class="has-text-centered is-size-5">直接フォームから検索したい方はこちら</p>
+    <p class="has-text-centered is-size-5">都道府県名から検索したい方はこちら</p>
     <br>
     <div class="field">
       <%= f.search_field :address_cont, class: 'input is-large', placeholder: '埼玉県、秋田県、 etc..' %>
@@ -39,7 +43,6 @@
     </div>
   <% end %>
 </div>
- <%= link_to "チャットボットを使用する", new_chatbot_path %>
 <div class="title mt-2">
   <span class="custom-title">人気の都道府県を検索する</span><br>
   <span class="custom-subtitle">(画像か都道府県名をクリックすると検索結果が表示されます)</span>
