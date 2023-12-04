@@ -10,6 +10,11 @@ RSpec.describe '投稿検索', type: :system do
   end
 
   describe 'index' do
+    it 'チャットボタンのリンクをクリックしたらチャットボット画面に遷移する' do
+      click_on 'チャットボットを使用する'
+      expect(current_path).to eq(new_chatbot_path)
+    end
+
     it '住所を検索すると検索結果ページに遷移する' do
       within '#address-search-form' do
         fill_in 'q[address_cont]', with: '東京都'
