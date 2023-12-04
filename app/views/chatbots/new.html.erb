@@ -1,0 +1,14 @@
+<!-- app/views/chatbots/new.html.erb -->
+<div id="chat-window" style="height: 400px; overflow-y: auto;">
+  <!-- ここにユーザーとボットのメッセージが表示されます -->
+</div>
+
+<%= form_with url: chatbots_path, method: :post, id: 'chat-form' do |form| %>
+  <div class="field">
+    <%= form.text_field :input, class: 'input', placeholder: 'ここに質問を入力してください', id: 'chat-input' %>
+  </div>
+  <div class="field">
+    <%= form.submit '送信', class: 'button is-primary', id: 'chat-submit' %>
+  </div>
+<% end %>
+<%= javascript_pack_tag 'chatbots' %>

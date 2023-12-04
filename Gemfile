@@ -37,6 +37,9 @@ gem 'geocoder'
 gem 'pry-rails'
 gem 'htmlbeautifier'
 gem 'google-cloud-translate'
+gem 'ruby-openai'
+gem 'httparty'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

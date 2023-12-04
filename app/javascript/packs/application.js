@@ -8,6 +8,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "./users"
+import './chatbots'
 
 document.addEventListener('turbolinks:load', () => {
 

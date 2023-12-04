@@ -28,8 +28,10 @@ Rails.application.routes.draw do
   resources :search_post, only: [:index] 
   get 'search_post/result', to: 'search_post#result'
   get 'search_post/count_by_prefecture', to: 'search_post#count_by_prefecture'
-
+   
   post '/save_language', to: 'application#save_language'
+  resources :chatbots, only: [:new, :create]
+  post '/chatbots/result', to: 'chatbots#result'
   resources :homes, only: [:index]
   resources :service, only: [:index]
   resources :personal, only: [:show, :edit, :update]
