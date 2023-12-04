@@ -1,14 +1,30 @@
-<!-- app/views/chatbots/new.html.erb -->
-<div id="chat-window" style="height: 400px; overflow-y: auto;">
-  <!-- ここにユーザーとボットのメッセージが表示されます -->
+<h2 class="title is-4 has-text-centered mb-5">Chatbotのご利用について</h2>
+<div class="chatbot-detail">
+  <p>
+    申し訳ないですが、こちらのサービスは<strong>一度に一つの質問</strong>になっております。質問した後に、別の質問をする場合は、画面下の<strong>「更新」</strong>を押してください。
+  </p><br>
+  <p>
+    また、OpenAIのAPIのクレジットに<strong>利用枠に制限がある</strong>ため、クレジットがなくなると質問への回答ができなくなる可能性がございます。
+  </p><br>
+  <p>
+    質問の回答は<strong>文字数に制限がある</strong>ため、回答は途中で切れてしまうことが多々あります。ご了承ください。
+  </p><br>
 </div>
-
-<%= form_with url: chatbots_path, method: :post, id: 'chat-form' do |form| %>
-  <div class="field">
-    <%= form.text_field :input, class: 'input', placeholder: 'ここに質問を入力してください', id: 'chat-input' %>
+  <div class="chatbot-message box">
+    <p>こちらに質問が表示されます</p>
+    <div id="chat-window"></div>
   </div>
-  <div class="field">
-    <%= form.submit '送信', class: 'button is-primary', id: 'chat-submit' %>
-  </div>
-<% end %>
-<%= javascript_pack_tag 'chatbots' %>
+  <%= form_with url: chatbots_path, method: :post, id: 'chat-form' do |form| %>
+    <div class="field">
+      <%= form.text_field :input, class: 'input', placeholder: '日本の首都は？', id: 'chat-input' %>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= form.submit '送信', class: 'button is-primary', id: 'chat-submit' %>
+      </div>
+      <div class="control">
+        <%= link_to '更新', '#', class: 'button is-info', id: 'refresh-link', onclick: 'window.location.reload(); return false;' %>
+      </div>
+    </div>
+  <% end %>
+  <%= javascript_pack_tag 'chatbots' %>
