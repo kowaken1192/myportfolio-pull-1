@@ -8,21 +8,21 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "GET /users" do
-    it "一覧画面の表示に成功する" do
+    it "正常にレスポンスを返す" do
       get users_path
       expect(response).to have_http_status(200)
     end
   end
 
   describe "GET /users/:id" do
-    it "詳細画面の表示に成功する" do
+    it "正常にレスポンスを返す" do
       get user_path(user)
       expect(response).to have_http_status(200)
     end
   end
   
   describe "GET /users/:id/edit" do
-    it "編集画面の表示に成功する" do
+    it "正常にレスポンスを返す" do
       get edit_user_path(user)
       expect(response).to have_http_status(200)
     end
@@ -53,7 +53,7 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "GET /users/:id/favorites" do
-    it "お気に入り一覧画面の表示に成功する" do
+    it "正常にレスポンスを返す" do
       get favorites_user_path(user)
       expect(response).to have_http_status(200)
     end
@@ -70,7 +70,7 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "GET /users/:id/unsubscribe" do
-    it "退会確認画面の表示に成功する" do
+    it "正常にレスポンスを返す" do
       get confirm_unsubscribe_user_path(user)
       expect(response).to have_http_status(200)
     end
