@@ -1,6 +1,7 @@
 <div class="has-text-centered">
   <h1 class="title">パスワード変更</h1>
   <%= render 'shared/error', obj: @user %>
+  
   <%= form_with model: @user, url: personal_path, local: true do |f| %>
     <div class="field">
       <label class="label">新規パスワード</label>
