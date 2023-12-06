@@ -52,7 +52,9 @@
                 <%= image_tag post.postimage.url %>
               </div>
             <% else %>
-              <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
+              <div class="image-container">
+                <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg' %>
+              </div>
             <% end %>
             <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
               投稿日｜<%= post.created_at.to_s(:datetime_jp)%>
