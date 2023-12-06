@@ -7,7 +7,7 @@
     <% else %>
       <%= image_tag 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEVVrO//Ct2NAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=', class: 'background-class' %>
     <% end %>
-    <div class="sample has-text-centered">
+    <div class="profile-image has-text-centered">
       <% if @user.image? %>
         <%= image_tag @user.image.url, class: 'profile-icon' %>
       <% else %>
