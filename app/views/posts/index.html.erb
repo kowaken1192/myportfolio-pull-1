@@ -48,7 +48,9 @@
               住所｜<%= post.address %>
             </div>
             <% if post.postimage? %>
-              <%= image_tag post.postimage.url, class: 'image' %>
+              <div class="image-container">
+                <%= image_tag post.postimage.url %>
+              </div>
             <% else %>
               <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'image' %>
             <% end %>
