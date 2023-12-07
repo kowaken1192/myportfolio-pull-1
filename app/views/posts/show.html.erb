@@ -64,7 +64,8 @@
           <span class="review-title">タイトル：<%= review.title %></span>
           <p class="review-content">感想：<%= review.content %></p>
           <% review.review_images.each do |review_image| %>
-            <div class="column is-one-third">
+            <p>投稿画像:</p>
+            <div class="review-userImage">
               <%= image_tag review_image.to_s %>
             </div>
           <% end %>
