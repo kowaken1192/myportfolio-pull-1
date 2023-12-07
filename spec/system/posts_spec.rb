@@ -179,5 +179,31 @@ RSpec.describe "Posts", type: :system do
         end
       end
     end
+
+    describe "All Reviews" do 
+      let!(:reviews) { create_list(:review, 5, post: post, user: user) }
+      let!(:user) { create(:user, image: Rack::Test::UploadedFile.new('spec/fixtures/test.jpeg', 'image/jpeg')) }
+
+      before do
+        visit all_reviews_post_path(post)
+      end
+      
+      context 'レビューがある場合' do
+        it 'ユーザーの登録画像が表示されること' do
+          reviews.each do |review|
+            expect(page).to have_selector("img[src$='#{review.user.image.url}']")
+          end
+        end
+
+        it '必要なレビューの情報が表示されること' do
+          reviews.each do |review|
+            expect(page).to have_content(review.user.first_name)
+            expect(page).to have_content(review.user.last_name)
+            expect(page).to have_content("#{review.score}/5点")
+            expect(page).to have_content(review.content)
+          end
+        end
+      end
+    end
   end
 end
