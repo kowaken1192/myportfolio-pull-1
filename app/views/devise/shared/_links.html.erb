@@ -10,12 +10,6 @@
   </div>
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <div class="field">
-    <%= link_to t(".forgot_your_password"), new_password_path(resource_name), class: "button is-link is-light" %>
-  </div>
-<% end %>
-
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <div class="field">
     <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name), class: "button is-link is-light" %>
