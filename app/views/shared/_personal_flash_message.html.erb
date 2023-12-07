@@ -1,0 +1,5 @@
+<% flash.each do |key, message| %>
+  <div class="notification <%= 'is-primary' if key == 'notice' %> <%= 'is-danger' if key == 'alert' %>">
+    <%= message %>
+  </div>
+<% end %>
