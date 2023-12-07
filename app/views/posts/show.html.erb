@@ -32,10 +32,10 @@
       <span>google検索</span>
     <% end %>
   </div>
-  <div class="columns">
-    <% @reviews.each do |review| %>
+  <div class="reviews-flex-container">
+    <% @post.reviews.each do |review| %>
       <% review.review_images.each do |review_image| %>
-        <div class="column is-one-third">
+        <div class="review-image-container">
           <%= image_tag review_image.to_s %>
         </div>
       <% end %>
