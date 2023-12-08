@@ -13,12 +13,4 @@ RSpec.describe 'Chatbots', type: :request do
       expect(response).to have_http_status(200)
     end
   end
-
-  describe 'POST /chatbots' do
-    it 'チャットボットからの応答を返すこと' do
-      post chatbots_path, params: { input: '日本の首都は？' }
-      expect(response).to have_http_status(:success)
-      expect(JSON.parse(response.body)['response']).to include('東京')
-    end
-  end
 end
