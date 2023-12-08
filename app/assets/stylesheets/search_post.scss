@@ -18,6 +18,12 @@
   margin-bottom: 10px;
 }
 
+/* Bulmaのスタイルを上書き */
+.custom-subtitle strong {
+  color : #333 !important; 
+  font-weight: bold !important;
+}
+
 .main-section {
   display: flex;
 }
