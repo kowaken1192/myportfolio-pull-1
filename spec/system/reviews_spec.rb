@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Reviews", type: :system do
   describe "create" do
-    let!(:user) { create(:user) }
+    let(:user) { create(:user) }
     let!(:post) { create(:post, user: user)}
 
     before do

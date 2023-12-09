@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Services", type: :system do
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
 
   before do
     visit service_index_path

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'パスワード変更', type: :system do
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
 
   before do
     sign_in user

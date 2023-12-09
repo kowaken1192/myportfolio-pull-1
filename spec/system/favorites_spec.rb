@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Favorites", type: :system do
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
   let!(:post) { create(:post) }
   let!(:favorite_posts) { create_list(:post, 2, user: user, postimage: Rack::Test::UploadedFile.new('spec/fixtures/test.jpeg', 'image/jpeg')) }
    

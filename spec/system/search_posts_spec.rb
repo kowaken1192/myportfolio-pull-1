@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe '投稿検索', type: :system do
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
   let!(:posts) { create_list(:post, 2, address: '東京都') }
 
   before do

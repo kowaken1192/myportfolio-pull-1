@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Address Search", type: :system, js: true do
+  let(:user) { create(:user) }
+
   before do
     visit map_index_path 
+    sign_in user
   end
   
   it 'Google Mapが表示されていること' do
