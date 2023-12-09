@@ -7,7 +7,7 @@
     また、OpenAIのAPIのクレジットに<strong>利用枠に制限がある</strong>ため、クレジットがなくなると質問への回答ができなくなる可能性がございます。
   </p><br>
   <p>
-    質問の回答は<strong>文字数に制限がある</strong>ため、回答は途中で切れてしまうことが多々あります。ご了承ください。
+    質問の回答は<strong>文字数に制限がある</strong>ため、回答は途中で切れてしまうことが多々あります。ご了承ください。(質問するときの最後に<strong>１００文字</strong>と入れると途切れず回答されます)
   </p><br>
 </div>
 <div class="chatbot-message box">
@@ -17,7 +17,7 @@
 
 <%= form_with url: chatbots_path, method: :post, id: 'chat-form' do |form| %>
   <div class="field">
-    <%= form.text_field :input, class: 'input', placeholder: '日本の首都は？', id: 'chat-input' %>
+    <%= form.text_field :input, class: 'input', placeholder: '兵庫県のおすすめのラーメン屋さんは？ 100文字', id: 'chat-input' %>
   </div>
   <div class="field is-grouped">
     <div class="control">
