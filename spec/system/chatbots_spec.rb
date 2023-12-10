@@ -17,4 +17,12 @@ RSpec.describe "Chatbots", type: :system do
       end
     end
   end
+
+  describe "Chatbots System Tests, js: true" do
+    it "送信ボタンを押したときに結果が表示される" do
+      fill_in "input", with: "日本の首都は？"
+      click_on "送信"
+      expect(page).to have_content "東京"
+    end
+  end
 end
