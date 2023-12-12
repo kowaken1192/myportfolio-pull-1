@@ -41,5 +41,6 @@ CSSフレームワーク：　Bulma
 JavaScript 実行環境　：　node.js v16.18.1
 ### CI/CD GitHub Actions
 ### インフラ　　Heroku AWS S3　
+file:///Users/kenjikowaka/Desktop/relax/myapp/erd.pdf
 ##### 見出し5
 ###### 見出し6
