@@ -41,7 +41,7 @@ CSSフレームワーク：　Bulma
 JavaScript 実行環境　：　node.js v16.18.1
 ### CI/CD GitHub Actions
 ### インフラ　　Heroku AWS S3　
-<img src="https://github.com/kowaken1192/myportfolio-pull-1/files/13645995/erd.pdf" width="200">
+<img src="file:///private/var/folders/5j/r61jqvfj3_n461k2gc5ymj5w0000gn/T/TemporaryItems/NSIRD_screencaptureui_KOAPIX/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-12%2018.18.17.png" width="200">
 
 
 ##### 見出し5
