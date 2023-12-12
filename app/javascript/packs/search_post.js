@@ -58,8 +58,8 @@ async function loadMap() {
 function getColor(prefName, countsData) {
   const count = countsData[prefName] || 0;
   if (count >= 10) return 'red'; // 投稿数が10以上の場合は赤色
-  if (count >= 5) return 'blue'; // 投稿数が5以上の場合は青色
-  if (count > 0) return 'pink'; // 投稿数が1以上の場合はピンク色
+  if (count >= 3) return 'blue'; // 投稿数が3以上の場合は青色
+  if (count > 0) return 'pink'; // 投稿数が3未満の場合はピンク色
   return 'white'; // 投稿数が0の場合は白色
 }
 
