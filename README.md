@@ -41,6 +41,7 @@ CSSフレームワーク：　Bulma
 JavaScript 実行環境　：　node.js v16.18.1
 ### CI/CD GitHub Actions
 ### インフラ　　Heroku AWS S3　
-erd.pdf
+[erd.pdf](https://github.com/kowaken1192/myportfolio-pull-1/files/13645995/erd.pdf)
+
 ##### 見出し5
 ###### 見出し6
