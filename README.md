@@ -1,5 +1,5 @@
 # Explore & Share - Japan  -世界中のみんなでまだ知らない都道府県を探そう-
-![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/c8c955e7-cd86-4b5f-a034-5f94ed722df5)
+![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/06ada4a5-a5e4-4a75-9af8-cc766cb4bd64)
 # サービス概要
 このアプリは投稿数によって色分けされた日本地図をクリックしてあなたがまだ知らない都道府県の魅力を探していただくインバウンド向けアプリです。  
 日本地図をクリックして検索するだけであれば、外国人の人でも簡単に知らなかった都道府県の観光地や魅力を探すことができるのではないかと思い作成しました。  
