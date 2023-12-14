@@ -1,9 +1,10 @@
-# Explore & Share - Japan  -世界中のみんなでまだ知らない都道府県を探そう-
+# Explore & Share - Japan   
+# -世界中のみんなでまだ知らない都道府県を探そう-
 ![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/06ada4a5-a5e4-4a75-9af8-cc766cb4bd64)
 # サービス概要
 このアプリは投稿数によって色分けされた日本地図をクリックしてあなたがまだ知らない都道府県の魅力を探していただくインバウンド向けアプリです。  
 日本地図をクリックして検索するだけであれば、外国人の人でも簡単に知らなかった都道府県の観光地や魅力を探すことができるのではないかと思い作成しました。  
-主に検索機能（Explore)と投稿機能(Share)を中心としています。（細かい操作方法は動画にまとめております)
+主に検索機能（Explore)と投稿機能(Share)を中心としています。（細かい操作方法は動画にまとめております)  
 インバウンド向けと書いてますが、デフォルトは日本語で全て書かれているので問題なく使用できます。
 ## アプリURL
 https://tourism-app-a6dee8649ee4.herokuapp.com/  
@@ -43,13 +44,12 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8b202872-bc80
   - ホーム画面デザイン: Canva
   - JavaScript 実行環境
     - node.js v16.18.1
-### CI/CD    GitHub Actions
-### インフラ    Heroku/AWS S3/ClearDB MySQL
+### CI/CD 　GitHub Actions
+### インフラ 　Heroku/AWS S3/ClearDB MySQL
+### 外部API
+  - Google Map APi
+  - Open AI
 # インフラ構成図
-
 # ER図
 <img width="1440" alt="66EDC69E-205C-4D51-BC2D-FCC5C7EBDC94" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/7252677d-6c4a-4819-8304-e986053cd2f4">
 
-
-##### 見出し5
-###### 見出し6
