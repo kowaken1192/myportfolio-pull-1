@@ -3,7 +3,10 @@
 ![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/06ada4a5-a5e4-4a75-9af8-cc766cb4bd64)
 ![Rails](https://img.shields.io/badge/Rails-6.1.7.6-blue)
 <img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=plastic">
-
+<img src="https://img.shields.io/badge/-Node.js%2016.18.1-339933.svg?logo=node.js&style=plastic">
+<img src="https://img.shields.io/badge/-ClearDB%20Mysql-4479A1.svg?logo=mysql&style=plastic">
+![OpenAI](https://img.shields.io/badge/OpenAI-blue)
+![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue)
 # サービス概要
 このアプリは投稿数によって色分けされた日本地図をクリックしてあなたがまだ知らない都道府県の魅力を探していただくインバウンド向けアプリです。  
 日本地図をクリックして検索するだけであれば、外国人の方でも簡単に知らなかった都道府県の観光地や魅力を探すことができるのではないかと思い作成しました。  
