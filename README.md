@@ -16,9 +16,11 @@ https://tourism-app-a6dee8649ee4.herokuapp.com/
 そのため、少しでも外国人の方にまだ知らない日本を知ってほしいと思い、日本地図から気になる都道府県をクリックし、人気の投稿などが見れる機能を作れば、調べる手間も省きいろいろな都道府県を調べることができると思いこのアプリを作成しました。
 # 検索方法
 https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8edb17fe-1510-48cf-8d85-882663e3cc46
+
 動画が再生されない方はこちら(https://youtu.be/t0rLRltL-rQ)
 # 投稿方法/その他機能
 https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c-45fa-8e8f-0a505881b8f7
+
 動画が再生されない方はこちら(https://youtu.be/t0rLRltL-rQ)
 # 機能一覧
 | 機能           | 説明                                                                                                        |
