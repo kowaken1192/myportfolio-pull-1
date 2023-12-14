@@ -2,7 +2,7 @@
 # -世界中のみんなでまだ知らない都道府県を探そう-
 ![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/06ada4a5-a5e4-4a75-9af8-cc766cb4bd64)
 ![Rails](https://img.shields.io/badge/Rails-6.1.7.6-blue)
-![github](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/3a7aa696-3e85-4291-bd53-3530cbf70df7)
+<img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=plastic">
 
 # サービス概要
 このアプリは投稿数によって色分けされた日本地図をクリックしてあなたがまだ知らない都道府県の魅力を探していただくインバウンド向けアプリです。  
