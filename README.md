@@ -8,8 +8,8 @@
 <img src="https://img.shields.io/badge/-Node.js%2016.18.1-339933.svg?logo=node.js&style=plastic">
 <img src="https://img.shields.io/badge/-ClearDB%20Mysql-4479A1.svg?logo=mysql&style=plastic">
 <img src="https://img.shields.io/badge/-AWS%20s3-232F3E.svg?logo=amazon-aws&style=plastic">
-![OpenAI](https://img.shields.io/badge/OpenAI-blue)
-![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue)
+![OpenAI](https://img.shields.io/badge/OpenAI-enabled-green.svg)
+![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue.svg)
 ![Ajax](https://img.shields.io/badge/Ajax-yellow)
 ![RSpec](https://img.shields.io/badge/RSpec-brightgreen)
 ![RuboCop](https://img.shields.io/badge/RuboCop-blueviolet)
