@@ -5,14 +5,13 @@
 <img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=plastic">
 <img src="https://img.shields.io/badge/-Node.js%2016.18.1-339933.svg?logo=node.js&style=plastic">
 <img src="https://img.shields.io/badge/-ClearDB%20Mysql-4479A1.svg?logo=mysql&style=plastic">
-![OpenAI](https://img.shields.io/badge/OpenAI-使用中-blue)
+![OpenAI](https://img.shields.io/badge/OpenAI-blue)
 ![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue)
 <img src="https://img.shields.io/badge/-Ruby%20v3.1.2-CC342D.svg?logo=ruby&style=plastic">
-![GitHub Actions CI/CD](https://github.com/myusername/myrepository/workflows/CI/badge.svg)
-![Ajax](https://img.shields.io/badge/Ajax-使用中-yellow)
-![RSpec](https://img.shields.io/badge/RSpec-使用中-brightgreen)
-![RuboCop](https://img.shields.io/badge/RuboCop-使用中-blueviolet)
-
+![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
+![Ajax](https://img.shields.io/badge/Ajax-yellow)
+![RSpec](https://img.shields.io/badge/RSpec-brightgreen)
+![RuboCop](https://img.shields.io/badge/RuboCop-blueviolet)
 # サービス概要
 このアプリは投稿数によって色分けされた日本地図をクリックしてあなたがまだ知らない都道府県の魅力を探していただくインバウンド向けアプリです。  
 日本地図をクリックして検索するだけであれば、外国人の方でも簡単に知らなかった都道府県の観光地や魅力を探すことができるのではないかと思い作成しました。  
