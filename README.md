@@ -31,11 +31,11 @@ https://tourism-app-a6dee8649ee4.herokuapp.com/
 # 検索方法
 https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8edb17fe-1510-48cf-8d85-882663e3cc46
 
-動画が再生されない方はこちら(https://youtu.be/t0rLRltL-rQ)
+動画が再生されない方は更新するかこちら(https://youtu.be/t0rLRltL-rQ)
 # 投稿方法/その他機能
 https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c-45fa-8e8f-0a505881b8f7
 
-動画が再生されない方はこちら(https://youtu.be/t0rLRltL-rQ)
+動画が再生されない方は更新するかこちら(https://youtu.be/gPxIWK72QAM)
 # 機能一覧
 | 機能           | 説明                                                                                                        |
 | -------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -64,9 +64,8 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
     - node.js v16.18.1
 ### CI/CD 　GitHub Actions
 ### インフラ 　Heroku/AWS S3/ClearDB MySQL
-### 外部API
-  - Google Map API
-  - Open AI
+### 外部API 　Google Map API/Open AI
+
 # インフラ構成図
 <img width="1440" alt="インフラ" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/f4f7c276-3fe6-4632-8a08-f234075f2623)">
 
