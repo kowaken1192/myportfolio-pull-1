@@ -33,15 +33,18 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8b202872-bc80
 | 退会機能       | ゲストユーザー以外の退会を可能とする。                                                                       |
 | ホーム画面     | 全ての投稿を表示。人気投稿、口コミの多い投稿、最新の投稿などを調べることが可能。                             |
 | いいね機能     | 投稿のいいね機能。いいねを押したらいいねした投稿のみがみれる（JavaScriptで実装）。                          |
-### バックエンド　　Rails 6.1.7.6/ruby 3.1.2p20  
-コード解析 / フォーマッター: Rubocop  
-テストフレームワーク:　RSpec  
-### フロントエンド　　Html/CSS/Javascript/Ajax
-フォーマッター:　Beautify  
-CSSフレームワーク：　Bulma  
-アイコンライブラリ:　FontAwsome  
-ホーム画面デザイン:　Canva  
-JavaScript 実行環境　：　node.js v16.18.1
+### バックエンド
+- Rails 6.1.7.6/ruby 3.1.2p20
+  - コード解析 / フォーマッター: Rubocop
+  - テストフレームワーク: RSpec
+### フロントエンド
+- Html/CSS/Javascript/Ajax
+  - フォーマッター: Beautify
+  - CSSフレームワーク: Bulma
+  - アイコンライブラリ: FontAwsome
+  - ホーム画面デザイン: Canva
+  - JavaScript 実行環境
+    - node.js v16.18.1
 ### CI/CD　　GitHub Actions
 ### インフラ　　Heroku/AWS S3/ClearDB MySQL/
 # インフラ構成図
