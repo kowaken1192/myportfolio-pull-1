@@ -2,14 +2,14 @@
 # -世界中のみんなでまだ知らない都道府県を探そう-
 ![A1FABF70-05A3-449E-A3A4-8A03490BAFF3_1_201_a](https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/06ada4a5-a5e4-4a75-9af8-cc766cb4bd64)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-green.svg)
+![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue.svg)
 <img src="https://img.shields.io/badge/-Heroku-430098.svg?logo=heroku&style=plastic">
 <img src="https://img.shields.io/badge/-Rails%20v6.1.7.6-CC0000.svg?logo=rails&style=plastic">
 <img src="https://img.shields.io/badge/-Ruby%20v3.1.2-CC342D.svg?logo=ruby&style=plastic">
 <img src="https://img.shields.io/badge/-Node.js%2016.18.1-339933.svg?logo=node.js&style=plastic">
 <img src="https://img.shields.io/badge/-ClearDB%20Mysql-4479A1.svg?logo=mysql&style=plastic">
 <img src="https://img.shields.io/badge/-AWS%20s3-232F3E.svg?logo=amazon-aws&style=plastic">
-![OpenAI](https://img.shields.io/badge/OpenAI-enabled-green.svg)
-![Google Maps API](https://img.shields.io/badge/Google%20Maps-API-blue.svg)
 ![Ajax](https://img.shields.io/badge/Ajax-yellow)
 ![RSpec](https://img.shields.io/badge/RSpec-brightgreen)
 ![RuboCop](https://img.shields.io/badge/RuboCop-blueviolet)
