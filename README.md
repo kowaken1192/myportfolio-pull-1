@@ -35,9 +35,9 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8b202872-bc80
 | いいね機能     | 投稿のいいね機能。いいねを押したらいいねした投稿のみがみれる（JavaScriptで実装）。                          |
 ### バックエンド　　Rails 6.1.7.6/ruby 3.1.2p20  
 コード解析 / フォーマッター: Rubocop  
-テストフレームワーク:　　RSpec  
+テストフレームワーク:　RSpec  
 ### フロントエンド　　Html/CSS/Javascript/Ajax
-フォーマッター:　　Beautify  
+フォーマッター:　Beautify  
 CSSフレームワーク：　Bulma  
 アイコンライブラリ:　FontAwsome  
 ホーム画面デザイン:　Canva  
