@@ -20,6 +20,7 @@ ja:
     notice:
       personal:
         password_updated: "パスワード更新しました"
+        email_updated: "メールアドレスを更新しました"
       posts:
         post_thank_you: "投稿ありがとうございます！"
         post_recommendation: "投稿ありがとうございます!あなたにおすすめの投稿が表示されます！"
