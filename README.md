@@ -73,6 +73,7 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 
 # ER図
 <img width="1440" alt="66EDC69E-205C-4D51-BC2D-FCC5C7EBDC94" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/7252677d-6c4a-4819-8304-e986053cd2f4">
+
 ## 今後、挑戦したい機能、技術
 　　 - Open AIを使用して投稿完了時におすすめの投稿を表示する
   - チャットボットの会話をより連続的に続けれるようにする
