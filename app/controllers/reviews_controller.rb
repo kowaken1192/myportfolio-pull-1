@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to post_path(@post)
     else
-      flash[:alert] = t('flash.alert.post.failed to save.')
+      flash[:alert] = t('flash.alert.reviews.failed to save.')
       render 'reviews/new'
     end
   end

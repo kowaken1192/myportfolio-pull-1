@@ -39,3 +39,5 @@ ja:
         password_update_failed: "パスワードの更新に失敗しました"
       users:
         guest_cannot_delete: "ゲストユーザーは削除できません。"
+      reviews:
+        failed to save: "保存に失敗しました"
