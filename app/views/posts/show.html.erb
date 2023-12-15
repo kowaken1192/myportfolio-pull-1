@@ -1,0 +1,102 @@
+<section class="my-container">
+  <header class="title is-1 has-text-centered">
+    <%= @post.name %>
+  </header>
+  <div class="avatar-image">
+    <% if @post.postimage? %>
+      <%= image_tag @post.postimage.url , class: 'postimage-class' %>
+    <% else %>
+      <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg', class: 'postimage-class' %>
+    <% end %>
+  </div>
+  <div class="card-content mt-4">
+    <div class="content average-score mb-3">
+      <div class="star-rating mb-2">
+        <div class="star-rating-front" style="width: <%= @post.review_score_percentage %>%">★★★★★</div>
+        <div class="star-rating-back">★★★★★</div>
+      </div>
+      <div class="average-score-display ml-3 pt-2">
+        <%= @post.avg_score %>点（<%= @post.reviews_count %>件のレビュー）
+      </div>
+    </div>
+    <%= link_to "https://www.google.com/maps/search/#{CGI.escape(@post.address + ' ' + @post.name)}", target: "_blank", class: "button is-info" do %>
+      <span class="icon">
+        <i class="fa-solid fa-map"></i>
+      </span>
+      <span>地図を見る</span>
+    <% end %>
+    <%= link_to "https://www.google.com/search?q=#{CGI.escape(@post.name)}", target: "_blank", class: "button is-info" do %>
+      <span class="icon">
+        <i class="fa-brands fa-google"></i>
+      </span>
+      <span>google検索</span>
+    <% end %>
+  </div>
+  <div class="reviews-flex-container">
+    <% @post.reviews.each do |review| %>
+      <% review.review_images.each do |review_image| %>
+        <div class="review-image-container">
+          <%= image_tag review_image.to_s %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="section">
+    <h2 class="post-thoughts is-size-2 mb-5">投稿者のスポットの感想</h2>
+    <div class="box">
+      <p class="subtitle is-4 has-text-centered"><%= @post.detail %></p>
+    </div>
+  </div>
+  <div class="review-section mt-5">
+    <p class="title is-4 has-text-centered is-size-3">このスポットの口コミ</p>
+    <div class="reviews-list">
+      <% @post.reviews.limit(3).each do |review| %>
+        <div class="review">
+          <figure class="image mb-6">
+            <% if review.user.image? %>
+              <%= image_tag review.user.image.url, class: 'rounded-circle small-icon mr15' %>
+            <% else %>
+              <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'rounded-circle small-icon mr15' %>
+            <% end %>
+          </figure>
+          <%= link_to "#{review.user.first_name} #{review.user.last_name}", user_path(review.user) %>
+          <span>: <%= review.score %>/5点</span>
+          <span class="review-title">タイトル：<%= review.title %></span>
+          <p class="review-content">感想：<%= review.content %></p>
+          <% review.review_images.each do |review_image| %>
+            <p>投稿画像:</p>
+            <div class="review-userImage">
+              <%= image_tag review_image.to_s %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="button is-rounded mt-3">
+      <%= link_to '全ての口コミを見る', all_reviews_post_path(@post.id) %>
+      （<%= @reviews.count %>件の口コミ）
+    </div>
+  </div>
+</div>
+<div class="box mt-4 has-text-centered">
+  <%= link_to 'このスポットの口コミを書く', new_post_review_path(@post.id), class: "button is-info is-medium" %>
+</div>
+<div class="box">
+  <p class="title is-4">このスポットの基本情報</p>
+  <p>
+    <strong>スポット名：</strong><%= @post.name %><br>
+    <strong>住所：</strong>
+    <a href="https://www.google.com/maps/search/<%= CGI.escape(@post.address + ' ' + @post.name) %>" target="_blank">
+      <%= @post.address %>
+    </a>
+    <span>(クリックしたらgoogle mapが表示されます)</span><br>
+    <strong>国名：</strong><%= @post.country %><br>
+    <strong>投稿日：</strong><%= @post.created_at.to_s(:datetime_jp) %>
+  </p>
+</div>
+<div class="button has-text-centered is-size-3">
+  <%= link_to '投稿一覧に戻る', posts_path %>
+</div>
+</section>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>
+<%= javascript_include_tag 'service.js' %>

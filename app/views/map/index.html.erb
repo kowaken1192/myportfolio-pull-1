@@ -1,0 +1,45 @@
+<div class="section">
+  <div class="container">
+    <div class="content">
+      <p class="title has-text-info has-text-centered pb-4">住所検索画面</p>
+      <div class="has-text-centered mb-5">
+        <h2 class="subtitle"><span class="icon"><i class="fas fa-step-forward"></i></span> 簡単 2STEPで投稿完了</h2>
+      </div>
+      <div class="steps box">
+        <div class="step">
+          <div class="step-marker"><span class="icon"><i class="fas fa-pencil-alt"></i></span> STEP 1</div>
+          <div class="step-details">
+            <p>下の入力欄（東京ドームと書いてあるところ）に旅先の観光地名を入力し、「Encode」ボタンを押すと下に青い部分に住所が表示されます。<br>
+              住所が正しければ「NEXT STEP」ボタンを押してください。総合評価画面にいきます。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-marker"><span class="icon"><i class="fas fa-check"></i></span> STEP 2</div>
+          <div class="step-details">
+            <p>次のページ（総合評価画面）で口コミ評価すると投稿完了になります。必要に応じて画像投稿、旅の感想などをご記入ください。</p>
+          </div>
+        </div>
+      </div>
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input class="input" id="address" type="textbox" placeholder="例(東京ドーム)">
+        </div>
+        <div class="control">
+          <input type="button" class="button is-info" value="Encode" onclick="codeAddress()">
+        </div>
+      </div>
+      <div id="display" class="notification is-info">こちらに住所が表示されます(表示されない場合更新を押した後、再度検索してください)</div>
+      <div class="map-buttons">
+        <button class="button is-primary" onclick="goBackToForm()">NEXT STEP</button>
+        <%= link_to '更新', '#', class: 'button is-info', id: 'refresh-link', onclick: 'window.location.reload(); return false;' %>
+      </div>
+    </div>
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+    <p>検索された住所が下のマップの赤いピン部分にでています。</p>
+    <p>view on Google mapをクリックすると詳しい情報をgoogle mapから得ることができます。ぜひチェックしてしてより良い投稿を作る手助けにしてください!!</p>
+  </div>
+</div>
+<%= javascript_pack_tag 'map' %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap&language=ja" async defer></script>

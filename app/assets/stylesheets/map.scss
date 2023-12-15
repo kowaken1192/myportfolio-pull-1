@@ -1,0 +1,32 @@
+// Place all the styles related to the map controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.address-box {
+  padding: 10px;
+  border: 2px solid #333;
+  background-color: #f7f7f7;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.map-container {
+  width: 100%;  
+  height: 400px;  
+  margin: 0 auto; 
+}
+
+.steps{
+  font-size: 20px;
+}
+
+@media (max-width: 599px) {
+  .steps {
+    font-size: 15px;
+  }
+}
+

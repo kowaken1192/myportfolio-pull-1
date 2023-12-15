@@ -1,0 +1,31 @@
+<%- if controller_name != 'sessions' %>
+  <div class="field pl-4">
+    <%= link_to t(".sign_in"), new_session_path(resource_name), class: "button is-light" %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="field">
+    <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "button is-primary" %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <div class="field">
+    <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name), class: "button is-link is-light" %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <div class="field">
+    <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name), class: "button is-link is-light" %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div class="field">
+      <%= button_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "button is-dark" %>
+    </div>
+  <% end %>
+<% end %>

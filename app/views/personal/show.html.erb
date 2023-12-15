@@ -1,0 +1,18 @@
+<%= render 'shared/personal_flash_message' %>
+
+<div class="box">
+  <h1 class="title">アカウント</h1>
+  <div class="field">
+    <label class="label">メールアドレス</label>
+    <div class="control">
+      <input class="input" type="text" readonly value="<%= @user.email %>">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">パスワード</label>
+    <div class="control">
+      <input class="input" type="password" readonly value="*********">
+    </div>
+  </div>
+</div>
+<%= link_to "パスワードを変更する", edit_personal_path, class: "button is-info" %>

@@ -1,0 +1,27 @@
+<div class="has-text-centered">
+  <h1 class="title">パスワード変更</h1>
+  <%= render 'shared/error', obj: @user %>
+  
+  <%= form_with model: @user, url: personal_path, local: true do |f| %>
+    <div class="field">
+      <label class="label">新規パスワード</label>
+      <div class="control">
+        <%= f.password_field :password, class: "input" %>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">新規パスワード（確認用）</label>
+      <div class="control">
+        <%= f.password_field :password_confirmation, class: "input" %>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= link_to "キャンセル", 'javascript:history.back()', class: "button is-light" %>
+      </div>
+      <div class="control">
+        <%= f.submit "更新", class: "button is-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

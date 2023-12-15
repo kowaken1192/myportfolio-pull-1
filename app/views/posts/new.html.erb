@@ -1,0 +1,77 @@
+<%= render 'shared/flash_messages' %>
+
+<section class="section">
+  <div class="post-container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="box">
+          <%= render "shared/error", obj: @post %>
+          <%= render "shared/error", obj: @review %>
+
+          <h2 class="title is-4 has-text-centered mb-5">総合評価作成</h2>
+          <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+            <div class="field">
+              <label class="label">訪れた場所</label>
+              <div class="control">
+                <%= f.text_field :name, class: 'input' %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">国名</label>
+              <div class="control">
+                <%= f.text_field :country, class: 'input' %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">都道府県</label>
+              <div class="control">
+                <%= f.text_field :prefecture, class: 'input' %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">住所</label>
+              <div class="control">
+                <%= f.text_area :address, class: 'textarea', rows: 2 %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">旅の感想</label>
+              <div class="control">
+                <%= f.text_area :detail, rows: 5, class: 'textarea' %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">画像</label>
+              <div class="control">
+                <%= f.file_field :postimage %>
+              </div>
+            </div>
+            <%= f.fields_for :review, @review do |review_fields| %>
+              <div class="field">
+                <label class="label">口コミ評価</label>
+                <div class="control">
+                  <div class="ratings mb-3">
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                    <span class="fa fa-star-o" id="star"></span>
+                  </div>
+                  <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+                  <%= review_fields.hidden_field :score, id: "rating-value" %>
+                </div>
+              </div>
+            <% end %>
+            <div class="field is-grouped is-grouped-centered">
+              <%= link_to "戻る", posts_path, class: "button is-light mr-2" %>
+              <%= f.submit "登録する", class: "button is-info" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= javascript_pack_tag 'posts' %>
+<%= javascript_pack_tag 'reviews' %>
+<%= javascript_include_tag 'service.js' %>

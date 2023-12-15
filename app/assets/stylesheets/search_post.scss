@@ -1,0 +1,126 @@
+// Place all the styles related to the search_post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.title {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.custom-title {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.custom-subtitle {
+  font-size: 20px;
+  color: #777;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* Bulmaのスタイルを上書き */
+.custom-subtitle strong {
+  color : #333 !important; 
+  font-weight: bold !important;
+}
+
+.main-section {
+  display: flex;
+}
+
+.search-map-wrapper {
+  padding: 2rem;
+  text-align: center;
+  flex: 7;
+}
+
+.search-map {
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+}
+
+.info-box {
+  width: 500px;
+  height: 130px;
+  margin: 200px auto;
+  text-align: center;
+  flex: 3;
+}
+
+.search_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.item {
+  flex-basis: calc(25% - 20px);
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.item-style {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+@media (min-width: 368px) and (max-width: 414px) { 
+  .custom-title {
+    font-size: 25px;
+  }
+
+  .custom-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 768px) { 
+  .custom-title {
+    font-size: 30px;
+  }
+
+  .custom-subtitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+  }
+
+  .search-map-wrapper,
+  .info-box {
+    flex: none;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex-basis: calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 375px) {
+  .item {
+    flex-basis: 100%; 
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

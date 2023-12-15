@@ -1,0 +1,22 @@
+<%= render 'shared/flash_messages' %>
+
+<div class="section">
+  <p class="is-size-4 has-text-weight-bold has-text-centered">
+    こちらは外国人の方に向けた翻訳機能画面です<br>
+    翻訳機能が必要のない採用者の方などはお手数ですが下のアプリ画面へのボタンかfooter画面をクリックしてください
+  </p>
+  <div class="button-container pt-4">
+    <%= link_to "アプリ画面へ", search_post_index_path, class: "button is-primary mt-3" %>
+  </div>
+</div>
+<div class="section">
+  <div class="box">
+    <div class="content has-text-centered">
+      <h2 class="title is-4">翻訳画面</h2>
+      <p>(If you want to change the language, please change it from the select lauguage below.)</p>
+      <div id="google_translate_element"></div>
+      <div>こちらはインバウンドの観光客方向けの翻訳サービスです。ポートフォリオをご覧の方はデフォルトで日本語になっております</div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'service.js' %>

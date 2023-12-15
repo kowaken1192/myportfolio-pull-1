@@ -1,16 +1,114 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Explore & Share - Japan app</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/66fd231c10.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="body-padding">
+    <header class="fixed-header">
+      <% if user_signed_in? %>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <%= link_to "https://johobase.com/", class: "navbar-item" do %>
+            <% end %>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="menu" class="navbar-menu">
+            <div class="navbar-end">
+              <% if current_user.image? %>
+                <%= image_tag current_user.image.url, class: 'small-icon' %>
+              <% else %>
+                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', class: 'small-icon' %>
+              <% end %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <%= link_to "#{current_user.first_name} #{current_user.last_name}様", "#", class: "navbar-link" %>
+                <div class="navbar-dropdown is-right">
+                  <%= link_to "サービス画面", service_index_path, class: "navbar-item" %>
+                  <%= link_to "ユーザー情報", personal_path(current_user), class: "navbar-item" %>
+                  <hr class="navbar-divider">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+                  <%= link_to "退会", confirm_unsubscribe_user_path(current_user), class: "navbar-item" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      <% else %>
+        <nav class="navbar is-fullwidth" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <%= link_to homes_path do %>
+              <%= image_tag("Untitled design (13).png", alt: "ホームロゴ", class: "logo-image", size: "80x80") %>
+            <% end %>
+            <%= link_to "Explore & Share - Japan", homes_path, class: "navbar-item explore-share" %>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+              <%= link_to "新規登録", new_user_registration_path, class: "navbar-item is-size-4" %>
+              <%= link_to "ログイン", new_user_session_path, class: "navbar-item is-size-4" %>
+              <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "navbar-item is-size-4" %>
+            </div>
+          </div>
+        </nav>
+      <% end %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <% if user_signed_in? %>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <nav class="nav-footer">
+            <div class="footer-item">
+              <%= link_to posts_path do %>
+                <i class="fas fa-home"></i><br>
+                ホーム
+              <% end %>
+            </div>
+            <div class="footer-item">
+              <%= link_to map_index_path do %>
+                <i class="fa-solid fa-comment"></i><br>
+                投稿する
+              <% end %>
+            </div>
+            <div class="footer-item">
+              <%= link_to search_post_index_path do %>
+                <i class="fa-solid fa-magnifying-glass"></i><br>
+                検索画面
+              <% end %>
+            </div>
+            <div class="footer-item">
+              <%= link_to favorites_user_path(current_user) do %>
+                <i class="fa-solid fa-heart"></i><br>
+                お気に入り
+              <% end %>
+            </div>
+            <div class="footer-item">
+              <%= link_to users_path(current_user)  do %>
+                <i class="fa-solid fa-user"></i><br>
+                マイページ
+              <% end %>
+            </div>
+          </nav>
+        </div>
+      </footer>
+    <% end %>
+    <script src="https://translate.google.com/translate_a/element.js?cb=GoogleTranslateElementInit"></script>
   </body>
 </html>

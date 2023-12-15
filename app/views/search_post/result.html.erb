@@ -1,0 +1,82 @@
+<section class="section mt-5">
+  <div class="result has-text-centered">
+    <h2 class="title is-size-3 mb-5">投稿検索結果</h2>
+    <p class="is-size-3">検索した都道府県: <%= @prefecture_name %></p>
+    <p class="is-size-3 mt-4">
+      検索結果:<%= @results.length %> 件
+    </p>
+  </div>
+  <div class="text-button pt-3">
+    <div class="button-item">
+      <%= link_to "投稿一覧", search_post_result_path(q: { address_cont: @prefecture_name }) %>
+    </div>
+    <div class="button-item">
+      <%= link_to '人気投稿', search_post_result_path(q: { address_cont: @prefecture_name }, sort_by: 'avg_score_and_review_count') %>
+    </div>
+    <div class="button-item">
+      <%= link_to '最新の投稿', search_post_result_path(q: { address_cont: @prefecture_name }, latest: "true") %>
+    </div>
+    <div class="button-item">
+      <%= link_to '口コミの多い投稿', search_post_result_path(q: { address_cont: @prefecture_name }, reviews_count: "true") %>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @results.each do |result| %>
+        <div class="column is-half">
+          <div class="card">
+            <header class="card-header is-flex is-justify-content-space-between">
+              <div class="card-header-title">
+                <%= result.name %>
+              </div>
+              <div class="card-header-icon">
+                <% if @favorited_post_ids.include?(result.id) %>
+                  <%= link_to post_favorites_path(result), method: :delete, class: "mr-2" do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_favorites_path(result), method: :post, class: "mr-2" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+                <span><%= result.favorites_count %></span>
+              </div>
+            </header>
+            <div class="card-content">
+              <div class="content average-score mb-3">
+                <div class="star-rating mb-2">
+                  <div class="star-rating-front" style="width: <%= result.review_score_percentage %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= result.avg_score %>点（<%= result.reviews_count %>件のレビュー）
+                </div>
+              </div>
+              <div class="post-address mb-3 has-text-weight-bold">
+                住所｜<%= result.address %>
+              </div>
+              <% if result.postimage? %>
+              <div class="image-container">
+                <%= image_tag result.postimage.url %>
+              </div>
+              <% else %>
+              <div class="image-container">
+                <%= image_tag 'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg' %>
+              </div>
+              <% end %>
+              <div class="post-date mb-1 mt-2 has-text-weight-bold is-flex is-justify-content-flex-end">
+                投稿日｜<%= result.created_at.to_s(:datetime_jp)%>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <%= link_to 'この投稿の詳細', post_path(result), class: "card-footer-item" %>
+            </footer>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<%= javascript_include_tag 'service.js' %>

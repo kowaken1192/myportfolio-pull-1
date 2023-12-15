@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    attributes:
+      review:
+        score: 口コミ
+      post:
+        name: 訪れた場所
+        address: 住所
+        country: 国名
+        postimage: 画像
+        score: 口コミ
+        reviews: 口コミ
+      user:
+        first_name: 名字
+        last_name: 名前
+        image: プロフィール画像
+        background_image: 背景画像
+
+  flash:
+    notice:
+      personal:
+        password_updated: "パスワード更新しました"
+      posts:
+        post_thank_you: "投稿ありがとうございます！"
+        post_recommendation: "投稿ありがとうございます!あなたにおすすめの投稿が表示されます！"
+        post_deleted: "投稿を削除しました"
+      sessions:
+        guest_signed_in: "ゲストユーザーとしてログインしました。"
+        account_inactive: "退会済みです。再度ご登録をしてご利用ください。"
+      users:
+        withdrawal_complete: "退会処理が完了しました。"
+        user_not_found: "ユーザーが見つかりませんでした。"
+
+    alert:
+      post:
+        failed to save: "保存に失敗しました"
+      personal:
+        guest_password_not_changeable: "ゲストユーザーのパスワードは変更できません。"
+        password_update_failed: "パスワードの更新に失敗しました"
+      users:
+        guest_cannot_delete: "ゲストユーザーは削除できません。"
