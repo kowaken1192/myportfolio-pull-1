@@ -17,7 +17,7 @@ RSpec.describe 'パスワード変更', type: :system do
     end
     
     it '変更するボタンを押すと、編集画面に遷移する' do
-      click_on 'パスワードを変更する'
+      click_on '個人情報を変更する'
       expect(current_path).to eq(edit_personal_path(user))
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe 'パスワード変更', type: :system do
       it 'パスワードを更新できる' do
         fill_in 'user[password]', with: 'newpassword'
         fill_in 'user[password_confirmation]', with: 'newpassword'
-        click_on '更新'
+        click_on 'update-password'
         expect(page).to have_content 'パスワード更新しました'
         expect(current_path).to eq(new_user_session_path)
       end
@@ -41,12 +41,21 @@ RSpec.describe 'パスワード変更', type: :system do
       it '確認用とあっていなければパスワードを更新できない' do
         fill_in 'user[password]', with: 'newpassword'
         fill_in 'user[password_confirmation]', with: 'wrongpassword'
-        click_on '更新'
+        click_on 'update-password'
         expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
         expect(current_path).to eq(personal_path(user))
       end
     end
-
+    
+    context 'メールアドレスを変更した場合' do
+      it 'メールアドレスを更新できる' do
+        fill_in 'user[email]', with: 'test@example.com'
+        click_on 'update-email'
+        expect(page).to have_content 'メールアドレスを更新しました'
+        expect(current_path).to eq(personal_path(user))
+      end
+    end
+    
     context 'ゲストユーザーとしてログインした場合' do
       let!(:guest_user) { create(:user, email: 'guest@example.com') }
 
@@ -56,7 +65,7 @@ RSpec.describe 'パスワード変更', type: :system do
       end
 
       it 'パスワードの更新ができない' do
-        click_on 'パスワードを変更する'
+        click_on '個人情報を変更する'
         expect(page).to have_content 'ゲストユーザーのパスワードは変更できません。'
         expect(current_path).to eq(personal_path(guest_user))
       end
