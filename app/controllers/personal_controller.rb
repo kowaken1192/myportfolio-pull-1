@@ -14,14 +14,19 @@ class PersonalController < ApplicationController
   def update
     user_params = params.require(:user).permit(:email, :password, :password_confirmation)
     if @user.update(user_params)
-      flash[:notice] = t('flash.notice.personal.password_updated')
-      redirect_to new_user_session_path
+      if user_params[:email].present?
+        flash[:notice] = t('flash.notice.personal.email_updated')
+        redirect_to personal_path(@user)
+      else
+        flash[:notice] = t('flash.notice.personal.password_updated')
+        redirect_to new_user_session_path
+      end
     else
-      flash.now[:alert] = t('flash.alert.personal.password_update_failed')
+      flash.now[:alert] = t('flash.alert.personal.update_failed')
       render 'edit'
     end
   end
-
+    
   private
 
   def set_user

@@ -16,8 +16,19 @@ RSpec.describe "Personals", type: :request do
 
   describe "PATCH /personals/:id" do
     context "有効なパラメータの場合" do
-      it "ユーザー情報を更新し、投稿一覧ページにリダイレクトすること" do
-        patch personal_path(user), params: { user: FactoryBot.attributes_for(:user) }
+      it "ユーザー情報を更新し、個人情報の画面に遷移する" do
+        patch personal_path(user), params: { user: { email: "new_email@example.com" } }
+        expect(response).to redirect_to(personal_path(user))
+        follow_redirect!
+        expect(response.body).to include("メールアドレスを更新しました")
+      end
+    end
+  end
+
+  describe "PATCH /personals/:id" do
+    context "有効なパスワードのパラメータの場合" do
+      it "ユーザー情報を更新し、ログインページに遷移する" do
+        patch personal_path(user), params: { user: { password: "new_password", password_confirmation: "new_password" } }
         expect(response).to redirect_to(new_user_session_path)
         follow_redirect!
         expect(response.body).to include("パスワード更新しました")
