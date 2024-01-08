@@ -81,4 +81,5 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
   - Open AIを使用して投稿完了時におすすめの投稿を表示する
   - チャットボットの会話をより連続的に続けれるようにする
   - React、Pythonなどのようなモダンな言語の取り組み
+  - Dockerの本番環境導入
 
