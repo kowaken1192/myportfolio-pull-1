@@ -60,6 +60,7 @@ jobs:
           GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: bundle exec rspec
+
   Job-Heroku:
     runs-on: ubuntu-latest
     steps:
