@@ -72,7 +72,7 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 ### 外部API 　Google Map API/Open AI API
 
 # インフラ構成図
-<img width="1440" alt="インフラ" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/f4f7c276-3fe6-4632-8a08-f234075f2623)">
+<img width="1440" alt="インフラ" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/4e589c8c-c142-49c0-a1db-bdbaf4675dc2">
 
 # ER図
 <img width="1440" alt="66EDC69E-205C-4D51-BC2D-FCC5C7EBDC94" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/7252677d-6c4a-4819-8304-e986053cd2f4">
