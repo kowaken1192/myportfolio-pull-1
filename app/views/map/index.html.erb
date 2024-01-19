@@ -25,12 +25,12 @@
           <input class="input" id="address" type="textbox" placeholder="例(東京ドーム)">
         </div>
         <div class="control">
-          <input type="button" class="button is-info" value="Encode" onclick="codeAddress()">
+          <input type="button" class="button is-link" value="Encode" onclick="codeAddress()">
         </div>
       </div>
       <div id="display" class="notification is-info">こちらに住所が表示されます(表示されない場合更新を押した後、再度検索してください)</div>
       <div class="map-buttons">
-        <button class="button is-primary" onclick="goBackToForm()">NEXT STEP</button>
+        <button class="button is-info" onclick="goBackToForm()">NEXT STEP</button>
         <%= link_to '更新', '#', class: 'button is-info', id: 'refresh-link', onclick: 'window.location.reload(); return false;' %>
       </div>
     </div>
