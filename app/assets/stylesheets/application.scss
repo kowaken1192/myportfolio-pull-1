@@ -72,6 +72,16 @@ main {
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 }
 
+.button.is-info {
+  background-color: #082ab3;
+  transition: all 0.2s ease;
+}
+
+.button.is-info:hover {
+  background-color: rgb(0, 255, 60);
+  transform: translateY(-4px);
+}
+
 @media (min-width: 360px) and (max-width: 768px) {
   .footer .level {
     display: flex;
@@ -114,7 +124,7 @@ main {
 
   .navbar-brand img {
     margin-top: 10px;
-    max-height: 50px; 
+    max-height: 50px;
     width: 60px;
   }
 

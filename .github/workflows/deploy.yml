@@ -2,10 +2,10 @@ name: Run Rubocop and RSpec Actions
 on:
   push:
     branches:
-      - feature/disable-guest-edit
+      - feature/button-edit
   pull_request:
     branches:
-      - feature/disable-guest-edit
+      - feature/button-edit
 
 jobs:
   Job-Rubocop:
