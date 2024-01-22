@@ -1,6 +1,4 @@
-class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-    
+class ReviewsController < ApplicationController  
   def new 
     @post = Post.find(params[:post_id])
     @review = Review.new

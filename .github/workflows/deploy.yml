@@ -2,10 +2,10 @@ name: Run Rubocop and RSpec Actions
 on:
   push:
     branches:
-      - feature/button-edit
+      - feature/secure-access
   pull_request:
     branches:
-      - feature/button-edit
+      - feature/secure-access
 
 jobs:
   Job-Rubocop:
@@ -63,6 +63,7 @@ jobs:
 
   Job-Heroku:
     runs-on: ubuntu-latest
+    needs: [Job-Rubocop, Job-RSpec]
     steps:
       - name: Check out code
         uses: actions/checkout@v2
