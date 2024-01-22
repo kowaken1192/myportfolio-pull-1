@@ -2,10 +2,10 @@ name: Run Rubocop and RSpec Actions
 on:
   push:
     branches:
-      - feature/button-edit
+      - feature/secure-access
   pull_request:
     branches:
-      - feature/button-edit
+      - feature/secure-access
 
 jobs:
   Job-Rubocop:
