@@ -1,41 +1,37 @@
-<h2 class="title is-2"><%= t('.sign_in') %></h2>
-
-<% flash.each do |message_type, message| %>
-  <div class="notification <%= 'is-danger' if message_type == 'alert' %> <%= 'is-success' if message_type == 'notice' %>">
-    <%= message %>
-  </div>
-<% end %>
-
-<div class="field has-text-centered">
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "button is-info" %>
-</div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "box" }) do |f| %>
-  <div class="field">
-    <%= f.label :email, class: "label" %>
-    <div class="control">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, class: "label" %>
-    <div class="control">
-      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
-    </div>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <label class="checkbox">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </label>
+<div class="login-container">
+  <% flash.each do |message_type, message| %>
+    <div class="notification <%= 'is-danger' if message_type == 'alert' %> <%= 'is-success' if message_type == 'notice' %>">
+      <%= message %>
     </div>
   <% end %>
-  
-  <div class="actions">
-    <%= f.submit t('.sign_in'), class: "button is-primary" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="login-box">
+    <%= image_tag 'Untitled design (13).png', alt: "ログインロゴ", class: "login-image" %>
+    <h2 class="login-title"><%= t('.sign_in') %>フォーム</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+      <div class="field">
+        <%= f.label :email, class: "label" %>
+        <div class="control">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "device-input" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :password, class: "label" %>
+        <div class="control">
+          <%= f.password_field :password, autocomplete: "current-password", class: "device-input" %>
+        </div>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <label class="checkbox">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </label>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit t('.sign_in'), class: "button is-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

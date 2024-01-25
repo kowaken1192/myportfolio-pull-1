@@ -2,10 +2,10 @@ name: Run Rubocop and RSpec Actions
 on:
   push:
     branches:
-      - feature/add-null-constraints
+      - feature/login-style
   pull_request:
     branches:
-      - feature/add-null-constraints
+      - feature/login-style
 
 jobs:
   Job-Rubocop:
