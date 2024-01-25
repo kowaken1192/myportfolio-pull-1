@@ -82,6 +82,45 @@ main {
   transform: translateY(-4px);
 }
 
+.login-container {
+  margin-top: 3rem;
+  display: grid;
+  place-items: center;
+  height: 100vh; 
+  width: 100vw; 
+  background: #da99ff; 
+}
+
+.login {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.login-image {
+  width: 200px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.login-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.device-input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
 @media (min-width: 360px) and (max-width: 768px) {
   .footer .level {
     display: flex;
