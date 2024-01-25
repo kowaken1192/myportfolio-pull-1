@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-  <div class="login">
+  <div class="login-box">
     <%= image_tag("450-20130513142133117706.jpeg", alt: "ログインロゴ", class: "login-image") %>
     <h2 class="login-title"><%= t('.sign_in') %>フォーム</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
