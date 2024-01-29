@@ -1,14 +1,18 @@
-// Google Mapsのジオコーダーとマーカーオブジェクトの宣言
+// Google Mapsのジオコーダー、マーカーオブジェクト、マップオブジェクトの宣言
 let geocoder;
 let marker;
+let map; // ここでmapを宣言
 const display = document.getElementById('display');
+const addressInput = document.getElementById('address');
+const encodeButton = document.getElementById('encodeButton');
+const nextStepButton = document.getElementById('nextStepButton');
 
 // Googleマップを初期化する関数
 window.initMap = function() {
   // ジオコーダーオブジェクトを新しく作成
   geocoder = new google.maps.Geocoder();
   // マップオブジェクトの初期化（地図の表示設定）
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), { // mapをグローバルスコープで使えるように
     center: { lat: 40.7828, lng: -73.9653 }, // 初期中心座標（緯度・経度）
     zoom: 12, // ズームレベル
   });
@@ -22,7 +26,7 @@ window.initMap = function() {
 // 住所をコード化して地図上に表示する関数
 window.codeAddress = function() {
   // 入力フィールドから住所を取得
-  let inputAddress = document.getElementById('address').value;
+  let inputAddress = addressInput.value;
   // ジオコーディング処理（住所から座標を取得）
   geocoder.geocode({ 'address': inputAddress, 'language': 'ja' }, function (results, status) {
     if (status == 'OK') {
@@ -38,7 +42,7 @@ window.codeAddress = function() {
       let addressOnly = addressWithoutPostalCode.replace(country, '').trim();
       // 画面に国名と住所を表示
       display.textContent = "国名：" + country + " 住所：" + addressOnly.replace(/、/g, "");
-       // replace(/、/g, "")は、住所内のすべての「、」を空文字列（削除）で置換するために使用
+      // replace(/、/g, "")は、住所内のすべての「、」を空文字列（削除）で置換するために使用
       // 選択した国名、住所、入力した場所をクッキーに保存
       document.cookie = "selectedCountry=" + encodeURIComponent(country) + "; path=/";
       document.cookie = "selectedAddress=" + encodeURIComponent(addressOnly) + "; path=/";
@@ -49,6 +53,9 @@ window.codeAddress = function() {
       if(prefecture) {
         document.cookie = "selectedPrefecture=" + encodeURIComponent(prefecture) + "; path=/";
       }
+
+      // 「NEXT STEP」ボタンを有効化
+      nextStepButton.disabled = false;
     } else {
       // ジオコーディング失敗時のアラート表示
       alert('該当する結果がありませんでした：' + status);

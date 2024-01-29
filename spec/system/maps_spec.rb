@@ -22,12 +22,14 @@ RSpec.describe "Address Search", type: :system, js: true do
   
   it "住所をエンコードしたときに正しい住所を表示する" do
     fill_in "address", with: "東京ドーム"
-    click_on "Encode"
+    click_on "検索"
 
     expect(page).to have_content "国名：日本 住所：東京都文京区後楽１丁目３−６１" 
   end
   
-  it "「NEXT STEP」ボタンをクリックすると次のページに遷移する" do
+  it "検索して NEXT STEPボタンをクリックすると次のページに遷移する" do
+    fill_in "address", with: "東京ドーム"
+    click_on "検索"
     click_on "NEXT STEP"
     expect(current_path).to eq new_post_path 
   end
