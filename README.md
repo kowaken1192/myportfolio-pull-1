@@ -65,8 +65,6 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
   - CSSフレームワーク: Bulma
   - アイコンライブラリ: FontAwsome
   - ホーム画面デザイン: Canva
-  - JavaScript 実行環境
-    - node.js v16.18.1
 ### CI/CD 　GitHub Actions
 ### インフラ 　Heroku/AWS S3/ClearDB MySQL
 ### 外部API 　Google Map API/Open AI API
