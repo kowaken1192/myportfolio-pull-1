@@ -74,13 +74,15 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 # ER図
 <img width="1440" alt="66EDC69E-205C-4D51-BC2D-FCC5C7EBDC94" src="https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/7252677d-6c4a-4819-8304-e986053cd2f4">
 
-## 現在取り組んでいること 
-　　　　- RailsチュートリアルやRailsガイドを参照してRailsログイン機能を実装してGitにコミット
-  - 楽しいRubyやプロを目指す人のためのRuby入門を参照して学んだことはGitにコミット)
-　　　　- SQLの学習、リーダブルコードの学習など
+## 現在取り組んでいること
+- RailsチュートリアルやRailsガイドを参照してRailsログイン機能を実装してGitにコミット。
+- 「楽しいRuby」や「プロを目指す人のためのRuby入門」を参照して学んだことをGitにコミット。
+- SQLの学習、リーダブルコードの学習など。
+
 ## 今後、挑戦したい機能、技術
-  - Open AIを使用して投稿完了時におすすめの投稿を表示する
-  - チャットボットの会話をより連続的に続けれるようにする
-  - React、Pythonなどのようなモダンな言語の取り組み
-  - Dockerの本番環境導入
+- OpenAIを使用して投稿完了時におすすめの投稿を表示する。
+- チャットボットの会話をより連続的に続けられるようにする。
+- React、Pythonなどのモダンな言語の取り組み。
+- Dockerの本番環境導入。
+
 
