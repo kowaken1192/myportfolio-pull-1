@@ -77,7 +77,7 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 ## 現在取り組んでいること
 - RailsチュートリアルやRailsガイドを参照してRailsログイン機能を実装してGitにコミット。
 - 「楽しいRuby」や「プロを目指す人のためのRuby入門」を参照して学んだことをGitにコミット。
-- SQLの学習、リーダブルコードの学習など。
+- SQLの学習、リーダブルコード、Amazon Web Servicesの学習など。
 
 ## 今後、挑戦したい機能、技術
 - OpenAIを使用して投稿完了時におすすめの投稿を表示する。
