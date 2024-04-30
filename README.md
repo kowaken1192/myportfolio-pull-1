@@ -59,13 +59,13 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 ### バックエンド 　Rails 6.1.7.6/ruby 3.1.2p20
   - コード解析 / フォーマッター: Rubocop
   - テストフレームワーク: RSpec
-### フロントエンド 　Html/CSS/Javascript/Ajax/Docker
+### フロントエンド 　Html/CSS/Javascript/Ajax/
   - フォーマッター: Beautify
   - CSSフレームワーク: Bulma
   - アイコンライブラリ: FontAwsome
   - ホーム画面デザイン: Canva
 ### CI/CD 　GitHub Actions
-### インフラ 　Heroku/AWS S3/ClearDB MySQL
+### インフラ 　Heroku/AWS S3/ClearDB MySQL/Docker
 ### 外部API 　Google Map API/Open AI API
 
 # インフラ構成図
