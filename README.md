@@ -59,7 +59,7 @@ https://github.com/kowaken1192/myportfolio-pull-1/assets/125761472/8306dc59-f20c
 ### バックエンド 　Rails 6.1.7.6/ruby 3.1.2p20
   - コード解析 / フォーマッター: Rubocop
   - テストフレームワーク: RSpec
-### フロントエンド 　Html/CSS/Javascript/Ajax
+### フロントエンド 　Html/CSS/Javascript/Ajax/Docker
   - フォーマッター: Beautify
   - CSSフレームワーク: Bulma
   - アイコンライブラリ: FontAwsome
