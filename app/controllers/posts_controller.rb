@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     end
     recommend_related_posts
   rescue ActiveRecord::RecordInvalid
-    flash[:alert] = t('flash.alert.post.failed to save.')
+    flash.now[:alert] = t('flash.alert.post.failed to save.')
     render :new
   end
       
