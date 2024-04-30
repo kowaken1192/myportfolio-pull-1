@@ -27,7 +27,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'fog-aws'
-gem "aws-sdk-s3", require: false 
+gem "aws-sdk-s3", require: false
 gem 'carrierwave', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -81,4 +81,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'mysql2', '~> 0.5.3'
-end 
+end

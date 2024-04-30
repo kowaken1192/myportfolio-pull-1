@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2024_01_24_033235) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.string "name", null: false
     t.string "country", null: false
     t.text "address", null: false

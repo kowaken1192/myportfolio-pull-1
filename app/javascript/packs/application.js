@@ -10,4 +10,3 @@ ActiveStorage.start()
 import "./users"
 import './navbar'
 import './chatbots'
-
