@@ -8,9 +8,6 @@
 default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  password: password
-  host: db
-
 # 開発環境
 development:
   <<: *default
