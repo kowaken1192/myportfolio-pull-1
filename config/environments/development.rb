@@ -14,6 +14,9 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  
+  config.log_level = :debug # ログレベルの設定
+  config.logger = ActiveSupport::Logger.new("log/development.log") # ログファイルのパス設定
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

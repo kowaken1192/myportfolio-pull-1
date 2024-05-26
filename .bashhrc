@@ -1,0 +1,2 @@
+alias dmc='docker-compose'
+
